@@ -77,11 +77,11 @@
 
 
 .btn-primary {
-  @apply bg-mariner-600 border border-mariner-600 text-white font-semibold rounded-md px-5 py-2 flex items-center justify-center gap-2 transition cursor-pointer hover:bg-white hover:border-mariner-900 hover:text-mariner-600 transition duration-200 hover:scale-105;
+  @apply bg-mariner-600 border border-mariner-600 text-white font-semibold rounded-full px-7 py-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-white hover:border-mariner-900 hover:text-mariner-600 transition duration-200 hover:scale-105;
 }
 
 .btn-transparent {
-  @apply bg-transparent border border-white rounded-md px-5 py-2 text-white font-semibold cursor-pointer hover:bg-white hover:text-mariner-600 transition duration-200 hover:scale-105;
+  @apply bg-transparent border border-white rounded-full px-7 py-3 text-white font-semibold cursor-pointer hover:bg-white hover:text-mariner-600 transition duration-200 hover:scale-105;
 }
 
 .title {

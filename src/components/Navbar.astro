@@ -2,19 +2,12 @@
 import ImageComp from "./ImageComp.astro";
 import { IoIosAirplane } from "react-icons/io";
 import { LOGO_ASSETS, LOGO_ASSETS_2 } from "../data/consts";
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
-
-type Program = CollectionEntry<"programs">;
-
-const programs = await getCollection("programs");
-const sortedPrograms = programs.sort(
-  (a: Program, b: Program) => (a.data.order || 999) - (b.data.order || 999)
-);
 
 export type MenuItem = {
   label: string;
   url: string;
+  image?: string;
+  description?: string;
   children?: MenuItem[];
 };
 
@@ -29,10 +22,28 @@ export const menu: MenuItem[] = [
     label: "Services",
     url: "/services",
     children: [
-      { label: "Airline Prep Training", url: "/services/airline-prep" },
-      { label: "Interview Preparation", url: "/services/interview-prep" },
-      { label: "Resume Review", url: "/services/resume-review" },
-      { label: "Application Review", url: "/services/application-review" },
+      {
+        label: "Airline Prep Training",
+        url: "/services/airline-prep",
+        image: "/src/assets/avel-chuklanov-ZEiqbaQhmvE-unsplash.jpg",
+        description:
+          "Comprehensive training programs designed to prepare aspiring pilots for successful airline careers.",
+      },
+      {
+        label: "Interview Preparation",
+        url: "/services/interview-prep",
+        image: "/src/assets/avel-chuklanov-ZEiqbaQhmvE-unsplash.jpg",
+      },
+      {
+        label: "Resume Review",
+        url: "/services/resume-review",
+        image: "/src/assets/avel-chuklanov-ZEiqbaQhmvE-unsplash.jpg",
+      },
+      {
+        label: "Application Review",
+        url: "/services/application-review",
+        image: "/src/assets/avel-chuklanov-ZEiqbaQhmvE-unsplash.jpg",
+      },
     ],
   },
   {
@@ -72,7 +83,7 @@ const { pathname, navBarBG = false } = Astro.props;
 
 <nav
   id="navbar"
-  class={`navbar font-ubuntu ${navBarBG ? "force-navbar-bg" : ""}`}
+  class={`navbar font-sans ${navBarBG ? "force-navbar-bg" : ""}`}
 >
   <div class="container px-4 md:px-0">
     <!-- Logo -->
@@ -92,37 +103,6 @@ const { pathname, navBarBG = false } = Astro.props;
     <!-- Desktop Menu -->
     <ul class="nav">
       {
-        sortedPrograms && (
-          <li
-            class={`menu-item ${sortedPrograms.length >= 1 ? "has-children" : ""}`}
-          >
-            <a href="/programs">{sortedPrograms[0].collection}</a>
-            {sortedPrograms.length >= 1 ? (
-              <ul class="sub-menu">
-                {sortedPrograms.map((program: Program) => (
-                  <li>
-                    <a
-                      href={`/programs/${program.slug}`}
-                      class={
-                        (`/programs/${program.slug}` === pathname ||
-                          `/programs/${program.slug}/` === pathname) &&
-                        `/programs/${program.slug}` !== "/programs/"
-                          ? "menu-link-hover"
-                          : ""
-                      }
-                    >
-                      {program.data.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              ""
-            )}
-          </li>
-        )
-      }
-      {
         menu.map((item, index) => (
           <li
             class={`menu-item ${item.children ? "has-children" : ""}`}
@@ -130,24 +110,22 @@ const { pathname, navBarBG = false } = Astro.props;
           >
             <a href={item.url}>{item.label}</a>
             {item.children && (
-              <ul class="sub-menu">
+              <div class="sub-menu">
                 {item.children.map((child) => (
-                  <li>
-                    <a
-                      href={child.url}
-                      class={
-                        (child.url === pathname ||
-                          child.url + "/" === pathname) &&
-                        child.url !== "/"
-                          ? "menu-link-hover"
-                          : ""
-                      }
-                    >
-                      {child.label}
-                    </a>
-                  </li>
+                  <a
+                    href={child.url}
+                    class={
+                      (child.url === pathname ||
+                        child.url + "/" === pathname) &&
+                      child.url !== "/"
+                        ? "menu-link-hover"
+                        : ""
+                    }
+                  >
+                    {child.label}
+                  </a>
                 ))}
-              </ul>
+              </div>
             )}
           </li>
         ))
@@ -243,7 +221,6 @@ const { pathname, navBarBG = false } = Astro.props;
     display: flex;
     justify-content: center;
     transition: all 0.5s ease;
-    padding: 16px 16px;
   }
 
   .container {
@@ -277,7 +254,6 @@ const { pathname, navBarBG = false } = Astro.props;
   }
 
   .menu-item {
-    position: relative;
     transition: color 0.3s ease;
   }
 
@@ -290,14 +266,14 @@ const { pathname, navBarBG = false } = Astro.props;
 
   .menu-item a:hover,
   .menu-item a:has(+ ul > li > a.menu-link-hover) {
-    color: #e61c24;
+    color: #1c70e6;
   }
 
   .navbar.scrolled .sub-menu li a:hover,
   .navbar.scrolled .sub-menu li a.menu-link-hover,
   .navbar.force-navbar-bg .sub-menu li a:hover,
   .navbar.force-navbar-bg .sub-menu li a.menu-link-hover {
-    background: #e61c24;
+    background: #1c5ce6;
   }
 
   .navbar.scrolled .nav > .menu-item > a,
@@ -314,27 +290,29 @@ const { pathname, navBarBG = false } = Astro.props;
     .nav
     > .menu-item
     a:has(+ ul > li > a.menu-link-hover) {
-    color: #e61c24;
+    color: #1c4be6;
   }
 
   .navbar.scrolled .sub-menu li a.menu-link-hover,
   .navbar.force-navbar-bg .sub-menu li a.menu-link-hover {
-    background: #e61c24;
+    background: #1c4be6;
   }
 
   /* Dropdown (desktop) */
   .sub-menu {
     position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     top: 100%;
     left: 0;
     z-index: 40;
-    min-width: 220px;
+    min-width: 100%;
 
-    background: #fff;
+    background: #fffffff4;
     border: 1px solid #ddd;
     list-style: none;
     padding: 0.5rem 0;
-    border-radius: 0.25rem;
 
     /* no display:none — use visibility + opacity to avoid hover gaps */
     visibility: hidden;
@@ -363,7 +341,7 @@ const { pathname, navBarBG = false } = Astro.props;
 
   /* Small invisible “bridge” to prevent hover loss between item and submenu */
   .menu-item {
-    position: relative;
+    padding: 2.5rem 0.5rem;
   }
   .menu-item::after {
     content: "";
@@ -376,8 +354,10 @@ const { pathname, navBarBG = false } = Astro.props;
   }
 
   /* Dropdown items */
-  .sub-menu li a {
-    display: block;
+  .sub-menu a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.5rem 1rem;
     white-space: nowrap;
     color: #393d40;
@@ -388,7 +368,7 @@ const { pathname, navBarBG = false } = Astro.props;
     position: relative;
   }
 
-  .sub-menu li a:before {
+  .sub-menu a:before {
     content: " ";
     display: block;
     height: 100%;
@@ -396,18 +376,18 @@ const { pathname, navBarBG = false } = Astro.props;
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: #ffa0a4;
+    background: rgb(160, 223, 255);
     transition: all 450ms ease-out;
   }
 
-  .sub-menu li a:hover,
-  .sub-menu li a.menu-link-hover {
+  .sub-menu a:hover,
+  .sub-menu a.menu-link-hover {
     color: #fff;
-    background: #e61c24;
+    background: #1c4be6;
   }
 
-  .sub-menu li a:hover:before,
-  .sub-menu li a.menu-link-hover:before {
+  .sub-menu a:hover:before,
+  .sub-menu a.menu-link-hover:before {
     width: 100%;
   }
 
