@@ -82,6 +82,11 @@ const { pathname, navBarBG = false } = Astro.props;
         src={LOGO_ASSETS}
         alt="MIL2ATP Logo"
       />
+      <ImageComp
+        class="logo-dark hidden w-36 md:w-56 duration-200"
+        src={LOGO_ASSETS_2}
+        alt="MIL2ATP Logo"
+      />
     </a>
 
     <!-- Desktop Menu -->
@@ -563,6 +568,7 @@ const { pathname, navBarBG = false } = Astro.props;
   const mobileMenu = document.getElementById("mobile-menu");
   const menuHeaderContainer = document.querySelector("#navbar > .container");
   const logoWhite = document.querySelector(".logo-white");
+  const logoDark = document.querySelector(".logo-dark");
 
   function UpdateLogo() {
     if (
@@ -571,9 +577,8 @@ const { pathname, navBarBG = false } = Astro.props;
       navbar.classList.contains("force-navbar-bg")
     ) {
       navbar.classList.add("scrolled");
-      logoWhite.classList.remove("md:w-56");
-      logoWhite.classList.add("md:w-44");
-
+      logoWhite.classList.add("hidden");
+      logoDark.classList.remove("hidden");
       return;
     }
 
@@ -583,8 +588,8 @@ const { pathname, navBarBG = false } = Astro.props;
       navbar.classList.contains("scrolled")
     ) {
       navbar.classList.remove("scrolled");
-      logoWhite.classList.remove("md:w-44");
-      logoWhite.classList.add("md:w-56");
+      logoDark.classList.add("hidden");
+      logoWhite.classList.remove("hidden");
     }
   }
 

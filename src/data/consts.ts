@@ -64,14 +64,15 @@ export const LOCATION_KEYWORDS = {
     "North Carolina flight school, military pilot training NC, aviation training Eastern NC, Goldsboro area flight school",
 };
 
-export const OG_IMAGE = "/mil2atp-og-image.png";
+export const OG_IMAGE = "/Right-Rudder-Marketing-Train-More-Pilots.png";
 
 export const FAVICON = "/favicon.png";
 
 export const LOGO = "/Mil2ATP_Logo_2_340x.png";
 
-export const LOGO_ASSETS = "/src/assets/m2a-logo-1.png";
-export const LOGO_ASSETS_2 = "/src/assets/m2a-logo-2.png";
+export const LOGO_ASSETS = "/src/assets/RRM-hor-textWhite-bgTrans.png";
+export const LOGO_ASSETS_2 = "/src/assets/RRM-hor-transparent.png";
+export const LOGO_ASSETS_3 = "/src/assets/RRM-ver-textBlack-trans-500.webp";
 
 // CHANGE client business info
 export const COMPANY_NAME = "M2A";
