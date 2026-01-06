@@ -12,34 +12,34 @@ interface Props {
 const { benefits } = Astro.props;
 ---
 
-<section class="py-16 md:py-24 bg-muted-100">
+<section class="py-16 md:py-24 bg-gray-50">
   <div class="max-w-7xl mx-auto px-5 md:px-8 lg:px-12">
     <!-- Section Header -->
     <div class="text-center mb-12 md:mb-16">
-      <h2 class="title">
-        Why Choose MIL2ATP?
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        Why Flight Schools Choose Right Rudder Marketing
       </h2>
-      <p class="subtitle">
-        Award-winning flight school dedicated to your success as an airline pilot
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        We're not just another digital marketing agency. We're aviation experts building an enrollment system specifically for flight schools.
       </p>
     </div>
 
     <!-- Benefits Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {benefits.map((benefit) => (
-        <div class="text-center group">
-          <!-- Icon Circle -->
-          <div class="inline-flex items-center justify-center w-20 h-20 bg-primary-100 rounded-full mb-6 group-hover:bg-primary-600 transition-all duration-300 group-hover:scale-110">
-            <span class="text-4xl group-hover:scale-110 transition-transform duration-300">{benefit.icon}</span>
+        <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-lg hover:border-mariner-200 transition-all duration-300 border border-gray-200">
+          <!-- Icon -->
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-mariner-100 rounded-lg mb-6 group-hover:bg-mariner-600 transition-all duration-300">
+            <span class="text-3xl">{benefit.icon}</span>
           </div>
 
           <!-- Title -->
-          <h3 class="text-xl font-bold text-gray-900 mb-3">
+          <h3 class="text-lg font-bold text-gray-900 mb-3">
             {benefit.title}
           </h3>
 
           <!-- Description -->
-          <p class="text-gray-600 leading-relaxed">
+          <p class="text-gray-600 leading-relaxed text-sm">
             {benefit.description}
           </p>
         </div>

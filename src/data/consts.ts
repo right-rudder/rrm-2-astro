@@ -1,13 +1,14 @@
 // CHANGE Default title
-export const SITE_TITLE = "M2A Aviation Academy | Professional Pilot Training";
+export const SITE_TITLE =
+  "Right Rudder Marketing | Flight School Digital Marketing Agency";
 
 // CHANGE default meta description
 export const SITE_DESCRIPTION =
-  "M2A Aviation Academy is an award-winning flight school offering professional pilot training from private pilot through airline careers. Our experienced instructors provide multi-engine training, instrument ratings, commercial certification, and flight instructor programs with transparent pricing and proven career pathways. Train with industry professionals at Wayne Executive Jetport, North Carolina.";
+  "Right Rudder Marketing is the #1 digital marketing agency for flight schools. We help flight schools 2-3X student enrollment through proven SEO, ads, website optimization, and lead nurturing. Built by pilots, for flight schools.";
 
 // SEO tip -> keyword + city 1
 export const KEYWORDS = [
-  "M2A Aviation Academy",
+  "Right Rudder Marketing Aviation Academy",
   "multi-engine rating",
   "flight school North Carolina",
   "multi-engine training",
@@ -34,7 +35,7 @@ export const PRIMARY_KEYWORDS = {
   informational:
     "how to become airline pilot, multi-engine rating requirements, instrument rating training, commercial pilot license requirements, flight instructor certification",
   navigational:
-    "M2A Aviation Academy, Wayne Executive Jetport training, M2A flight school North Carolina, M2A aviation",
+    "Right Rudder Marketing Aviation Academy, Wayne Executive Jetport training, Right Rudder Marketing flight school North Carolina, Right Rudder Marketing aviation",
   commercial:
     "best multi-engine flight school, professional pilot training, airline preparation course, zero to airlines program, CFI instructor training",
   transactional:
@@ -75,23 +76,14 @@ export const LOGO_ASSETS_2 = "/src/assets/RRM-hor-transparent.png";
 export const LOGO_ASSETS_3 = "/src/assets/RRM-ver-textBlack-trans-500.webp";
 
 // CHANGE client business info
-export const COMPANY_NAME = "M2A";
-export const COMPANY_NAME_CAPS = "M2A";
-export const COMPANY_NICKNAME = "M2A";
-export const LOGO_PRIMARY = "/mil2atp-logo.png";
-export const LOGO_SECONDARY = "/mil2atp-logo.png";
+export const COMPANY_NAME = "Right Rudder Marketing";
+export const COMPANY_NAME_CAPS = "RIGHT RUDDER MARKETING";
+export const COMPANY_NICKNAME = "RRM";
+export const LOGO_PRIMARY = "/rrm-logo.png";
+export const LOGO_SECONDARY = "/rrm-logo.png";
 export const PHONE_NUMBER = "(919) 526-4287";
 export const PHONE_NUMBER_HEADER = "(919) 526-4287";
-export const ADDRESS_LINE_1 = "278 Aviation Rd.";
-export const ADDRESS_LINE_2 = "Pikeville, NC 27863";
-export const AIRPORT = "Wayne Executive Jetport";
-export const AIRPORT_CODE = "KGWW";
-export const ADDRESS = "278 Aviation Rd., Pikeville, NC 27863";
-export const ADDRESS_CITY = "Pikeville";
-export const ADDRESS_STATE = "North Carolina";
-export const ADDRESS_ZIP = "27863";
-export const GMAPS = "https://maps.app.goo.gl/MIL2ATP";
-export const EMAIL_ADDRESS = "contact@mil2atp.com";
+export const EMAIL_ADDRESS = "contact@rightruddermarketing.com";
 export const FACEBOOK_URL = "https://www.facebook.com/mil2ATP";
 export const INSTAGRAM_URL = "https://www.instagram.com/mil2ATP";
 export const LINKEDIN_URL = "https://www.linkedin.com/company/mil2atp-inc.";

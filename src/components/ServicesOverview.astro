@@ -1,0 +1,140 @@
+---
+const services = [
+  {
+    icon: "🌐",
+    title: "Website Built for Enrollment",
+    description:
+      "Mobile-optimized, conversion-focused pages designed specifically for flight schools. Turn visitors into qualified leads with proven enrollment psychology.",
+    benefits: [
+      "Mobile-first design",
+      "Conversion optimization",
+      "Fast load times",
+      "Clear CTAs",
+    ],
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO & Google Ranking",
+    description:
+      "Appear at the top of Google for 'flight training near me' and high-intent keywords. Dominate your local market organically.",
+    benefits: [
+      "Keyword research",
+      "Local optimization",
+      "#1 rankings",
+      "Organic leads",
+    ],
+  },
+  {
+    icon: "📢",
+    title: "Proven Ad Campaigns",
+    description:
+      "Meta & Google ads specifically targeting student pilot psychology and local markets. Every dollar tracked and optimized.",
+    benefits: [
+      "Student-focused targeting",
+      "Real-time optimization",
+      "ROI tracking",
+      "Qualified leads",
+    ],
+  },
+  {
+    icon: "🎥",
+    title: "Video Marketing & Content",
+    description:
+      "Showcase your instructors, aircraft, and student success stories. Build trust and authority with content that converts.",
+    benefits: [
+      "School highlights",
+      "Student testimonials",
+      "Instructor profiles",
+      "Social content",
+    ],
+  },
+  {
+    icon: "💌",
+    title: "Lead Nurture & CRM",
+    description:
+      "Automated email follow-up, lead scoring, and sales pipeline management. Never lose a qualified lead again.",
+    benefits: [
+      "Email sequences",
+      "Lead scoring",
+      "CRM integration",
+      "Follow-up automation",
+    ],
+  },
+  {
+    icon: "⭐",
+    title: "Reputation & Social Proof",
+    description:
+      "5-star reviews, social media management, and authority positioning. Make your school the obvious choice.",
+    benefits: [
+      "Review generation",
+      "Social management",
+      "Authority content",
+      "Trust signals",
+    ],
+  },
+];
+---
+
+<section class="py-16 md:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 lg:px-12">
+    <!-- Section Header -->
+    <div class="text-center mb-12 md:mb-16">
+      <div class="inline-block mb-4">
+        <span class="text-sm font-semibold text-mariner-600 uppercase tracking-wider">
+          Flight School Marketing System
+        </span>
+      </div>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
+        Everything You Need to Fill Your Schedule
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        From website optimization to student-ready leads, we handle your complete enrollment engine. No guessing. Just results.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg hover:bg-white transition-all duration-300 border border-gray-200">
+          <!-- Icon -->
+          <div class="text-4xl mb-4">{service.icon}</div>
+
+          <!-- Title -->
+          <h3 class="text-xl font-bold text-gray-900 mb-3">
+            {service.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            {service.description}
+          </p>
+
+          <!-- Benefits -->
+          <div class="space-y-2">
+            {service.benefits.map((benefit) => (
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-mariner-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-sm text-gray-700">{benefit}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 text-center">
+      <p class="text-gray-600 mb-6">
+        Want to see how this works for your school?
+      </p>
+      <a
+        href="#contact"
+        class="inline-block bg-mariner-600 hover:bg-mariner-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300"
+      >
+        Schedule Your Free Strategy Call
+      </a>
+    </div>
+  </div>
+</section>
