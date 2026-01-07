@@ -2,7 +2,7 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-title: 'Rubik Variable', 'sans-serif';
+  --font-title: 'Inter Variable', 'sans-serif';
   --font-sans: 'Roboto Variable', 'sans-serif';
 
   --color-muted-50: #f5f6f6;
