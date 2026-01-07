@@ -20,9 +20,20 @@ import {
   SquaresPlusIcon,
   XMarkIcon,
   CodeBracketSquareIcon,
+  MagnifyingGlassCircleIcon,
+  PlayCircleIcon as PlayCircleIconOutline,
+  CurrencyDollarIcon,
+  UserCircleIcon,
+  BuildingStorefrontIcon,
+  BookOpenIcon,
+  BookmarkSquareIcon,
+  AcademicCapIcon,
+  MicrophoneIcon,
+  CubeTransparentIcon,
 } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
+  CubeIcon,
   PhoneIcon,
   PlayCircleIcon,
   RectangleGroupIcon,
@@ -36,48 +47,60 @@ const services = [
     icon: CodeBracketSquareIcon,
   },
   {
-    name: "Engagement",
-    description: "Speak directly to your customers with our engagement tool",
-    href: "#",
-    icon: CursorArrowRaysIcon,
+    name: "SEO Optimization",
+    description: "Improve your website's visibility on search engines",
+    href: "/services/seo-optimization",
+    icon: MagnifyingGlassCircleIcon,
   },
   {
-    name: "Security",
-    description: "Your customers’ data will be safe and secure",
-    href: "#",
-    icon: FingerPrintIcon,
+    name: "Video Production",
+    description: "Create engaging video content to captivate your audience",
+    href: "/services/video-production",
+    icon: PlayCircleIconOutline,
   },
   {
-    name: "Integrations",
-    description: "Your customers’ data will be safe and secure",
-    href: "#",
-    icon: SquaresPlusIcon,
+    name: "Pay-Per-Click Advertising",
+    description: "Maximize your ROI with targeted ad campaigns",
+    href: "/services/pay-per-click-advertising",
+    icon: CurrencyDollarIcon,
+  },
+  {
+    name: "Flight School CRM",
+    description: "Manage your flight school's operations efficiently",
+    href: "https://flightschoolcrm.com/",
+    icon: UserCircleIcon,
+  },
+  {
+    name: "GMB Management",
+    description: "Optimize and manage your Google My Business profile",
+    href: "/services/gmb-management",
+    icon: BuildingStorefrontIcon,
   },
 ];
 const resources = [
   {
-    name: "Web Development",
-    description: "Build responsive and engaging websites",
-    href: "/services/web-development",
-    icon: CodeBracketSquareIcon,
+    name: "Flight School Marketing Handbook",
+    description: "Comprehensive guide to marketing for flight schools",
+    href: "/resources/flight-school-marketing-handbook",
+    icon: BookmarkSquareIcon,
   },
   {
-    name: "Engagement",
-    description: "Speak directly to your customers with our engagement tool",
-    href: "#",
-    icon: CursorArrowRaysIcon,
+    name: "Flight Deck Magazine",
+    description: "Insights and trends in the aviation industry",
+    href: "/resources/flight-deck-magazine",
+    icon: BookOpenIcon,
   },
   {
-    name: "Security",
-    description: "Your customers’ data will be safe and secure",
-    href: "#",
-    icon: FingerPrintIcon,
+    name: "Webinars",
+    description: "Learn from industry experts through our webinars",
+    href: "/webinars",
+    icon: AcademicCapIcon,
   },
   {
-    name: "Integrations",
-    description: "Your customers’ data will be safe and secure",
-    href: "#",
-    icon: SquaresPlusIcon,
+    name: "The Aviation Business Podcast",
+    description: "Interviews and discussions on aviation business topics",
+    href: "https://theaviationbusinesspodcast.com/",
+    icon: MicrophoneIcon,
   },
 ];
 const callsToActionServices = [
@@ -86,8 +109,7 @@ const callsToActionServices = [
   { name: "View all services", href: "#", icon: RectangleGroupIcon },
 ];
 const callsToActionResources = [
-  { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-  { name: "Contact sales", href: "#", icon: PhoneIcon },
+  { name: "Our Marketing System", href: "/marketing-system", icon: CubeIcon },
   { name: "View all resources", href: "#", icon: RectangleGroupIcon },
 ];
 
@@ -132,19 +154,19 @@ export default function NavbarFlyout() {
 
             <PopoverPanel
               transition
-              className="absolute inset-x-0 top-16 bg-gray-900 transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
+              className="absolute inset-x-0 top-24 bg-gray-900 transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
             >
               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
               <div
                 aria-hidden="true"
                 className="absolute inset-0 top-1/2 bg-gray-900 ring-1 ring-white/15"
               />
-              <div className="relative bg-gray-900">
-                <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
+              <div className="relative bg-gray-700">
+                <div className="mx-auto flex flex-wrap justify-center max-w-7xl gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
                   {services.map((item) => (
                     <div
                       key={item.name}
-                      className="group relative rounded-lg p-6 text-sm/6 hover:bg-white/5"
+                      className="group w-1/5 relative rounded-lg p-6 text-sm/6 hover:bg-white/5"
                     >
                       <div className="flex size-11 items-center justify-center rounded-lg bg-gray-700/50 group-hover:bg-gray-700">
                         <item.icon
@@ -154,6 +176,9 @@ export default function NavbarFlyout() {
                       </div>
                       <a
                         href={item.href}
+                        target={
+                          item.href.startsWith("http") ? "_blank" : undefined
+                        }
                         className="mt-6 block font-semibold text-white"
                       >
                         {item.name}
@@ -165,12 +190,12 @@ export default function NavbarFlyout() {
                 </div>
                 <div className="bg-gray-800/50">
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className="grid grid-cols-3 divide-x divide-white/5 border-x border-white/10">
+                    <div className="flex justify-center divide-x divide-white/5 border-x border-white/10">
                       {callsToActionServices.map((item) => (
                         <a
                           key={item.name}
                           href={item.href}
-                          className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-white hover:bg-gray-800"
+                          className="flex items-center w-1/3 justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-white hover:bg-gray-800"
                         >
                           <item.icon
                             aria-hidden="true"
@@ -197,45 +222,48 @@ export default function NavbarFlyout() {
 
             <PopoverPanel
               transition
-              className="absolute inset-x-0 top-16 bg-gray-800 transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
+              className="absolute inset-x-0 top-24 bg-gray-800 transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
             >
               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
               <div
                 aria-hidden="true"
-                className="absolute inset-0 top-1/2 bg-gray-900 ring-1 ring-white/15"
+                className="absolute inset-0 top-1/2 bg-gray-100 ring-1 ring-white/15"
               />
-              <div className="relative bg-gray-900">
-                <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
+              <div className="relative bg-gray-100">
+                <div className="mx-auto flex flex-wrap justify-center max-w-7xl gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
                   {resources.map((item) => (
                     <div
                       key={item.name}
-                      className="group relative rounded-lg p-6 text-sm/6 hover:bg-white/5"
+                      className="group w-1/5 relative rounded-lg p-6 text-sm/6 hover:bg-gray-900/5"
                     >
-                      <div className="flex size-11 items-center justify-center rounded-lg bg-gray-700/50 group-hover:bg-gray-700">
+                      <div className="flex size-11 items-center justify-center rounded-lg bg-gray-100/50 group-hover:bg-gray-700">
                         <item.icon
                           aria-hidden="true"
-                          className="size-6 text-gray-400 group-hover:text-white"
+                          className="size-6 text-gray-600 group-hover:text-white"
                         />
                       </div>
                       <a
                         href={item.href}
-                        className="mt-6 block font-semibold text-white"
+                        target={
+                          item.href.startsWith("http") ? "_blank" : undefined
+                        }
+                        className="mt-6 block font-semibold text-gray-900"
                       >
                         {item.name}
                         <span className="absolute inset-0" />
                       </a>
-                      <p className="mt-1 text-gray-400">{item.description}</p>
+                      <p className="mt-1 text-gray-600">{item.description}</p>
                     </div>
                   ))}
                 </div>
                 <div className="bg-gray-800/50">
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className="grid grid-cols-3 divide-x divide-white/5 border-x border-white/10">
+                    <div className="flex justify-center divide-x divide-white/5 border-x border-white/10">
                       {callsToActionResources.map((item) => (
                         <a
                           key={item.name}
                           href={item.href}
-                          className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-white hover:bg-gray-800"
+                          className="flex items-center w-1/3 justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-white hover:bg-gray-800"
                         >
                           <item.icon
                             aria-hidden="true"
