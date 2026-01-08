@@ -123,8 +123,8 @@ export default function NavbarFlyout() {
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
+          <a href="/" className="-m-1.5 p-1.5">
+            <span className="sr-only">Right Rudder Marketing</span>
             <img
               alt="Right Rudder Marketing Logo"
               src="/RRM-hor-textWhite-bgTrans-150.webp"
@@ -322,7 +322,7 @@ export default function NavbarFlyout() {
               <div className="space-y-2 py-6">
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
-                    Product
+                    Services
                     <ChevronDownIcon
                       aria-hidden="true"
                       className="size-5 flex-none group-data-open:rotate-180"
@@ -341,23 +341,38 @@ export default function NavbarFlyout() {
                     ))}
                   </DisclosurePanel>
                 </Disclosure>
+                <Disclosure as="div" className="-mx-3">
+                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
+                    Resources
+                    <ChevronDownIcon
+                      aria-hidden="true"
+                      className="size-5 flex-none group-data-open:rotate-180"
+                    />
+                  </DisclosureButton>
+                  <DisclosurePanel className="mt-2 space-y-2">
+                    {[...resources, ...callsToActionResources].map((item) => (
+                      <DisclosureButton
+                        key={item.name}
+                        as="a"
+                        href={item.href}
+                        className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-white hover:bg-white/5"
+                      >
+                        {item.name}
+                      </DisclosureButton>
+                    ))}
+                  </DisclosurePanel>
+                </Disclosure>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
                 >
-                  Features
+                  Blog
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
                 >
-                  Marketplace
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
-                >
-                  Company
+                  About Us
                 </a>
               </div>
               <div className="py-6">
