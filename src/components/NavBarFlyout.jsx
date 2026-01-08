@@ -117,10 +117,10 @@ export default function NavbarFlyout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="relative isolate z-10 bg-gray-900">
+    <header className="relative top-0 left-0 right-0 isolate z-50 bg-gray-900">
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto font-inter flex max-w-7xl items-center justify-between p-6 lg:px-8"
       >
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
@@ -222,24 +222,24 @@ export default function NavbarFlyout() {
 
             <PopoverPanel
               transition
-              className="absolute inset-x-0 top-24 bg-gray-800 transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
+              className="absolute inset-x-0 top-24 bg-slate-800 transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
             >
               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
               <div
                 aria-hidden="true"
-                className="absolute inset-0 top-1/2 bg-gray-100 ring-1 ring-white/15"
+                className="absolute inset-0 top-1/2 bg-slate-100 ring-1 ring-white/15"
               />
-              <div className="relative bg-gray-100">
+              <div className="relative bg-slate-400">
                 <div className="mx-auto flex flex-wrap justify-center max-w-7xl gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
                   {resources.map((item) => (
                     <div
                       key={item.name}
-                      className="group w-1/5 relative rounded-lg p-6 text-sm/6 hover:bg-gray-900/5"
+                      className="group w-1/5 relative rounded-lg p-6 text-sm/6 hover:bg-slate-900/5"
                     >
-                      <div className="flex size-11 items-center justify-center rounded-lg bg-gray-100/50 group-hover:bg-gray-700">
+                      <div className="flex size-11 items-center justify-center rounded-lg bg-slate-400/50 group-hover:bg-slate-700">
                         <item.icon
                           aria-hidden="true"
-                          className="size-6 text-gray-600 group-hover:text-white"
+                          className="size-6 text-slate-600 group-hover:text-white"
                         />
                       </div>
                       <a
@@ -247,27 +247,27 @@ export default function NavbarFlyout() {
                         target={
                           item.href.startsWith("http") ? "_blank" : undefined
                         }
-                        className="mt-6 block font-semibold text-gray-900"
+                        className="mt-6 block font-semibold text-slate-900"
                       >
                         {item.name}
                         <span className="absolute inset-0" />
                       </a>
-                      <p className="mt-1 text-gray-600">{item.description}</p>
+                      <p className="mt-1 text-slate-600">{item.description}</p>
                     </div>
                   ))}
                 </div>
-                <div className="bg-gray-800/50">
+                <div className="bg-slate-800/50">
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="flex justify-center divide-x divide-white/5 border-x border-white/10">
                       {callsToActionResources.map((item) => (
                         <a
                           key={item.name}
                           href={item.href}
-                          className="flex items-center w-1/3 justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-white hover:bg-gray-800"
+                          className="flex items-center w-1/3 justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-slate-100 hover:bg-slate-800"
                         >
                           <item.icon
                             aria-hidden="true"
-                            className="size-5 flex-none text-gray-500"
+                            className="size-5 flex-none text-slate-700"
                           />
                           {item.name}
                         </a>
