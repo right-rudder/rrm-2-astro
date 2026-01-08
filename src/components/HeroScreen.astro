@@ -14,6 +14,7 @@ interface Props {
       src: string;
       alt: string;
     };
+    videoSrc?: string;
     uppertitle?: string;
     title: string;
     subTitle?: string;
@@ -25,12 +26,12 @@ const { data } = Astro.props;
 ---
 
 <section
-  class="hero-section relative overflow-hidden flex justify-center items-center lg:items-end lg:pb-24 text-white min-h-[90vh]"
+  class="hero-section relative overflow-hidden flex justify-center items-center lg:items-center text-white min-h-[90vh] lg:min-h-[80vh] xxl:min-h-[70vh]"
   aria-label="Hero section"
 >
   <!-- Background overlay for better text readability -->
   <div
-    class="absolute inset-0 bg-linear-to-b from-muted-50/40 via-black/10 to-black/40 -z-10"
+    class="absolute inset-0 bg-linear-to-b from-black/70 to-black/50 z-0 backdrop-blur-xs"
     aria-hidden="true"
   >
   </div>
@@ -43,9 +44,24 @@ const { data } = Astro.props;
     loading="eager"
     quality={100}
   />
+  { data.videoSrc && (
+      <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="absolute inset-0 w-full h-full object-cover -z-10"
+      >
+        <source
+          src={data.videoSrc}
+          type="video/mp4"
+        />
+      </video>
+    )
+  }
 
   <!-- Content Container -->
-  <div class="max-w-7xl w-full px-5 md:px-8 lg:px-12 mx-auto">
+  <div class="max-w-7xl w-full px-5 md:px-8 lg:px-12 mx-auto z-10">
     <div
       class="flex flex-col justify-center items-center lg:items-start max-w-4xl"
     >
@@ -54,11 +70,11 @@ const { data } = Astro.props;
         class="flex flex-col items-center lg:items-start gap-y-6 text-center lg:text-left"
       >
         <h1
-          class="font-title flex flex-col gap-6 text-mariner-100 text-4xl/tight sm:text-5xl/tight md:text-6xl/tight lg:text-7xl/16 font-thin drop-shadow-2xl"
+          class="font-title flex flex-col text-muted-50 text-4xl/tight sm:text-5xl/tight md:text-6xl/tight lg:text-7xl/16 font-bold drop-shadow-2xl"
         >
           {
             data.uppertitle && (
-              <span class="text-lg/7 sm:text-xl/8 md:text-xl/6 font-light text-muted-50 max-w-2xl">
+              <span class="text-lg/7 mb-3 sm:text-xl/8 md:text-xl/6 font-light text-muted-50 max-w-2xl">
                 {data.uppertitle}
               </span>
               <br />
@@ -68,7 +84,7 @@ const { data } = Astro.props;
           {
             data.subTitle && (
               <p
-                class="text-lg/7 sm:text-xl/8 md:text-xl/6 font-light text-muted-50 max-w-2xl"
+                class="text-lg/7 mt-4 sm:text-xl/8 md:text-xl/6 font-light text-muted-50 max-w-2xl"
                 set:html={data.subTitle}
               />
             )
@@ -83,7 +99,7 @@ const { data } = Astro.props;
             {data.cta.map((item, index) => (
               <a
                 href={item.url}
-                class={`${index === 0 ? "btn-primary" : "btn-transparent"} text-base sm:text-lg md:text-xl px-8 py-4 min-w-[200px] text-center font-thin transition-all duration-300 hover:scale-105 hover:shadow-2xl`}
+                class={`${index === 0 ? "btn-primary" : "btn-transparent"}`}
                 aria-label={item.text}
               >
                 {item.text}
@@ -95,44 +111,3 @@ const { data } = Astro.props;
     </div>
   </div>
 </section>
-
-<style>
-  .hero-section {
-    position: relative;
-  }
-
-  /* Improved text shadow for better readability */
-  h1,
-  h2 {
-    text-shadow:
-      0 2px 10px rgba(0, 0, 0, 0.7),
-      0 4px 20px rgba(0, 0, 0, 0.5);
-  }
-
-  /* Enhanced animation for background image */
-  @keyframes slow-zoom {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(1.1);
-    }
-  }
-
-  .animate-slow-zoom {
-    animation: slow-zoom 20s ease-in-out infinite alternate;
-  }
-
-  /* Button hover effects */
-  .btn-primary:hover,
-  .btn-transparent:hover {
-    transform: translateY(-2px);
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 640px) {
-    .hero-section {
-      min-height: 100vh;
-    }
-  }
-</style>
