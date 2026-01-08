@@ -1,0 +1,17 @@
+---
+import OurClientsLogos from "./OurClientsLogos.jsx";
+
+const { data } = Astro.props;
+---
+
+<div class="w-full bg-gray-800 py-24">
+  <div
+    class="relative isolate overflow-hidden bg-primary-dark px-6 py-16 text-center rounded-sm"
+  >
+    <h2
+      set:html={data.heading}
+      class="mx-auto max-w-2xl mb-8 text-4xl font-semibold capitalize tracking-tight text-white"
+    />
+    <OurClientsLogos client:only />
+  </div>
+</div>
