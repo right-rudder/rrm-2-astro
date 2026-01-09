@@ -1,0 +1,35 @@
+---
+import ImageComp from "./ImageComp.astro";
+
+interface Organization {
+  name: string;
+  imagePath: string;
+  imageAlt: string;
+  link: string;
+}
+
+const { data } = Astro.props;
+---
+
+<section
+  class="py-24 flex flex-col justify-center align-middle items-center gap-y-6 bg-gray-200"
+>
+  <h2 class="text-4xl font-semibold tracking-tight text-gray-900">
+    {data.heading}
+  </h2>
+  <div
+    class="max-w-8xl mt-6 flex flex-wrap justify-center gap-9 items-center align-middle"
+  >
+    {
+      data.organizations.map((org: Organization) => (
+        <a href={org.link} target="_blank">
+          <ImageComp
+            src={org.imagePath}
+            alt={org.imageAlt}
+            class="max-w-60 max-h-24 w-auto object-contain hover:scale-105 duration-300 ease-in-out"
+          />
+        </a>
+      ))
+    }
+  </div>
+</section>
