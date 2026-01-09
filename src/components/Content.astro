@@ -17,35 +17,6 @@ if (!images[data.imagePath])
 <div
   class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0"
 >
-  <div class="absolute inset-0 -z-10 overflow-hidden">
-    <svg
-      class="absolute left-[max(50%,25rem)] top-0 h-256 w-512 -translate-x-1/2 stroke-gray-200 mask-[radial-gradient(64rem_64rem_at_top,white,transparent)]"
-      aria-hidden="true"
-    >
-      <defs>
-        <pattern
-          id="e813992c-7d03-4cc4-a2bd-151760b470a0"
-          width="200"
-          height="200"
-          x="50%"
-          y="-1"
-          patternUnits="userSpaceOnUse"
-        >
-          <path d="M100 200V.5M.5 .5H200" fill="none"></path>
-        </pattern>
-      </defs>
-      <svg x="50%" y="-1" class="overflow-visible fill-gray-50">
-        <path
-          d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
-          stroke-width="0"></path>
-      </svg>
-      <rect
-        width="100%"
-        height="100%"
-        stroke-width="0"
-        fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)"></rect>
-    </svg>
-  </div>
   <div
     class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10"
   >
@@ -73,7 +44,7 @@ if (!images[data.imagePath])
       <Image
         src={images[data.imagePath]()}
         alt={data.imageAlt}
-        class="w-3xl max-w-2xl max-h-[90vh] rounded-md bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-228"
+        class="w-3xl max-w-2xl rounded-md bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-228"
         quality={100}
       />
     </div>
@@ -104,7 +75,7 @@ if (!images[data.imagePath])
                     }) => (
                       <li class="flex gap-x-3">
                         <svg
-                          class="mt-1 size-8 flex-none text-muted-400"
+                          class="mt-1 size-8 flex-none text-amber-400"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
@@ -144,9 +115,9 @@ if (!images[data.imagePath])
           {
             data.finalSection && (
               <>
-                <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-900">
+                <h3 class="mt-16 text-2xl font-bold tracking-tight text-mariner-600">
                   {data.finalSection.heading}
-                </h2>
+                </h3>
                 <div class="mt-6">
                   {data.finalSection.descriptions.map((desc: unknown) => (
                     <p class="mt-2" set:html={desc} />
