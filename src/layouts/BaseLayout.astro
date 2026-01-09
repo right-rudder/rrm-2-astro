@@ -9,6 +9,7 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, KEYWORDS, OG_IMAGE } from "../data/consts";
 import HeaderContact from "../components/HeaderContact.astro";
 import NavbarFlyout from "../components/NavBarFlyout.jsx";
+import FooterSimple from "../components/FooterSimple.astro";
 
 
 const { pathname } = Astro.url;
@@ -132,7 +133,7 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
       data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
       data-widget-id=""></script> -->
   </head>
-  <body class="font-sans">
+  <body class="font-sans bg-amber-500">
     <!-- Google Tag Manager (noscript) -->
     <!-- <noscript
       ><iframe
@@ -143,7 +144,6 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
     > -->
 
     <!-- End Google Tag Manager (noscript) -->
-      <HeaderContact />
       <NavbarFlyout client:idle />
     
     <main class="mt-0 pt-0 font">
@@ -180,6 +180,6 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
         </nav>
       )}
     </main>
-    <Footer />
+    <FooterSimple />
   </body>
 </html>
