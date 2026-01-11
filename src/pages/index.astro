@@ -11,6 +11,7 @@ import { PHONE_NUMBER } from "../data/consts";
 import LogosCloud from "../components/LogosCloud.astro";
 import Content from "../components/Content.astro";
 import MembersOf from "../components/MembersOf.astro";
+import Features from "../components/Features.astro";
 
 const heroData = {
   image: {
@@ -256,6 +257,69 @@ const ctaData = {
     href: "/contact",
   },
 };
+
+const features = {
+  subtitle: "Complete Marketing Solutions",
+  title: "Proven strategies that transform flight schools",
+  description:
+    "Expert-led marketing services proven to double enrollments. From website optimization to targeted advertising—solutions built specifically for flight schools, delivered how you need them.",
+  list: [
+    {
+      text: "Website Design & Optimization",
+      href: "/services/website-design",
+    },
+    {
+      text: "Search Engine Optimization (SEO)",
+      href: "/services/seo",
+    },
+    {
+      text: "Paid Advertising Campaigns",
+      href: "/services/paid-ads",
+    },
+    {
+      text: "Video Marketing & Content",
+      href: "/services/video-marketing",
+    },
+  ],
+  button: {
+    text: "View All Services",
+    href: "/services",
+  },
+  boxes: [
+    {
+      label: "From awareness to enrollment",
+      title: "Complete Marketing System",
+      badge: { text: "12 Months Cycle", featured: false },
+      description:
+        "Transform your enrollment pipeline with our comprehensive, all-in-one marketing solution. This proven system integrates website optimization, local and national SEO, targeted Google and social media advertising, professional video content production, reputation management, and automated lead nurturing into one cohesive enrollment engine. Perfect for flight schools ready to scale sustainably with a predictable pipeline of qualified student pilots. We handle everything from strategy to execution while you focus on training excellent pilots. Includes monthly performance reviews, transparent KPI tracking, and dedicated account management to ensure continuous growth and optimization.",
+      href: "/services/complete-marketing-system",
+    },
+    {
+      label: "Refine & optimize",
+      title: "Website Design & Local SEO",
+      badge: { text: "Awareness", featured: true },
+      description:
+        "Build a powerful online presence that dominates your local market and converts visitors into enrolled students. Our aviation-focused website design combines conversion-optimized layouts, mobile-responsive design, compelling messaging, and clear calls-to-action with strategic local SEO to ensure your flight school ranks #1 when prospects search 'flight school near me.' We optimize Google Business Profile, build local citations, implement schema markup, and create location-specific content that establishes your school as the trusted choice in your area. Perfect for schools looking to own their local market and generate consistent organic traffic without ongoing ad spend.",
+      href: "/services/video-production",
+    },
+    {
+      label: "Get more leads",
+      title: "Google Ads Management",
+      badge: { text: "Most Popular", featured: false },
+      description:
+        "Reach qualified prospects actively searching for flight training with laser-targeted Google Ads campaigns designed specifically for aviation. Our pilot-led team creates high-converting ad copy, optimizes landing pages for maximum conversions, implements advanced audience targeting, and continuously tests and refines campaigns to lower your cost-per-lead while increasing inquiry volume. We focus exclusively on search intent keywords that indicate genuine interest in flight training, ensuring your ad budget reaches serious prospects—not tire kickers. Includes conversion tracking, monthly performance optimization, and transparent ROI reporting so you know exactly what's working and what's driving enrollments.",
+      href: "/services/google-ads",
+    },
+    {
+      label: "Convert visitors",
+      title: "Forms & Videos",
+      badge: { text: "Decision", featured: false },
+      description:
+        "Convert website traffic into qualified leads with strategically placed, optimized forms and high-impact video content that builds trust and accelerates decision-making. Our conversion-focused forms are designed to capture prospect information at multiple touchpoints throughout their journey—from initial interest to discovery flight booking. Combined with professional video content showcasing your aircraft, facilities, instructors, and student success stories, this service creates an authentic, trust-building experience that differentiates your school from competitors. Videos humanize your brand and answer common objections before prospects even ask, while smart forms with progressive profiling ensure you capture the right information at the right time without overwhelming visitors. Ideal for schools with existing traffic who need to maximize conversion rates.",
+      href: "/services/website-optimization",
+    },
+  ],
+};
 ---
 
 <BaseLayout>
@@ -263,4 +327,5 @@ const ctaData = {
   <LogosCloud data={ourClients} />
   <Content data={marketingSystem} />
   <MembersOf data={membersOf} />
+  <Features data={features} />
 </BaseLayout>

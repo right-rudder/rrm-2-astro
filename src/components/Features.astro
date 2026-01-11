@@ -1,0 +1,102 @@
+---
+interface Props {
+  data: {
+    subtitle: string;
+    title: string;
+    description: string;
+    list: Array<{
+      text: string;
+      href: string;
+    }>;
+    button: {
+      text: string;
+      href: string;
+    };
+    boxes: Array<{
+      label: string;
+      title: string;
+      badge?: { text: string; featured?: boolean };
+      description: string;
+      href: string;
+    }>;
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<section class="bg-mariner-700 py-16 lg:py-24">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 xl:grid-cols-12 gap-8 lg:gap-12">
+      <div class="xl:col-span-4">
+        <div class="sticky space-y-4 top-0 text-white">
+          <p class="subtitle-bright">{data.subtitle}</p>
+          <h3 class="title-bright">
+            {data.title}
+          </h3>
+          <p class="text-base font-light lg:text-lg">
+            {data.description}
+          </p>
+          <ul class="space-y-2 list-disc list-inside">
+            {
+              data.list.map((item) => (
+                <li>
+                  <a href={item.href} class="hover:underline">
+                    {item.text}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <div class="mt-12">
+            <a class="btn-transparent" href={data.button.href}
+              >{data.button.text}</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="xl:col-span-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          {
+            data.boxes.map((box) => (
+              <div class="relative">
+                <a
+                  class="block group hover:scale-105 transition-transform duration-300"
+                  href={box.href}
+                  title={box.title}
+                >
+                  <article
+                    class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col"
+                    aria-label={box.title}
+                  >
+                    {box.badge && (
+                      <div
+                        class={`text-black text-xs font-bold uppercase px-4 py-2 ${box.badge.featured ? "bg-yellow-400" : "bg-mariner-400"}`}
+                      >
+                        {box.badge.text}
+                      </div>
+                    )}
+                    <div class="flex-1 flex flex-col">
+                      <div class="p-6 space-y-4 flex-1">
+                        <p
+                          class="text-xl font-bold"
+                          aria-level="3"
+                          role="heading"
+                        >
+                          {box.title}
+                        </p>
+                        <hr class="border-t-2 border-gray-300" />
+                        <p class="font-semibold uppercase">{box.label}</p>
+                        <p class="text-sm text-gray-600">{box.description}</p>
+                      </div>
+                    </div>
+                  </article>
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
