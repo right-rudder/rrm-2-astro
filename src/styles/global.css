@@ -57,6 +57,13 @@
   --animate-slow-zoom: slow-zoom 27s ease forwards;
   --animate-fast-zoom: fast-zoom 9s ease alternate infinite;
   
+  --animate-fade-in: fade-in 0.5s linear forwards;
+  --animate-spin-slow: spin 4s linear infinite;
+  --animate-spin-slower: spin 6s linear infinite;
+  --animate-spin-reverse: spin-reverse 1s linear infinite;
+  --animate-spin-reverse-slow: spin-reverse 4s linear infinite;
+  --animate-spin-reverse-slower: spin-reverse 6s linear infinite;
+  
   @keyframes slow-zoom {
       0% {
         transform: scale(1);
@@ -74,23 +81,46 @@
         transform: scale(1.25);
       }
     }
+
+    @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes spin-reverse {
+    to {
+      transform: rotate(-360deg);
+    }
+  }
 }
 
+@theme inline {
+  --animate-marquee: marquee var(--marquee-duration) linear infinite;
+
+  @keyframes marquee {
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+}
 
 .btn-primary {
-  @apply bg-mariner-700 border border-mariner-600 text-white font-inter font-light rounded-full px-7 py-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-white hover:border-mariner-900 hover:text-mariner-900 transition duration-200 hover:scale-105;
+  @apply bg-mariner-700 border border-mariner-600 text-white font-inter font-light rounded-full px-9 py-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-white hover:border-mariner-950 hover:text-mariner-900 transition-all duration-200 hover:scale-105;
 }
 
 .btn-transparent {
-  @apply bg-transparent border border-white font-inter rounded-full px-7 py-3 text-white font-light cursor-pointer hover:bg-white hover:text-mariner-900 transition duration-200 hover:scale-105;
+  @apply bg-transparent border border-white font-inter rounded-full px-9 py-3 text-white font-light cursor-pointer hover:bg-white hover:text-mariner-950 transition-all duration-200 hover:scale-105;
 }
 
 .title {
-  @apply font-title text-4xl md:text-5xl lg:text-6xl font-extrabold text-mariner-600 mb-4
+  @apply font-title text-4xl md:text-5xl lg:text-6xl font-bold text-mariner-600 mb-4
 }
 
 .title-bright {
-  @apply font-title text-4xl md:text-5xl lg:text-6xl/14 font-extrabold text-amber-400 mb-4
+  @apply font-title text-4xl md:text-5xl lg:text-6xl/14 font-bold text-amber-400 mb-4
 }
 
 .subtitle {
