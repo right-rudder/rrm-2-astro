@@ -74,6 +74,7 @@ export const LOGO = "/Mil2ATP_Logo_2_340x.png";
 export const LOGO_ASSETS = "/src/assets/RRM-hor-textWhite-bgTrans.png";
 export const LOGO_ASSETS_2 = "/src/assets/RRM-hor-transparent.png";
 export const LOGO_ASSETS_3 = "/src/assets/RRM-ver-textBlack-trans-500.webp";
+export const LOGO_ASSETS_4 = "/src/assets/RRM-ver-textWhite-trans.png";
 
 // CHANGE client business info
 export const COMPANY_NAME = "Right Rudder Marketing";
