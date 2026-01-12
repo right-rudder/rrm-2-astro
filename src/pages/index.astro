@@ -12,6 +12,8 @@ import LogosCloud from "../components/LogosCloud.astro";
 import Content from "../components/Content.astro";
 import MembersOf from "../components/MembersOf.astro";
 import Features from "../components/Features.astro";
+import { Reviews } from "../components/Reviews.tsx";
+import PartnerWithUs from "../components/PartnerWithUs.astro";
 
 const heroData = {
   image: {
@@ -149,101 +151,6 @@ const membersOf = {
   ],
 };
 
-const valuePropositionData = {
-  title: "Flight School Marketing Built by Pilots Who Understand Aviation",
-  subtitle: "Why 200+ Flight Schools Choose Right Rudder Marketing",
-  description:
-    "Right Rudder Marketing is the only digital marketing agency built exclusively for flight schools. We combine pilot expertise, proven marketing systems, and aviation-first strategies to help flight schools enroll 2-3X more qualified student pilots. From website optimization and SEO to targeted advertising and reputation building, we handle your complete enrollment engine so you can focus on training excellent pilots.",
-  stats: [
-    { value: "200+", label: "Flight Schools Served" },
-    { value: "$5M+", label: "Student Enrollment Generated" },
-    { value: "2-3X", label: "Average Enrollment Growth" },
-    { value: "100%", label: "Retention Rate" },
-  ],
-  image: {
-    src: "/src/assets/william-topa-7_4bU5tHRLQ-unsplash.jpg",
-    alt: "Flight school marketing results",
-  },
-};
-
-const benefits = [
-  {
-    icon: "�",
-    title: "Built by Pilots",
-    description:
-      "Our team are certified pilots who understand aviation. We don't apply generic marketing—we use proven strategies designed specifically for flight schools.",
-  },
-  {
-    icon: "📈",
-    title: "2-3X Enrollment Growth",
-    description:
-      "Our proven Flight School Marketing System helps schools go from 5 qualified leads per month to 40+ within 6 months.",
-  },
-  {
-    icon: "🔍",
-    title: "Complete Digital System",
-    description:
-      "Website optimization, SEO, targeted ads, video marketing, lead nurturing, reputation building—fully integrated, not piecemeal.",
-  },
-  {
-    icon: "📊",
-    title: "Transparent Monthly Reporting",
-    description:
-      "Know exactly what's working. Real KPI dashboards, clear metrics, and a dedicated account manager reviewing results with you monthly.",
-  },
-];
-
-const processSteps = [
-  {
-    number: 1,
-    title: "Discovery Call",
-    description:
-      "Discuss your flight school's current situation, enrollment challenges, and growth goals. Learn how other schools in your market are solving this.",
-  },
-  {
-    number: 2,
-    title: "Custom Marketing Plan",
-    description:
-      "We analyze your market, audit your competition, and build a flight-school-specific strategy focused on qualified student leads.",
-  },
-  {
-    number: 3,
-    title: "Launch & Implement",
-    description:
-      "We execute your plan: optimize your website, launch SEO and ads, build video content, set up lead nurturing. You focus on training.",
-  },
-  {
-    number: 4,
-    title: "Track & Optimize",
-    description:
-      "Monthly KPI reviews, transparent reporting, and continuous optimization. See your enrollment grow as we refine what works best.",
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      "We went from 5 inquiries per month to 40+ qualified leads in 6 months. Right Rudder understands flight schools like no one else. Our enrollment doubled within a year.",
-    author: "Sarah Chen",
-    role: "Owner, Summit Flight Academy",
-    rating: 5,
-  },
-  {
-    quote:
-      "The Flight School Marketing System transformed how we recruit students. We're now the #1 ranked flight school in our market on Google. Students come to us first.",
-    author: "Mike Torres",
-    role: "Operations Director, Sky High Aviation",
-    rating: 5,
-  },
-  {
-    quote:
-      "Right Rudder handled our entire marketing strategy—website, ads, video, reputation. We didn't have to hire a marketing manager, and our cost per student dropped by 40%.",
-    author: "Jennifer Wells",
-    role: "Owner, Mountain View Flight Center",
-    rating: 5,
-  },
-];
-
 const ctaData = {
   title: "Your Flight School Deserves a Marketing Partner Who Gets Aviation",
   description:
@@ -324,8 +231,27 @@ const features = {
 
 <BaseLayout>
   <HeroScreen data={heroData} />
+  <PartnerWithUs />
   <LogosCloud data={ourClients} />
-  <Content data={marketingSystem} />
-  <MembersOf data={membersOf} />
+  <section
+    id="pre-features"
+    class="flex flex-col items-center bg-mariner-700 py-16 lg:py-24"
+  >
+    <div
+      class="container max-w-5xl mx-auto px-4 flex flex-col items-center space-y-6 text-white text-center"
+    >
+      <h2 class="title-bright text-center">
+        Complete System Based on Your Local Market Data
+      </h2>
+      <p class="font-title text-2xl">
+        We compile and analyze your market data to tailor a marketing system
+        that drives results. Visitors, leads, and conversions are all tracked to
+        ensure maximum ROI.
+      </p>
+    </div>
+  </section>
   <Features data={features} />
+  <MembersOf data={membersOf} />
+  <Content data={marketingSystem} />
+  <Reviews client:idle />
 </BaseLayout>
