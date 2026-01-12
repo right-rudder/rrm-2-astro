@@ -31,13 +31,13 @@ const { data } = Astro.props;
       <div class="xl:col-span-4">
         <div class="sticky space-y-4 top-0 text-white">
           <p class="subtitle-bright">{data.subtitle}</p>
-          <h3 class="title-bright">
+          <h3 class="font-title text-4xl/8 font-bold text-amber-400 mb-4">
             {data.title}
           </h3>
           <p class="text-base font-light lg:text-lg">
             {data.description}
           </p>
-          <ul class="space-y-2 list-disc list-inside">
+          <ul class="space-y-2 font-light list-disc list-inside">
             {
               data.list.map((item) => (
                 <li>
