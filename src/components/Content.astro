@@ -53,16 +53,18 @@ if (!images[data.imagePath])
     >
       <div class="lg:pr-4">
         <div class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
-          <div>
-            {
-              data.paragraphs.map((paragraph: string) => (
-                <p class="mt-2" set:html={paragraph} />
-              ))
-            }
-          </div>
+          {
+            data.paragraphs && (
+              <div>
+                {data.paragraphs.map((paragraph: string) => (
+                  <p class="mt-2" set:html={paragraph} />
+                ))}
+              </div>
+            )
+          }
           {
             data.list && (
-              <div class="mt-12">
+              <div class="mt-8">
                 <h4 class="text-2xl font-bold tracking-tight text-mariner-600">
                   {data.list.heading}
                 </h4>
@@ -124,6 +126,15 @@ if (!images[data.imagePath])
                   ))}
                 </div>
               </>
+            )
+          }
+          {
+            data.finalCta && (
+              <div class="mt-16">
+                <a href={data.finalCta.href} class="btn-primary">
+                  {data.finalCta.text}
+                </a>
+              </div>
             )
           }
         </div>
