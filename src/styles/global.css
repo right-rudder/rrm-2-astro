@@ -111,6 +111,10 @@
   @apply bg-mariner-700 border border-mariner-600 text-white font-inter font-light rounded-full px-9 py-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-white hover:border-mariner-950 hover:text-mariner-900 transition-all duration-200 hover:scale-105;
 }
 
+.btn-accent {
+  @apply bg-amber-300 border border-amber-500 text-mariner-900 font-inter font-light rounded-full px-9 py-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-white hover:border-mariner-950 hover:text-mariner-900 transition-all duration-200 hover:scale-105;
+}
+
 .btn-transparent {
   @apply bg-transparent border border-white font-inter rounded-full px-9 py-3 text-white font-light cursor-pointer hover:bg-white hover:text-mariner-950 transition-all duration-200 hover:scale-105;
 }
@@ -120,7 +124,7 @@
 }
 
 .title-bright {
-  @apply font-title text-4xl md:text-5xl lg:text-6xl/14 font-bold text-amber-400 mb-4
+  @apply font-title text-4xl md:text-5xl lg:text-6xl/14 font-bold text-white mb-4
 }
 
 .subtitle {
