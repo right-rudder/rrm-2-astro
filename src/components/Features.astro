@@ -31,7 +31,7 @@ const { data } = Astro.props;
       <div class="xl:col-span-4">
         <div class="sticky space-y-4 top-0 text-white">
           <p class="subtitle-bright">{data.subtitle}</p>
-          <h3 class="font-title text-4xl/8 font-bold text-amber-400 mb-4">
+          <h3 class="font-title text-4xl/8 font-bold text-white mb-4">
             {data.title}
           </h3>
           <p class="text-base font-light lg:text-lg">
@@ -49,9 +49,7 @@ const { data } = Astro.props;
             }
           </ul>
           <div class="mt-12">
-            <a class="btn-transparent" href={data.button.href}
-              >{data.button.text}</a
-            >
+            <a class="btn-accent" href={data.button.href}>{data.button.text}</a>
           </div>
         </div>
       </div>
