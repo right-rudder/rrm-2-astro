@@ -1,19 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroScreen from "../components/HeroScreen.astro";
-import ValueProposition from "../components/ValueProposition.astro";
-import ServicesOverview from "../components/ServicesOverview.astro";
-import WhyChooseUs from "../components/WhyChooseUs.astro";
-import ProcessSteps from "../components/ProcessSteps.astro";
-import Testimonials from "../components/Testimonials.astro";
-import CTASection from "../components/CTASection.astro";
-import { PHONE_NUMBER } from "../data/consts";
 import LogosCloud from "../components/LogosCloud.astro";
 import Content from "../components/Content.astro";
 import MembersOf from "../components/MembersOf.astro";
 import Features from "../components/Features.astro";
 import { Reviews } from "../components/Reviews.tsx";
 import PartnerWithUs from "../components/PartnerWithUs.astro";
+import CaseStudiesSwiper from "../components/CaseStudiesSwiper.astro";
 
 const heroData = {
   image: {
@@ -178,36 +172,97 @@ const features = {
   },
   boxes: [
     {
-      label: "From awareness to enrollment",
-      title: "Complete Marketing System",
-      badge: { text: "12 Months Cycle", featured: false },
+      label: "Foundation",
+      title: "Your Flight School Website",
+      badge: { text: "Step 1", featured: false },
       description:
-        "Transform your enrollment pipeline with our comprehensive, all-in-one marketing solution. This proven system integrates website optimization, local and national SEO, targeted Google and social media advertising, professional video content production, reputation management, and automated lead nurturing into one cohesive enrollment engine. Perfect for flight schools ready to scale sustainably with a predictable pipeline of qualified student pilots. We handle everything from strategy to execution while you focus on training excellent pilots. Includes monthly performance reviews, transparent KPI tracking, and dedicated account management to ensure continuous growth and optimization.",
-      href: "/services/complete-marketing-system",
+        "A modern, mobile-responsive website built specifically for flight schools. Fast-loading pages with HTML5, CSS3, and optimized JavaScript ensure seamless user experience across all devices. Clean design that showcases your programs, aircraft, and facilities while making it easy for prospects to take the next step. Built on reliable hosting infrastructure for maximum uptime and security.",
+      href: "/services/website-design",
     },
     {
-      label: "Refine & optimize",
-      title: "Website Design & Local SEO",
-      badge: { text: "Awareness", featured: true },
+      label: "Visibility",
+      title: "Rank High On Organic Search",
+      badge: { text: "Step 2", featured: false },
       description:
-        "Build a powerful online presence that dominates your local market and converts visitors into enrolled students. Our aviation-focused website design combines conversion-optimized layouts, mobile-responsive design, compelling messaging, and clear calls-to-action with strategic local SEO to ensure your flight school ranks #1 when prospects search 'flight school near me.' We optimize Google Business Profile, build local citations, implement schema markup, and create location-specific content that establishes your school as the trusted choice in your area. Perfect for schools looking to own their local market and generate consistent organic traffic without ongoing ad spend.",
-      href: "/services/video-production",
+        "Dominate search results on Google, Bing, Yahoo, and other search engines when prospects search for flight training. Strategic SEO optimization ensures your school appears at the top for high-intent keywords like 'flight school near me' and 'pilot training.' Technical SEO, local citations, content optimization, and ongoing monitoring keep you ahead of the competition and generate consistent organic traffic without ad spend.",
+      href: "/services/seo",
     },
     {
-      label: "Get more leads",
-      title: "Google Ads Management",
-      badge: { text: "Most Popular", featured: false },
+      label: "Engagement",
+      title: "Convert Prospective Students",
+      badge: { text: "Step 4", featured: true },
       description:
-        "Reach qualified prospects actively searching for flight training with laser-targeted Google Ads campaigns designed specifically for aviation. Our pilot-led team creates high-converting ad copy, optimizes landing pages for maximum conversions, implements advanced audience targeting, and continuously tests and refines campaigns to lower your cost-per-lead while increasing inquiry volume. We focus exclusively on search intent keywords that indicate genuine interest in flight training, ensuring your ad budget reaches serious prospects—not tire kickers. Includes conversion tracking, monthly performance optimization, and transparent ROI reporting so you know exactly what's working and what's driving enrollments.",
-      href: "/services/google-ads",
+        "Transform website visitors into enrolled students through strategic conversion funnels and multi-channel communication. Optimized contact forms, automated email sequences, WhatsApp and Facebook Messenger integration, and clear calls-to-action guide prospects from initial inquiry to discovery flight booking. Nurture leads through every stage of their decision journey until they're ready to start training.",
+      href: "/services/conversion-optimization",
     },
     {
-      label: "Convert visitors",
-      title: "Forms & Videos",
-      badge: { text: "Decision", featured: false },
+      label: "Growth",
+      title: "Pay Per Click Advertising",
+      badge: { text: "Step 3", featured: false },
       description:
-        "Convert website traffic into qualified leads with strategically placed, optimized forms and high-impact video content that builds trust and accelerates decision-making. Our conversion-focused forms are designed to capture prospect information at multiple touchpoints throughout their journey—from initial interest to discovery flight booking. Combined with professional video content showcasing your aircraft, facilities, instructors, and student success stories, this service creates an authentic, trust-building experience that differentiates your school from competitors. Videos humanize your brand and answer common objections before prospects even ask, while smart forms with progressive profiling ensure you capture the right information at the right time without overwhelming visitors. Ideal for schools with existing traffic who need to maximize conversion rates.",
-      href: "/services/website-optimization",
+        "Accelerate growth with targeted advertising campaigns across Google Ads, Facebook, Instagram, YouTube, and Google Maps. Reach qualified prospects actively searching for flight training with laser-focused ad targeting, compelling ad creative, and optimized landing pages. Track every dollar spent with conversion tracking and transparent ROI reporting. Scale what works, pause what doesn't, and maintain predictable cost-per-lead.",
+      href: "/services/paid-advertising",
+    },
+  ],
+};
+
+const cases = {
+  upperHeading: "Success Stories",
+  heading: "Flight schools thriving with RRM",
+  cards: [
+    {
+      logo: "/src/assets/sun-city-black-text-logo.webp",
+      client: "Sun City Aviation",
+      title: "Remarkable growth with targeted marketing strategies",
+      image: "http://img.youtube.com/vi/VUeDTE-Mzuw/maxresdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "sun-city",
+    },
+    {
+      logo: "/src/assets/uft-logo-new-black.webp",
+      client: "Universal Flight Training",
+      title: "Expertise that drives student enrollment growth",
+      image: "http://img.youtube.com/vi/OywZjggj1RE/maxresdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "universal-flight-training",
+    },
+    {
+      logo: "/src/assets/SFA-logo-black-text.webp",
+      client: "Summit Flight Academy",
+      title: "Local market domination and enrollment surge",
+      image: "http://img.youtube.com/vi/qWRb84en0vs/hqdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "summit-flight-academy",
+    },
+    {
+      logo: "/src/assets/simplifly_2.webp",
+      client: "Simplifly Flight School",
+      title: "Enrollment doubles with our comprehensive marketing system",
+      image: "http://img.youtube.com/vi/qzT8Q49ExUw/maxresdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "simplifly",
+    },
+    {
+      logo: "/src/assets/blue-skies-logo-black-600-nobg.saIaC-kR_Z3AR6L.avif",
+      client: "Blue Skies Above",
+      title: "Market positioning that drives growth",
+      image: "http://img.youtube.com/vi/SD8TsqJSX00/maxresdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "blue-skies-above",
+    },
+    {
+      logo: "/src/assets/ideal-aviation-logo.webp",
+      client: "Ideal Aviation",
+      title: "Competitive edge through strategic marketing",
+      image: "http://img.youtube.com/vi/c1Pe9XJdsbo/hqdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "ideal-aviation",
     },
   ],
 };
@@ -219,7 +274,7 @@ const features = {
   <LogosCloud data={ourClients} />
   <section
     id="pre-features"
-    class="flex flex-col items-center bg-mariner-700 py-16 lg:py-24"
+    class="flex flex-col items-center bg-mariner-800 py-16 lg:py-24"
   >
     <div
       class="container max-w-5xl mx-auto px-4 flex flex-col items-center space-y-6 text-white text-center"
@@ -235,7 +290,9 @@ const features = {
     </div>
   </section>
   <Features data={features} />
-  <MembersOf data={membersOf} />
   <Content data={marketingSystem} />
+  <CaseStudiesSwiper content={cases} />
+  <MembersOf data={membersOf} />
   <Reviews client:idle />
 </BaseLayout>
+<script src="../scripts/creativeSlider.js"></script>
