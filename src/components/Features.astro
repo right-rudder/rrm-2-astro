@@ -25,7 +25,7 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<section class="bg-mariner-700 py-16 lg:py-24">
+<section class="bg-mariner-800 py-16 lg:py-24">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 xl:grid-cols-12 gap-8 lg:gap-12">
       <div class="xl:col-span-4">
@@ -49,22 +49,28 @@ const { data } = Astro.props;
             }
           </ul>
           <div class="mt-12">
-            <a class="btn-accent" href={data.button.href}>{data.button.text}</a>
+            <a class="btn-transparent" href={data.button.href}
+              >{data.button.text}</a
+            >
           </div>
         </div>
       </div>
       <div class="xl:col-span-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-16 gap-y-8 lg:gap-y-16 relative"
+        >
           {
-            data.boxes.map((box) => (
-              <div class="relative">
+            data.boxes.map((box, index) => (
+              <div
+                class={`relative ${index === 2 ? "order-last md:order-0" : ""}`}
+              >
                 <a
                   class="block group hover:scale-105 transition-transform duration-300"
                   href={box.href}
                   title={box.title}
                 >
                   <article
-                    class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col"
+                    class="bg-white rounded-lg shadow-lg overflow-hidden h-full min-h-96 flex flex-col relative z-10"
                     aria-label={box.title}
                   >
                     {box.badge && (
@@ -90,6 +96,52 @@ const { data } = Astro.props;
                     </div>
                   </article>
                 </a>
+
+                {/* Arrow connectors */}
+                {index === 0 && (
+                  <div class="hidden md:block absolute -right-4 md:-right-8 lg:-right-14 top-1/2 -translate-y-1/2 z-0">
+                    <svg
+                      class="w-8 h-8 lg:w-12 lg:h-12 text-mariner-300 animate-pulse"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z" />
+                    </svg>
+                  </div>
+                )}
+                {index === 1 && (
+                  <div class="hidden md:block absolute -bottom-4 md:-bottom-8 lg:-bottom-14 left-1/2 -translate-x-1/2 z-0">
+                    <svg
+                      class="w-8 h-8 lg:w-12 lg:h-12 text-mariner-300 rotate-90 animate-pulse"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z" />
+                    </svg>
+                  </div>
+                )}
+                {index === 2 && (
+                  <div class="hidden md:block absolute rotate-180 -top-4 md:-top-8 lg:-top-14 left-1/2 -translate-x-1/2 z-0">
+                    <svg
+                      class="w-8 h-8 lg:w-12 lg:h-12 text-mariner-300 rotate-90 animate-pulse"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z" />
+                    </svg>
+                  </div>
+                )}
+                {index === 3 && (
+                  <div class="hidden md:block absolute rotate-180 -left-4 md:-left-8 lg:-left-14 top-1/2 -translate-y-1/2 z-0">
+                    <svg
+                      class="w-8 h-8 lg:w-12 lg:h-12 text-mariner-300 animate-pulse"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z" />
+                    </svg>
+                  </div>
+                )}
               </div>
             ))
           }
