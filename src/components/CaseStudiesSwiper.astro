@@ -1,0 +1,53 @@
+---
+import CaseStudyCard from "./CaseStudyCard.astro";
+
+interface Props {
+  content: {
+    upperHeading?: string;
+    heading: string;
+    cards: Array<{
+      logo: string;
+      client: string;
+      title: string;
+      image: string;
+      quote?: string;
+      description?: string;
+      video?: string;
+      slug: string;
+    }>;
+  };
+}
+
+const { content } = Astro.props;
+---
+
+<section
+  class="bg-linear-to-t from-gray-50 to-white py-16 lg:py-24 overflow-hidden"
+>
+  <div class="mb-12">
+    {content.heading && <h2 class="title text-center">{content.heading}</h2>}
+    {
+      content.upperHeading && (
+        <h2 class="subtitle text-center">{content.upperHeading}</h2>
+      )
+    }
+  </div>
+  <div class="slider-row">
+    <div class="swiper creativeSwiper magic-cursor w-full md:max-w-6xl h-full">
+      <div class="swiper-wrapper py-16">
+        {
+          content.cards.map((caseStudy) => (
+            <div class="swiper-slide">
+              <CaseStudyCard data={caseStudy} slug={caseStudy.slug} />
+            </div>
+          ))
+        }
+      </div>
+      <div class="hidden lg:block">
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </div>
+</section>
