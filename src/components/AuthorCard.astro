@@ -1,0 +1,158 @@
+---
+import { getCollection } from "astro:content";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaSquareGithub } from "react-icons/fa6";
+import { FaExternalLinkSquareAlt } from "react-icons/fa";
+import { FaYoutubeSquare } from "react-icons/fa";
+
+const { author } = Astro.props;
+
+// Fetch crew data and match with author name
+const crewData = await getCollection("crew");
+const member = crewData.find((m) => m.data.name === author);
+
+function slugify(str: string) {
+  return str
+    .toLowerCase()
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/[^\w-]+/g, ""); // Remove non-word characters
+}
+
+const truncateBio = (bio: string) => {
+  const plainText = bio
+    .replace(/\n/g, " ") // Replace newlines with space
+    .replace(/!\[.*?\]\(.*?\)/g, "") // Remove images: ![alt](url)
+    .replace(/\[([^\]]+)\]\((.*?)\)/g, "$1") // Remove links but keep text
+    .replace(/<[^>]+>/g, "") // Strip any HTML tags
+    .trim(); // Trim spaces
+
+  return plainText.length > 200
+    ? `${plainText.substring(0, 200)}...`
+    : plainText;
+};
+---
+{member ? (
+<section class=" bg-white flex justify-center items-center py-16 group">
+  <div class="flex flex-col gap-10 first:pt-0 last:pb-0 sm:flex-row">
+  <img
+    src={member.data.image || "/authors/placeholder.webp"}
+    alt={`Portrait of ${member.data.name} - Right Rudder Marketing - ${member.data.title}`}
+    class="aspect-square max-h-56 flex-none rounded-2xl object-cover outline-1 -outline-offset-1 outline-black/5 group-hover:scale-105 transition-transform"
+  />
+  <div class="max-w-xl flex-auto">
+    <h3 class="text-4xl/8 font-semibold tracking-tight text-gray-900">
+      {member.data.name}
+    </h3>
+    <p class="text-base/7 text-gray-500">{member.data.title}</p>
+    <p class="mt-6 mb-4 text-base/7 text-gray-600">
+      {
+        member.body ? truncateBio(member.body) :
+          `${member.data.name} has not yet added their bio. Update coming soon.`
+      }
+    </p>
+    <a href={`/flight-crew/${slugify(author)}`} class="text-primary-600 group-hover:underline group-hover:text-gray-800">View Profile</a>
+    <ul role="list" class="mt-6 flex gap-x-6">
+      <!-- Social Media Links -->
+      <div
+        class="mt-3 flex justify-center md:justify-start items-center space-x-3"
+      >
+        {
+          member.data.social?.facebook && (
+            <a
+              href={member.data.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary-600 hover:text-primary-700"
+            >
+              <FaFacebookSquare size="20" />
+            </a>
+          )
+        }
+        {
+          member.data.social?.instagram && (
+            <a
+              href={member.data.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary-600 hover:text-primary-700"
+            >
+              <FaInstagramSquare size="20" />
+            </a>
+          )
+        }
+        {
+          member.data.social?.linkedin && (
+            <a
+              href={member.data.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary-600 hover:text-primary-700"
+            >
+              <FaLinkedin size="20" />
+            </a>
+          )
+        }
+        {
+          member.data.social?.twitter && (
+            <a
+              href={member.data.social.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary-600 hover:text-primary-700"
+            >
+              <FaSquareXTwitter size="20" />
+            </a>
+          )
+        }
+        {
+          member.data.social?.github && (
+            <a
+              href={member.data.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary-600 hover:text-primary-700"
+            >
+              <FaSquareGithub size="20" />
+            </a>
+          )
+        }
+        {
+          member.data.social?.youtube && (
+            <a
+              href={member.data.social.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary-600 hover:text-primary-700"
+            >
+              <FaYoutubeSquare size="20" />
+            </a>
+          )
+        }
+        {
+          member.data.social?.website && (
+            <a
+              href={member.data.social.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary-600 hover:text-primary-700"
+            >
+              <FaExternalLinkSquareAlt size="20" />
+            </a>
+          )
+        }
+      </div>
+    </ul>
+  </div>
+  </div>
+</section>
+ ) : (
+    <div class="text-center mx-auto">
+      <p class="text-lg font-bold text-gray-900">Author not found</p>
+      <p class="text-sm text-gray-600">
+        We couldn't find the author you're looking for. Please check back later.
+      </p>
+    </div>
+  )}
