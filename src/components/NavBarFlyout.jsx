@@ -217,10 +217,7 @@ export default function NavbarFlyout() {
             </PopoverPanel>
           </Popover>
 
-          <a
-            href="/marketing-system"
-            className="flex flex-col gap-0 text-center group"
-          >
+          <a href="/blog" className="flex flex-col gap-0 text-center group">
             <span className="text-xs/6 p-0 m-0 font-light text-gray-300 group-hover:text-amber-300">
               News & Tips
             </span>
