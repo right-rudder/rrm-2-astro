@@ -8,6 +8,7 @@ import Features from "../components/Features.astro";
 import { Reviews } from "../components/Reviews.tsx";
 import PartnerWithUs from "../components/PartnerWithUs.astro";
 import CaseStudiesSwiper from "../components/CaseStudiesSwiper.astro";
+import FromTheBlog from "../components/FromTheBlog.astro";
 
 const heroData = {
   image: {
@@ -294,5 +295,6 @@ const cases = {
   <CaseStudiesSwiper content={cases} />
   <MembersOf data={membersOf} />
   <Reviews client:idle />
+  <FromTheBlog />
 </BaseLayout>
 <script src="../scripts/creativeSlider.js"></script>
