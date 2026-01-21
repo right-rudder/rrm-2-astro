@@ -15,6 +15,7 @@ interface Props {
       alt: string;
     };
     videoSrc?: string;
+    videoSrcVertical?: string;
     uppertitle?: string;
     title: string;
     subTitle?: string;
@@ -50,10 +51,25 @@ const { data } = Astro.props;
       muted
       loop
       playsinline
-      class="absolute inset-0 w-full h-full object-cover -z-10"
+      class="absolute inset-0 w-full h-full object-cover -z-10 hidden md:block"
       >
         <source
           src={data.videoSrc}
+          type="video/mp4"
+        />
+      </video>
+    )
+  }
+  { data.videoSrcVertical && (
+      <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="absolute inset-0 w-full h-full object-cover -z-10 block md:hidden"
+      >
+        <source
+          src={data.videoSrcVertical}
           type="video/mp4"
         />
       </video>
