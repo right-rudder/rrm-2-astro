@@ -1,0 +1,84 @@
+---
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const pods = (await getCollection("podcasts"))
+  .filter((pod) => pod.data.status !== "draft") // 👈 Draft filter
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Breadcrumb navigation for blog index
+const breadcrumbs = [
+  { name: "Home", url: "/" },
+  { name: "Podcasts", url: "/podcasts" },
+];
+---
+
+<BaseLayout
+  siteTitle="The Aviation Business Podcast | Right Rudder Marketing"
+  siteDescription="Explore the latest happenings in the world of flight training at Right Rudder Marketing. Gain valuable insights and tips to ease pre-flight jitters and prepare effectively for your important milestones."
+  keywords="podcasts, flight training podcasts, aviation marketing podcasts, pilot training marketing podcasts"
+>
+  <section class="pt-44 px-4 bg-white pb-20">
+    <div class="absolute inset-0 bg-slate-900 h-28"></div>
+    <div class="mx-auto px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
+          Latest Podcasts
+        </h2>
+        <p class="mt-2 text-lg/6 text-gray-600">
+          Our podcasts are a great way to learn about the latest trends in the
+          flight training industry. Gain valuable insights and tips to make your
+          flight school grow and scale.
+        </p>
+        <p class="text-xs text-muted-400 mt-2">
+          {pods.length}{pods.length > 1 ? " podcasts" : " podcast"}. Since{" "}
+          <FormattedDate date={pods[pods.length - 1].data.pubDate} />
+        </p>
+      </div>
+      <div
+        class="w-full max-w-396 flex flex-wrap gap-4 lg:gap-3 mt-16 mx-auto justify-center"
+      >
+        {
+          pods.map((pod, index) => (
+            <article
+              id={`podcast-${index}`}
+              class="relative aspect-square md:aspect-video group w-full lg:w-[45%] lg:m-0 isolate flex flex-col justify-end overflow-hidden rounded-md bg-white px-8 pb-8 hover:ring-1 hover:ring-amber duration-200"
+            >
+              <img
+                src={pod.data.heroImage}
+                alt={pod.data.title}
+                class="absolute inset-0 -z-10 h-full w-full object-cover group-hover:scale-110 duration-200"
+              />
+              <div class="absolute inset-0 -z-10 bg-linear-to-t from-gray-950 via-gray-900/20 to-gray-950/10 group-hover:bg-transparent duration-200" />
+              <div class="absolute inset-0 -z-10 rounded-md ring-1 ring-inset ring-gray-900/10" />
+
+              <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-100">
+                <time datetime="2020-03-16" class="mr-8 text-amber-400">
+                  <FormattedDate date={pod.data.pubDate} />
+                </time>
+                <div class="-ml-4 flex items-center gap-x-4">
+                  <svg
+                    viewBox="0 0 2 2"
+                    class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50"
+                  >
+                    <circle cx="1" cy="1" r="1" />
+                  </svg>
+                  <div class="flex font-bold text-base text-amber-200">
+                    {pod.data.author}
+                  </div>
+                </div>
+              </div>
+              <h3 class="mt-3 text-lg font-black leading-6 text-mariner-100">
+                <a href={`/podcast/${pod.slug}/`}>
+                  <span class="absolute inset-0" />
+                  {pod.data.title}
+                </a>
+              </h3>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

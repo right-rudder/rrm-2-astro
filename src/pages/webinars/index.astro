@@ -1,0 +1,112 @@
+---
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import WebinarFormInline from "@/components/WebinarFormInline";
+
+const PORTAL_API_KEY = import.meta.env.PORTAL_API_KEY;
+const GHL_WEBINAR_FORM_WEBHOOK_URL = import.meta.env
+  .GHL_WEBINAR_FORM_WEBHOOK_URL;
+
+const content = {
+  header: {
+    imagePath: "/src/assets/hans-peter-gauster-3y1zF4hIPCg-unsplash.jpg",
+    imageAlt:
+      "jigsaw puzzle pieces simbolizing all the knowledge a person can learn at our webinars",
+    headerH1: "Webinars",
+    paragraph:
+      "Explore the latest happenings in the world of flight training at Right Rudder Marketing. Gain valuable insights and tips to ease pre-flight jitters and prepare effectively for your important milestones.",
+  },
+};
+
+const posts = (await getCollection("webinars"))
+  .filter((webinar) => webinar.data.status !== "draft") //  filter drafts out
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Breadcrumb navigation for blog index
+const breadcrumbs = [
+  { name: "Home", url: "/" },
+  { name: "Webinars", url: "/webinars" },
+];
+---
+
+<BaseLayout
+  siteTitle="Webinars | Right Rudder Marketing"
+  siteDescription="Explore the latest happenings in the world of flight training at Right Rudder Marketing. Gain valuable insights and tips to ease pre-flight jitters and prepare effectively for your important milestones."
+  keywords="webinars, flight training webinars, aviation marketing webinars, pilot training marketing webinars"
+>
+  <section class="relative overflow-hidden bg-white py-24 sm:py-32">
+    <div class="absolute inset-0 bg-slate-900 h-28"></div>
+    <div class="mx-auto px-6 pt-10 lg:px-8">
+      <div class="flex flex-wrap justify-center mb-12">
+        <div
+          class="flex flex-col justify-center items-center w-full lg:w-1/2 max-w-2xl text-center"
+        >
+          <h2 class="text-4xl md:text-6xl font-bold text-center mb-4">
+            Past Webinars
+          </h2>
+          <p class="mt-2 text-lg/6 text-gray-600">
+            Great lessons and insights from the Right Rudder Marketing team.
+          </p>
+          <p class="text-xs text-muted-400 mt-2">
+            {posts.length}{posts.length > 1 ? " webinars" : " webinar"}. Since{
+              " "
+            }
+            <FormattedDate date={posts[posts.length - 1].data.pubDate} />
+          </p>
+        </div>
+        {
+          posts[0].data.pubDate.valueOf() > new Date().valueOf() && (
+            <div class="my-8 text-center w-full lg:w-1/2">
+              <WebinarFormInline
+                webhook={GHL_WEBINAR_FORM_WEBHOOK_URL}
+                apiKey={PORTAL_API_KEY}
+                client:visible
+              />
+            </div>
+          )
+        }
+      </div>
+      <div
+        class="w-full flex flex-wrap gap-3 lg:gap-6 mt-16 mx-auto justify-center"
+      >
+        {
+          posts.map((webin, index) => (
+            <article class="relative group aspect-square md:aspect-video w-full lg:m-0 md:w-[45%] isolate flex flex-col justify-end overflow-hidden rounded-md bg-white px-8 pb-8 pt-48  hover:ring-1 hover:ring-amber duration-200">
+              <img
+                src={webin.data.heroImage}
+                alt={webin.data.title}
+                class="absolute inset-0 -z-10 h-full w-full object-cover object-left group-hover:scale-110 group-hover:brightness-125 duration-200"
+              />
+              <div class="absolute inset-0 -z-10 bg-linear-to-t from-gray-950 via-gray-900/20 to-gray-900/10 group-hover:bg-transparent duration-200" />
+              <div class="absolute inset-0 -z-10 rounded-md ring-1 ring-inset ring-gray-900/10" />
+
+              <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-100">
+                <time datetime="2020-03-16" class="mr-8 text-amber-400">
+                  <FormattedDate date={webin.data.pubDate} />
+                </time>
+                <div class="-ml-4 flex items-center gap-x-4">
+                  <svg
+                    viewBox="0 0 2 2"
+                    class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50"
+                  >
+                    <circle cx="1" cy="1" r="1" />
+                  </svg>
+                  <div class="flex font-bold text-base text-amber-200">
+                    {webin.data.author}
+                  </div>
+                </div>
+              </div>
+              <h3 class="mt-3 text-lg font-black leading-6 text-mariner-100">
+                <a href={`/webinars/${webin.slug}/`}>
+                  <span class="absolute inset-0" />
+                  {webin.data.title}
+                </a>
+              </h3>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

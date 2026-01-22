@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero75 from "@/components/Hero75.astro";
+import LogosCloud from "@/components/LogosCloud.astro";
+import MembersOf from "@/components/MembersOf.astro";
+
+const ourClients = {
+  heading:
+    "In the last 5 years leaders at these flight schools have turned to RRM",
+  description:
+    "Our flight schools are the best in the business. They are the top flight schools in the country and they trust us to help them grow and scale their businesses. We are proud to be a part of their success.",
+};
+
+const membersOf = {
+  heading: "Proud members of",
+  organizations: [
+    {
+      name: "FSANA",
+      imagePath: "/src/assets/FSANA-logo-crop.webp",
+      imageAlt: "FSANA logo",
+      link: "https://www.fsana.com/partners.php",
+    },
+    {
+      name: "NBAA",
+      imagePath: "/src/assets/NBAA-logo.webp",
+      imageAlt: "NBAA logo",
+      link: "https://nbaa.org/",
+    },
+    {
+      name: "AMA",
+      imagePath: "/src/assets/AMA-logo.webp",
+      imageAlt: "AMA logo",
+      link: "https://www.ama.org/",
+    },
+    {
+      name: "Us Chamber of Commerce",
+      imagePath: "/src/assets/uschamber-logo.webp",
+      imageAlt: "Us Chamber of Commerce logo",
+      link: "https://www.uschamber.com/",
+    },
+    {
+      name: "NAFI",
+      imagePath: "/src/assets/NAFI-corporate-logo.webp",
+      imageAlt: "NAFI logo",
+      link: "https://www.nafinet.org/sponsors",
+    },
+  ],
+};
+
+const pageData = {
+  pageTitle:
+    "We have a plan. Let's grow and scale Together | Investors | Right Rudder Marketing",
+  pageDescription:
+    "Invest in Right Rudder Marketing and help us grow the aviation industry. We are a digital marketing agency that specializes in helping flight schools grow and scale their businesses.",
+  pageKeywords:
+    "investors, invest in right rudder marketing, aviation marketing, flight school marketing, digital marketing, flight training marketing, aviation industry, flight school industry, flight training industry, aviation marketing agency, flight school marketing agency, digital marketing agency, flight training marketing agency, aviation marketing experts, flight school marketing experts, digital marketing experts, flight training marketing experts",
+};
+
+const heroData = {
+  image: {
+    src: "/src/assets/angry-_-kat-5R4fBlHEegc-unsplash.jpg",
+    alt: "Flight training classroom and aircraft",
+  },
+  title: "Let's grow and scale Together",
+  subTitle:
+    "Right Rudder Marketing is on track to become a multi-million dollar digital marketing agency. If you want to be a part of the action, contact us and let's start a conversation. We are a digital marketing agency that specializes in helping flight schools grow and scale their businesses.",
+};
+---
+
+<BaseLayout
+  siteTitle={pageData.pageTitle}
+  siteDescription={pageData.pageDescription}
+  keywords={pageData.pageKeywords}
+>
+  <!-- HEADER -->
+  <Hero75 data={heroData} />
+
+  <MembersOf data={membersOf} />
+
+  <LogosCloud data={ourClients} />
+</BaseLayout>

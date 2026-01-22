@@ -24,12 +24,12 @@ const { data } = Astro.props;
 ---
 
 <section
-  class="hero-section relative overflow-hidden flex justify-center items-center lg:items-end lg:pb-24 text-white min-h-[75vh]"
+  class="relative overflow-hidden flex justify-center items-center lg:items-end lg:pb-24 text-white min-h-[75vh]"
   aria-label="Hero section"
 >
   <!-- Background overlay for better text readability -->
   <div
-    class="absolute inset-0 bg-linear-to-b from-muted-100/50 via-40% via-black/10 to-black/40 -z-10"
+    class="absolute inset-0 bg-linear-to-b from-gray-900/40 to-black/10 -z-10"
     aria-hidden="true"
   >
   </div>
@@ -85,44 +85,3 @@ const { data } = Astro.props;
     </div>
   </div>
 </section>
-
-<style>
-  .hero-section {
-    position: relative;
-  }
-
-  /* Improved text shadow for better readability */
-  h1,
-  h2 {
-    text-shadow:
-      0 2px 10px rgba(0, 0, 0, 0.7),
-      0 4px 20px rgba(0, 0, 0, 0.5);
-  }
-
-  /* Enhanced animation for background image */
-  @keyframes slow-zoom {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(1.1);
-    }
-  }
-
-  .animate-slow-zoom {
-    animation: slow-zoom 20s ease-in-out infinite alternate;
-  }
-
-  /* Button hover effects */
-  .btn-primary:hover,
-  .btn-transparent:hover {
-    transform: translateY(-2px);
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 640px) {
-    .hero-section {
-      min-height: 100vh;
-    }
-  }
-</style>

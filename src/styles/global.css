@@ -138,3 +138,7 @@
 h1, h2, h3, h4, h5, h6 {
   @apply font-title
 }
+
+.prose a {
+  @apply no-underline hover:underline text-mariner-600
+}

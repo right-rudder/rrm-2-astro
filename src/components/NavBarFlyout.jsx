@@ -47,7 +47,7 @@ const aboutUs = [
     name: "Partner with Us",
     description:
       "Explore partnership opportunities with Right Rudder Marketing",
-    href: "/about/partnerships",
+    href: "/about/partners-affiliates",
     icon: UserPlusIcon,
   },
   {
@@ -87,7 +87,7 @@ const resources = [
   {
     name: "The Aviation Business Podcast",
     description: "Interviews and discussions on aviation business topics",
-    href: "https://theaviationbusinesspodcast.com/",
+    href: "/podcast",
     icon: MicrophoneIcon,
   },
 ];

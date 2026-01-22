@@ -149,7 +149,7 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
       <slot />
       <!-- Breadcrumb Navigation -->
       {breadcrumbs.length > 1 && (
-        <nav aria-label="Breadcrumb" class="border-b font-ubuntu border-muted-200 text-muted-900">
+        <nav aria-label="Breadcrumb" class="border-b font-ubuntu border-muted-200 text-muted-900 bg-white">
           <div class="max-w-7xl mx-auto px-5 md:px-10 lg:px-20 py-3">
             <ol class="flex items-center space-x-2 text-sm">
               {breadcrumbs.map((crumb, index) => (
@@ -160,13 +160,13 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
                     </svg>
                   )}
                   {index === breadcrumbs.length - 1 ? (
-                    <span class="font-medium" aria-current="page">
+                    <span class="font-medium text-gray-400" aria-current="page">
                       {crumb.name}
                     </span>
                   ) : (
                     <a
                       href={crumb.url}
-                      class="hover:text-primary-600 transition-colors duration-200 font-medium"
+                      class="hover:text-mariner-600 transition-colors duration-200 font-medium"
                     >
                       {crumb.name}
                     </a>
