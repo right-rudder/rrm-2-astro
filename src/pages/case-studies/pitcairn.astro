@@ -1,0 +1,41 @@
+---
+import Hero75 from "@/components/Hero75.astro";
+import sunCityAviationAcademy from "../../data/sun-city";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentLong from "@/components/ContentLong.astro";
+import SingleTestimonial from "@/components/SingleTestimonial.astro";
+import pitcairnFlight from "@/data/pitcairn";
+
+const seoData = {
+  pageTitle: "Pitcairn Flight Academy | Case Study | Right Rudder Marketing",
+  pageDescription:
+    "We built and deployed his website, created his Google Business profile, ran their Google Ads campaign, and also introduced our CRM (customer relationship management) software to help streamline their sales operations. They’re Google Business profile went from non-existent to a fully optimized profile with 5 star reviews showcasing their authority and reputation.",
+  pageKeywords:
+    "pitcairn flight academy case study, marketing case study, aviation case study, flight school marketing, aviation marketing, flight training marketing, pilot training marketing, flight school advertising, aviation advertising, flight training advertising, pilot training advertising, flight school lead generation, aviation lead generation, flight training lead generation, pilot training lead generation, flight school seo, aviation seo, flight training seo, pilot training seo, flight school website design, aviation website design, flight training website design, pilot training website design, flight school social media, aviation social media, flight training social media, pilot training social media",
+};
+
+const heroData = {
+  image: {
+    src: "/src/assets/pitcairn-heritage-field-fly-in.webp",
+    alt: "Pitcairn Heritage Field panoramic view",
+  },
+  title: "Pitcairn Flight Academy",
+  subTitle:
+    "We built and deployed his website, created his Google Business profile, ran their Google Ads campaign, and also introduced our CRM (customer relationship management) software to help streamline their sales operations. They’re Google Business profile went from non-existent to a fully optimized profile with 5 star reviews showcasing their authority and reputation.",
+};
+
+const { data } = pitcairnFlight;
+---
+
+<BaseLayout
+  siteTitle={seoData.pageTitle}
+  siteDescription={seoData.pageDescription}
+  siteKeywords={seoData.pageKeywords}
+>
+  <!-- HEADER -->
+  <Hero75 data={heroData} />
+
+  <ContentLong data={data.caseLong} />
+
+  <SingleTestimonial data={data.testimonial} />
+</BaseLayout>

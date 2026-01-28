@@ -1,0 +1,40 @@
+---
+import Hero75 from "@/components/Hero75.astro";
+import ContentLong from "../../components/ContentLong.astro";
+import SingleTestimonial from "../../components/SingleTestimonial.astro";
+import simplifly from "../../data/simplifly";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const seoData = {
+  pageTitle: "SimpliFly - Case Study | Right Rudder Marketing",
+  pageDescription:
+    "When Blake from SimpliFly gave Right Rudder Marketing a call, they were looking to update their website and get more leads coming into their school to increase their revenue. They had a WordPress website already built out, social media profiles, and a GMB listing, but they weren't seeing much progress in their online rankings. With multiple flight schools at their airport competing for prospective students' attention, Blake knew he needed to do something about his digital marketing.",
+  pageKeywords:
+    "flight school marketing, aviation marketing, flight training marketing, pilot training marketing, flight school advertising, aviation advertising, flight training advertising, pilot training advertising, flight school lead generation, aviation lead generation, flight training lead generation, pilot training lead generation, flight school seo, aviation seo, flight training seo, pilot training seo, flight school website design, aviation website design, flight training website design, pilot training website design, flight school social media, aviation social media, flight training social media, pilot training social media",
+};
+
+const heroData = {
+  image: {
+    src: "/src/assets/multi-engine-airplane-flying-over-mesa-az.webp",
+    alt: "SimpliFly multi-engine airplane flying over Mesa, AZ",
+  },
+  title: "SimpliFly",
+  subTitle:
+    "When Blake from SimpliFly gave Right Rudder Marketing a call, they were looking to update their website and get more leads coming into their school to increase their revenue. They had a WordPress website already built out, social media profiles, and a GMB listing, but they weren't seeing much progress in their online rankings.",
+};
+
+const { data } = simplifly;
+---
+
+<BaseLayout
+  siteTitle={seoData.pageTitle}
+  siteDescription={seoData.pageDescription}
+  siteKeywords={seoData.pageKeywords}
+>
+  <!-- HEADER -->
+  <Hero75 data={heroData} />
+
+  <ContentLong data={data.caseLong} />
+
+  <SingleTestimonial data={data.testimonial} />
+</BaseLayout>

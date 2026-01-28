@@ -1,0 +1,40 @@
+---
+import Hero75 from "@/components/Hero75.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentLong from "@/components/ContentLong.astro";
+import SingleTestimonial from "@/components/SingleTestimonial.astro";
+import blueSkiesAbove from "@/data/blue-skies-above";
+
+const seoData = {
+  pageTitle: "Blue Skies Above - Case Study | Right Rudder Marketing",
+  pageDescription:
+    "Blue Skies Above, a flight school near Auburn, AL, doubled their growth in under a year after partnering with Right Rudder Marketing. Discover how our SEO, Google Ads, and CRM strategies helped them generate more leads and expand their fleet to meet the growing demand.",
+  pageKeywords:
+    "flight school marketing, aviation marketing, flight training marketing, Blue Skies Above, pilot training marketing, flight school advertising, aviation advertising, flight training advertising, pilot training advertising, flight school lead generation, aviation lead generation, flight training lead generation, pilot training lead generation, flight school seo, aviation seo, flight training seo, pilot training seo, flight school website design, aviation website design, flight training website design, pilot training website design",
+};
+
+const heroData = {
+  image: {
+    src: "/src/assets/blue-skies-above-checkride-pass.webp",
+    alt: "Blue Skies Above student pilot receiving his certificate after passing his checkride",
+  },
+  title: "Blue Skies Above",
+  subTitle:
+    "Blue Skies Above, located in Lanett, AL, just a hop skip and away from Auburn, AL, partnered with Right Rudder Marketing to grow their flight school. Within a year, they saw 2X growth and now have over 10 students on their waitlist.",
+};
+
+const { data } = blueSkiesAbove;
+---
+
+<BaseLayout
+  siteTitle={seoData.pageTitle}
+  siteDescription={seoData.pageDescription}
+  siteKeywords={seoData.pageKeywords}
+>
+  <!-- HEADER -->
+  <Hero75 data={heroData} />
+
+  <ContentLong data={data.caseLong} />
+
+  <SingleTestimonial data={data.testimonial} />
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+import Hero75 from "@/components/Hero75.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentLong from "@/components/ContentLong.astro";
+import SingleTestimonial from "@/components/SingleTestimonial.astro";
+import uft from "@/data/uft";
+
+const seoData = {
+  pageTitle:
+    "Universal Flight Training (UFT) - Case Study | Right Rudder Marketing",
+  pageDescription:
+    "From last place to market leader: How Universal Flight Training transformed their business with strategic aviation marketing. Complete business transformation from struggling enrollment to 'busier than any other school on the field' through specialized digital marketing expertise.",
+  pageKeywords:
+    "flight school marketing, aviation marketing, flight training marketing, pilot training marketing, flight school advertising, aviation advertising, flight training advertising, pilot training advertising, flight school lead generation, aviation lead generation, flight training lead generation, pilot training lead generation, flight school seo, aviation seo, flight training seo, pilot training seo, flight school website design, aviation website design, flight training website design, pilot training website design, flight school transformation, Sarasota flight school",
+};
+
+const heroData = {
+  image: {
+    src: "/src/assets/uft-flying-over-pinellas-county-clearwater-florida.jpg",
+    alt: "Universal Flight Training facility at Sarasota Bradenton International Airport",
+  },
+  title: "Universal Flight Training",
+  subTitle:
+    "From last place to market leader: How Universal Flight Training transformed from struggling with declining enrollment to becoming the busiest flight school on their field through strategic partnership with Right Rudder Marketing.",
+};
+
+const { data } = uft;
+---
+
+<BaseLayout
+  siteTitle={seoData.pageTitle}
+  siteDescription={seoData.pageDescription}
+  siteKeywords={seoData.pageKeywords}
+>
+  <!-- HEADER -->
+  <Hero75 data={heroData} />
+
+  <ContentLong data={data.caseLong} />
+
+  <SingleTestimonial data={data.testimonial} />
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+import Hero75 from "@/components/Hero75.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentLong from "@/components/ContentLong.astro";
+import SingleTestimonial from "@/components/SingleTestimonial.astro";
+import idealAviation from "@/data/ideal-aviation";
+
+const seoData = {
+  pageTitle: "Sun City Aviation Academy - Case Study | Right Rudder Marketing",
+  pageDescription:
+    "When Tim Jedrek, Founder and CEO of Right Rudder Marketing, met Luke and Georgette Poulos, founders of Sun City Aviation Academy, at FSANA two years ago, it marked the beginning of a transformative partnership. Sun City Aviation Academy was looking to update their website and get more leads coming into their school to increase their revenue. They had a WordPress website already built out, social media profiles, and a GMB listing, but they weren't seeing much progress in their online rankings.",
+  pageKeywords:
+    "flight school marketing, aviation marketing, flight training marketing, pilot training marketing, flight school advertising, aviation advertising, flight training advertising, pilot training advertising, flight school lead generation, aviation lead generation, flight training lead generation, pilot training lead generation, flight school seo, aviation seo, flight training seo, pilot training seo, flight school website design, aviation website design, flight training website design, pilot training website design, flight school social media, aviation social media, flight training social media, pilot training social media",
+};
+
+const heroData = {
+  image: {
+    src: "/src/assets/Ideal-aviation-multi-engine-aircraft.webp",
+    alt: "fly over Right Rudder Marketing - Digital Marketing Agency for Flight Schools",
+  },
+  title: "Ideal Aviation",
+  subTitle:
+    "Enroll more pilots at your flight school and leave a lasting impact to the next generation of future aviators while saving time and increasing profits and revenue.",
+};
+
+const { data } = idealAviation;
+---
+
+<BaseLayout
+  siteTitle={seoData.pageTitle}
+  siteDescription={seoData.pageDescription}
+  siteKeywords={seoData.pageKeywords}
+>
+  <!-- HEADER -->
+  <Hero75 data={heroData} />
+
+  <ContentLong data={data.caseLong} />
+
+  <SingleTestimonial data={data.testimonial} />
+</BaseLayout>

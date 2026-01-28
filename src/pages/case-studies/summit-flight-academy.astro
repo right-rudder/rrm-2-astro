@@ -1,0 +1,40 @@
+---
+import summitFlightAcademy from "@/data/summit-flight-academy";
+import ContentLong from "../../components/ContentLong.astro";
+import SingleTestimonial from "../../components/SingleTestimonial.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero75 from "@/components/Hero75.astro";
+
+const seoData = {
+  pageTitle: "Summit Flight Academy - Case Study | Right Rudder Marketing",
+  pageDescription:
+    "Summit Flight Academy is a leading flight school based in Lee's Summit, Missouri, specializing in professional pilot training, accelerated programs, and a modern approach to aviation education. See how Right Rudder Marketing helped them double their website traffic and more than double their leads in just three months.",
+  pageKeywords:
+    "summit flight academy case study, Lee's Summit Missouri flight school, kansas city flight school, flight school marketing, aviation marketing, flight training marketing, pilot training marketing, flight school advertising, aviation advertising, flight training advertising, pilot training advertising, flight school lead generation, aviation lead generation, flight training lead generation, pilot training lead generation, flight school seo, aviation seo, flight training seo, pilot training seo, flight school website design, aviation website design, flight training website design, pilot training website design, flight school social media, aviation social media, flight training social media, pilot training social media",
+};
+
+const heroData = {
+  image: {
+    src: "/src/assets/RRM-Case-Study-Summit-Flight-Academy.webp",
+    alt: "Summit Flight Academy aircraft on the tarmac",
+  },
+  title: "Summit Flight Academy",
+  subTitle:
+    "Summit Flight Academy is a leading flight school based in Lee's Summit, Missouri, specializing in professional pilot training, accelerated programs, and a modern approach to aviation education. See how we helped them double their website traffic and more than double their leads in just three months.",
+};
+
+const { data } = summitFlightAcademy;
+---
+
+<BaseLayout
+  siteTitle={seoData.pageTitle}
+  siteDescription={seoData.pageDescription}
+  siteKeywords={seoData.pageKeywords}
+>
+  <!-- HEADER -->
+  <Hero75 data={heroData} />
+
+  <ContentLong data={data.caseLong} />
+
+  <SingleTestimonial data={data.testimonial} />
+</BaseLayout>
