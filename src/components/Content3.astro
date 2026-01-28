@@ -13,10 +13,10 @@ const { data } = Astro.props;
         <h2 class="title">
           {data.heading}
         </h2>
-        <p class="text-xl leading-8 text-gray-600">
+        <p class="text-lg/7 text-gray-600">
           {data.description}
         </p>
-        <div class="mt-10 max-w-xl text-base leading-7 text-gray-700">
+        <div class="mt-6 max-w-xl text-lg/7 text-gray-700">
           {
             data.paragraphs.map((paragraph: string) => (
               <p class="mt-2">{paragraph}</p>
@@ -24,22 +24,26 @@ const { data } = Astro.props;
           }
         </div>
       </div>
-      <div class="lg:flex lg:flex-auto lg:justify-center">
-        <dl class="w-64 space-y-12 xl:w-80">
-          {
-            data.facts.map((fact: { description: string; title: string }) => (
-              <div class="flex flex-col-reverse">
-                <dt class="text-base leading-6 text-muted-600">
-                  {fact.description}
-                </dt>
-                <dd class="text-5xl text-center font-bold tracking-tight text-gray-500">
-                  {fact.title}
-                </dd>
-              </div>
-            ))
-          }
-        </dl>
-      </div>
+      {
+        data.facts && (
+          <div class="lg:flex lg:flex-auto lg:justify-center">
+            <dl class="w-64 space-y-12 xl:w-80">
+              {data.facts.map(
+                (fact: { description: string; title: string }) => (
+                  <div class="flex flex-col-reverse">
+                    <dt class="text-base leading-6 text-muted-600">
+                      {fact.description}
+                    </dt>
+                    <dd class="text-5xl text-center font-bold tracking-tight text-gray-500">
+                      {fact.title}
+                    </dd>
+                  </div>
+                ),
+              )}
+            </dl>
+          </div>
+        )
+      }
     </div>
   </div>
 </div>

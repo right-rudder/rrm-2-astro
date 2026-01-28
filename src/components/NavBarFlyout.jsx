@@ -72,7 +72,7 @@ const resources = [
   {
     name: "Flight Deck Magazine",
     description: "Insights and trends in the aviation industry",
-    href: "/resources/flight-deck-magazine",
+    href: "/flight-deck",
     icon: BookOpenIcon,
   },
   {
