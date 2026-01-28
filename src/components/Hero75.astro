@@ -29,7 +29,7 @@ const { data } = Astro.props;
 >
   <!-- Background overlay for better text readability -->
   <div
-    class="absolute inset-0 bg-linear-to-b from-gray-900/40 to-black/10 -z-10"
+    class="absolute inset-0 bg-linear-to-b from-black/80 to-black/50 -z-10"
     aria-hidden="true"
   >
   </div>
@@ -38,7 +38,7 @@ const { data } = Astro.props;
   <ImageComp
     src={data.image.src}
     alt={data.image.alt}
-    class="absolute inset-0 h-full w-full object-cover object-center brightness-90 animate-slow-zoom -z-20"
+    class="absolute inset-0 h-full w-full object-cover object-bottom -z-20"
     loading="eager"
     quality={100}
   />
@@ -53,13 +53,13 @@ const { data } = Astro.props;
         class="flex flex-col items-center lg:items-start gap-y-6 text-center lg:text-left"
       >
         <h1
-          class="font-title text-white text-4xl/tight sm:text-5xl/tight md:text-6xl/tight lg:text-7xl/16 uppercase font-bold drop-shadow-2xl"
+          class="font-title text-white text-4xl/8 md:text-6xl/9 lg:text-7xl/16 uppercase font-extrabold drop-shadow-2xl"
           set:html={data.title}
         />
         {
           data.subTitle && (
             <h2
-              class="text-lg/7 sm:text-xl/8 md:text-xl/6 font-light text-muted-50 max-w-2xl"
+              class="text-lg/6 sm:text-xl/8 md:text-xl/6 font-light text-muted-50 max-w-2xl"
               set:html={data.subTitle}
             />
           )

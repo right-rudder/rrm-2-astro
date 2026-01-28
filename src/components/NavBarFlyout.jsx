@@ -14,25 +14,11 @@ import {
 } from "@headlessui/react";
 import {
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
   XMarkIcon,
-  CodeBracketSquareIcon,
-  MagnifyingGlassCircleIcon,
-  PlayCircleIcon as PlayCircleIconOutline,
-  CurrencyDollarIcon,
-  UserCircleIcon,
-  BuildingStorefrontIcon,
   BookOpenIcon,
   BookmarkSquareIcon,
   AcademicCapIcon,
   MicrophoneIcon,
-  CubeTransparentIcon,
-  UserPlusIcon,
-  BriefcaseIcon,
-  PresentationChartBarIcon,
 } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
@@ -40,9 +26,20 @@ import {
   PhoneIcon,
   PlayCircleIcon,
   RectangleGroupIcon,
+  UserPlusIcon,
+  BriefcaseIcon,
+  PresentationChartBarIcon,
+  UsersIcon,
+  EnvelopeIcon,
 } from "@heroicons/react/20/solid";
 
 const aboutUs = [
+  {
+    name: "Who We Are",
+    description: "Learn about the mission and values of Right Rudder Marketing",
+    href: "/about/who-we-are",
+    icon: UsersIcon,
+  },
   {
     name: "Partner with Us",
     description:
@@ -92,13 +89,16 @@ const resources = [
   },
 ];
 const callsToActionAboutUs = [
-  { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-  { name: "Contact sales", href: "#", icon: PhoneIcon },
-  { name: "View all services", href: "#", icon: RectangleGroupIcon },
+  { name: "Schedule a Call", href: "/schedule-call", icon: PhoneIcon },
+  { name: "Contact Us", href: "/contact", icon: EnvelopeIcon },
 ];
 const callsToActionResources = [
   { name: "Our Marketing System", href: "/marketing-system", icon: CubeIcon },
-  { name: "View all resources", href: "#", icon: RectangleGroupIcon },
+  {
+    name: "View all resources",
+    href: "/marketing-system",
+    icon: RectangleGroupIcon,
+  },
 ];
 
 export default function NavbarFlyout() {
@@ -158,24 +158,24 @@ export default function NavbarFlyout() {
 
             <PopoverPanel
               transition
-              className="absolute inset-x-0 top-24 bg-slate-800 transition data-closed:-translate-y-2 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
+              className="absolute inset-x-0 -z-10 pt-28 top-0 bg-slate-800 transition data-closed:-translate-y-2 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
             >
               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
               <div
                 aria-hidden="true"
                 className="absolute inset-0 top-1/2 bg-slate-100 ring-1 ring-white/15"
               />
-              <div className="relative bg-slate-400">
+              <div className="relative bg-linear-to-b from-mariner-800 to-mariner-700">
                 <div className="mx-auto flex flex-wrap justify-center max-w-7xl gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
                   {resources.map((item) => (
                     <div
                       key={item.name}
-                      className="group w-1/5 relative rounded-lg p-6 text-sm/5 hover:bg-slate-900/5"
+                      className="group w-1/5 relative rounded-lg p-6 text-sm/5 hover:bg-mariner-950/10 duration-100"
                     >
-                      <div className="flex size-11 items-center justify-center rounded-lg bg-slate-400/50 group-hover:bg-slate-700">
+                      <div className="flex size-11 items-center justify-center rounded-lg bg-mariner-600/50 group-hover:bg-mariner-950 duration-200">
                         <item.icon
                           aria-hidden="true"
-                          className="size-6 text-slate-600 group-hover:text-white"
+                          className="size-6 text-mariner-100 group-hover:text-white"
                         />
                       </div>
                       <a
@@ -183,29 +183,29 @@ export default function NavbarFlyout() {
                         target={
                           item.href.startsWith("http") ? "_blank" : undefined
                         }
-                        className="mt-6 block font-semibold text-slate-900"
+                        className="mt-6 block font-semibold text-mariner-200 group-hover:text-white duration-300"
                       >
                         {item.name}
                         <span className="absolute inset-0" />
                       </a>
-                      <p className="mt-1 text-slate-500 group-hover:text-slate-700">
+                      <p className="mt-1 text-mariner-400 group-hover:text-mariner-200">
                         {item.description}
                       </p>
                     </div>
                   ))}
                 </div>
-                <div className="bg-slate-800/50">
+                <div className="bg-mariner-600">
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="flex justify-center divide-x divide-white/5 border-x border-white/10">
                       {callsToActionResources.map((item) => (
                         <a
                           key={item.name}
                           href={item.href}
-                          className="flex items-center w-1/3 justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-slate-100 hover:bg-slate-800"
+                          className="flex items-center w-1/3 justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-mariner-200 hover:text-white hover:bg-mariner-700 duration-100"
                         >
                           <item.icon
                             aria-hidden="true"
-                            className="size-5 flex-none text-slate-700"
+                            className="size-5 flex-none text-mariner-950"
                           />
                           {item.name}
                         </a>
@@ -241,21 +241,21 @@ export default function NavbarFlyout() {
 
             <PopoverPanel
               transition
-              className="absolute inset-x-0 top-24 bg-slate-800 transition data-closed:-translate-y-2 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
+              className="absolute inset-x-0 pt-28 -z-10 top-0 bg-slate-800 transition data-closed:-translate-y-2 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
             >
               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
               <div
                 aria-hidden="true"
                 className="absolute inset-0 top-1/2 bg-slate-100 ring-1 ring-white/15"
               />
-              <div className="relative bg-mariner-200">
+              <div className="relative bg-linear-to-b from-mariner-200 to-mariner-300">
                 <div className="mx-auto flex flex-wrap justify-center max-w-7xl gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
                   {aboutUs.map((item) => (
                     <div
                       key={item.name}
-                      className="group w-1/5 relative rounded-lg p-6 text-sm/5 hover:bg-mariner-900/5"
+                      className="group w-1/5 relative rounded-lg p-6 text-sm/5 hover:bg-mariner-900/5 duration-100"
                     >
-                      <div className="flex size-11 items-center justify-center rounded-lg bg-mariner-200/50 group-hover:bg-mariner-700">
+                      <div className="flex size-11 items-center justify-center rounded-lg bg-mariner-200/50 group-hover:bg-mariner-700 duration-200">
                         <item.icon
                           aria-hidden="true"
                           className="size-6 text-mariner-600 group-hover:text-white"
@@ -266,29 +266,29 @@ export default function NavbarFlyout() {
                         target={
                           item.href.startsWith("http") ? "_blank" : undefined
                         }
-                        className="mt-6 block font-semibold text-gray-700"
+                        className="mt-6 block font-semibold text-gray-700 group-hover:text-gray-800 duration-300"
                       >
                         {item.name}
                         <span className="absolute inset-0" />
                       </a>
-                      <p className="mt-1 text-gray-400 group-hover:text-gray-700">
+                      <p className="mt-1 text-gray-400 group-hover:text-gray-500">
                         {item.description}
                       </p>
                     </div>
                   ))}
                 </div>
-                <div className="bg-mariner-800/50">
+                <div className="bg-mariner-500">
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="flex justify-center divide-x divide-white/5 border-x border-white/10">
                       {callsToActionAboutUs.map((item) => (
                         <a
                           key={item.name}
                           href={item.href}
-                          className="flex items-center w-1/3 justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-mariner-100 hover:bg-mariner-800"
+                          className="flex group items-center w-1/3 justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-mariner-100 hover:text-mariner-300 hover:bg-mariner-900 duration-100"
                         >
                           <item.icon
                             aria-hidden="true"
-                            className="size-5 flex-none text-mariner-700"
+                            className="size-5 flex-none text-mariner-900 group-hover:text-white"
                           />
                           {item.name}
                         </a>

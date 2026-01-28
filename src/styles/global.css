@@ -57,7 +57,7 @@
   --animate-slow-zoom: slow-zoom 27s ease forwards;
   --animate-fast-zoom: fast-zoom 9s ease alternate infinite;
   
-  --animate-fade-in: fade-in 0.5s linear forwards;
+  --animate-fade-in: fade-in 1s linear forwards;
   --animate-spin-slow: spin 4s linear infinite;
   --animate-spin-slower: spin 6s linear infinite;
   --animate-spin-reverse: spin-reverse 1s linear infinite;
@@ -90,6 +90,7 @@
       opacity: 1;
     }
   }
+  
   @keyframes spin-reverse {
     to {
       transform: rotate(-360deg);

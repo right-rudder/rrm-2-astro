@@ -1,0 +1,94 @@
+---
+import HeaderCollage from "@/components/HeaderCollage.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Content3 from "@/components/Content3.astro";
+import OurValues from "@/components/OurValues.astro";
+import LogosCloud from "@/components/LogosCloud.astro";
+import TeamGrid from "@/components/TeamGrid.astro";
+const seoData = {
+  pageTitle: "Who We Are | Right Rudder Marketing",
+  pageDescription:
+    "Right Rudder Marketing is a pilot-owned digital marketing agency focused on helping flight schools and aviation businesses accomplish their goals: Grow, scale, and make a significant impact to the pilot training industry. We want to help 100 flight schools double their student body and dominate their service area by 2026.",
+  pageKeywords:
+    "flight school marketing, aviation marketing, pilot marketing, flight school advertising, aviation advertising, pilot advertising, flight school growth, aviation growth, get more pilot students, get more aviation students, flight school leads, aviation leads, pilot leads, flight school marketing agency, aviation marketing agency, pilot marketing agency, flight school advertising agency, aviation advertising agency, pilot advertising agency, flight school growth agency, aviation growth agency, get more pilot students agency, get more aviation students agency, flight school leads agency, aviation leads agency, pilot leads agency, flight school marketing company, aviation marketing company, pilot marketing company, flight school advertising company, aviation advertising company, pilot advertising company, flight school growth company, aviation growth company, get more pilot students company, get more aviation students company, flight school leads company, aviation leads company, pilot leads company, enroll more students, double your flight school, double your aviation business, flight school marketing experts, aviation marketing experts, pilot marketing experts, flight school advertising experts, aviation advertising experts, pilot advertising experts, flight school growth experts, aviation growth experts, get more pilot students experts, get more aviation students experts, flight school leads experts, aviation leads experts, pilot leads experts",
+};
+
+const headerData = {
+  headerH1: "Who We Are",
+  paragraph:
+    "Right Rudder Marketing is a pilot-owned digital marketing agency focused on helping flight schools and aviation businesses accomplish their goals: Grow, scale, and make a significant impact to the pilot training industry. Flight schools that partner with Right Rudder Marketing become the #1 flight schools in their community and dominate the local area. There's no doubt about it. Right Rudder Marketing has the secret sauce.",
+  images: [
+    {
+      imagePath: "/src/assets/greg-rosenke-0DizjoNOCrw-unsplash.jpg",
+      imageAlt: "Airplane flying in the sky - Right Rudder Marketing",
+    },
+    {
+      imagePath: "/src/assets/andrew-ruiz--ajZ_Xzeqe4-unsplash.jpg",
+      imageAlt: "Airplane flying in the sky - Right Rudder Marketing",
+    },
+    {
+      imagePath: "/src/assets/maksim-chernishev-HM8SDqf6l-U-unsplash(1).jpg",
+      imageAlt: "Airplane flying in the sky - Right Rudder Marketing",
+    },
+    {
+      imagePath: "/src/assets/trac-vu-dDWsqFJaMfk-unsplash.jpg",
+      imageAlt: "Airplane flying in the sky - Right Rudder Marketing",
+    },
+    {
+      imagePath: "/src/assets/william-topa-7_4bU5tHRLQ-unsplash.jpg",
+      imageAlt: "Airplane flying in the sky - Right Rudder Marketing",
+    },
+  ],
+};
+
+const ourMissionData = {
+  heading: "Our Mission",
+  description:
+    "Our mission is to impact the aviation training industry and bring more people into aviation. Right Rudder Marketing aims to lower the cost of participating in aviation by increasing the supply of pilots which provides increased demand for aviation companies to operate at economies of scale.",
+  paragraphs: [
+    "Our mission is to facilitate the progress of our society into a new age where all humans are given the opportunities to be equipped with aviation skills to travel faster and farther in the skies.",
+    "Our mission is to help 100 flight schools double their student body and dominate their service area by 2026.",
+  ],
+  facts: [
+    {
+      title: "$10M +",
+      description:
+        "Over $10M worth of revenue generated for our flight schools",
+    },
+    {
+      title: "10K+",
+      description:
+        "More than 10,000 interested prospective student pilots found over the course of a year through the combined efforts of the Flight School Marketing System",
+    },
+    {
+      title: "1K+",
+      description:
+        "With an average conversion rate of over 7%, we've added thousands of students to our flight schools' funnels with Google Ads and PPC campaigns",
+    },
+  ],
+};
+
+const ourClients = {
+  heading:
+    "In the last 5 years leaders at these flight schools have turned to RRM",
+  description:
+    "Our flight schools are the best in the business. They are the top flight schools in the country and they trust us to help them grow and scale their businesses. We are proud to be a part of their success.",
+};
+---
+
+<BaseLayout
+  siteTitle={seoData.pageTitle}
+  siteDescription={seoData.pageDescription}
+  keywords={seoData.pageKeywords}
+>
+  <!-- HEADER -->
+  <HeaderCollage data={headerData} />
+
+  <Content3 data={ourMissionData} />
+
+  <OurValues />
+
+  <LogosCloud data={ourClients} />
+
+  <TeamGrid />
+</BaseLayout>
