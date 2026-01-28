@@ -1,0 +1,319 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero75 from "../components/Hero75.astro";
+import ProcessSteps from "../components/ProcessSteps.astro";
+import Features from "../components/Features.astro";
+import CTASection from "../components/CTASection.astro";
+import Content from "../components/Content.astro";
+import SingleTestimonial from "../components/SingleTestimonial.astro";
+import HeroScreen from "@/components/HeroScreen.astro";
+import CaseStudiesSwiper from "@/components/CaseStudiesSwiper.astro";
+
+const heroData = {
+  image: {
+    src: "/src/assets/angry-_-kat-5R4fBlHEegc-unsplash.jpg",
+    alt: "Flight training classroom and aircraft",
+  },
+  videoSrc:
+    "https://cdn.jsdelivr.net/gh/right-rudder/rrm-2-astro@1ee9680d79789787392bbd71ab8b758463e3042d/rrm-hero-video-720.mp4",
+  videoSrcVertical:
+    "https://cdn.jsdelivr.net/gh/right-rudder/rrm-2-astro@ce55ca87cbc72ba4178d826badcc68d6b68677b7/rrm-home-hero-vertical.mp4",
+  uppertitle: "Built by Pilots for Pilots",
+  title: "The #1 Flight School Marketing System",
+  subTitle:
+    "Double your student enrollments, dominate your local market, and fill your schedule with qualified student pilots.",
+  cta: [
+    {
+      url: "/marketing-system",
+      text: "Explore Our System",
+    },
+    {
+      url: "/schedule-call",
+      text: "Schedule a Strategy Call",
+    },
+  ],
+};
+
+const systemOverview = {
+  imagePath: "/src/assets/angry-_-kat-5R4fBlHEegc-unsplash.jpg",
+  imageAlt: "Flight instructor teaching student pilot in aircraft",
+  upperHeading: "Complete Marketing Solution",
+  heading: "Built Specifically for Flight Schools",
+  description: `Right Rudder Marketing's Flight School Marketing System is more than just advertising—it's a comprehensive, done-with-you growth framework designed exclusively for pilot training operations. 
+  
+  Unlike generic marketing agencies that treat flight schools like any other business, our system understands the unique challenges of aviation training: long sales cycles, high-value enrollments, complex student journeys from discovery flight to certificate completion, and the critical importance of trust and safety in your messaging.
+  
+  The system delivers consistent, qualified student leads through a disciplined, measurable process that turns your marketing investment into predictable enrollment growth. No more guessing what's working. No more wasted ad spend. Just clear data, proven strategies, and continuous improvement.`,
+  paragraphs: [
+    "We start by clarifying your ideal student profile and unique positioning in your market, then build a conversion-optimized digital foundation with tracking infrastructure that measures everything from first click to enrolled student.",
+    "Multi-channel traffic engines (paid search, social media, SEO, and content marketing) work together to generate qualified inquiries, while automated follow-up through a centralized CRM ensures no lead falls through the cracks.",
+    "Throughout the entire process, detailed dashboards and call tracking provide complete visibility into your marketing funnel—from cost per lead and lead-to-tour conversion rates to ultimate cost per enrollment and revenue generated.",
+  ],
+  buttons: [
+    {
+      name: "How It Works",
+      link: "#how-it-works",
+      primary: false,
+    },
+    {
+      name: "Get Started",
+      link: "/schedule-call",
+      primary: true,
+    },
+  ],
+};
+
+const processSteps = {
+  title: "How the System Works",
+  subtitle:
+    "Six integrated components that work together to predictably grow your flight school",
+  steps: [
+    {
+      number: 1,
+      title: "Strategy & Positioning",
+      description:
+        "Define your ideal student profile, core value proposition, and competitive differentiation through strategic market analysis.",
+    },
+    {
+      number: 2,
+      title: "Digital Foundation",
+      description:
+        "Build conversion-optimized website, landing pages, lead magnets, and complete tracking infrastructure to measure every interaction.",
+    },
+    {
+      number: 3,
+      title: "Traffic Generation",
+      description:
+        "Deploy coordinated campaigns across paid search, social media, SEO, and content to generate steady qualified inquiries.",
+    },
+    {
+      number: 4,
+      title: "CRM & Automation",
+      description:
+        "Centralize all inquiries with automated follow-up sequences that nurture leads and schedule tours with minimal manual effort.",
+    },
+    {
+      number: 5,
+      title: "Tracking & Measurement",
+      description:
+        "Monitor call tracking, funnel metrics, and executive dashboards to see exactly which campaigns produce enrollments.",
+    },
+    {
+      number: 6,
+      title: "Continuous Optimization",
+      description:
+        "Test, refine, and improve campaigns based on real data in an ongoing partnership that evolves with your goals.",
+    },
+  ],
+};
+
+const featuresData = {
+  subtitle: "What's Included",
+  title: "A Complete Growth Framework",
+  description:
+    "Every component is designed to work together, creating a marketing engine that consistently delivers qualified student pilots to your flight school.",
+  list: [
+    { text: "Strategic positioning & messaging", href: "#strategy" },
+    { text: "Conversion-focused digital assets", href: "#foundation" },
+    { text: "Multi-channel lead generation", href: "#traffic" },
+    { text: "CRM & automation infrastructure", href: "#automation" },
+    { text: "Performance tracking & analytics", href: "#tracking" },
+    { text: "Ongoing testing & optimization", href: "#optimization" },
+  ],
+  button: {
+    text: "Learn How We Work With You",
+    href: "/about",
+  },
+  boxes: [
+    {
+      label: "Foundation",
+      title: "Strategy & Positioning",
+      badge: { text: "Start Here", featured: true },
+      description:
+        "We begin by defining who you want to attract and why they should choose your school. Through ideal student profiling, competitive analysis, and messaging framework development, we create a strategic blueprint that guides every ad, landing page, and email—ensuring your marketing speaks directly to the right prospects.",
+      href: "#strategy",
+    },
+    {
+      label: "Digital Assets",
+      title: "Conversion-Optimized Foundation",
+      description:
+        "Your website and landing pages become high-performing sales tools with clear calls-to-action, program-specific pages showing outcomes and timelines, prominent social proof, and strategic lead magnets. Complete analytics and tracking infrastructure measures form submissions, calls, and booked appointments.",
+      href: "#foundation",
+    },
+    {
+      label: "Lead Generation",
+      title: "Multi-Channel Traffic Engines",
+      description:
+        "Coordinated campaigns across paid search (targeting high-intent queries like 'flight school near me'), paid social (local awareness and retargeting), SEO (ranking for pilot training searches), and strategic content marketing work together to produce a steady stream of qualified inquiries.",
+      href: "#traffic",
+    },
+    {
+      label: "Follow-Up",
+      title: "CRM & Automation",
+      badge: { text: "Revenue Multiplier" },
+      description:
+        "Every inquiry is centralized in one system with automated speed-to-lead workflows (immediate text/email), nurture campaigns to educate and overcome objections, and clear task assignment for your team. This is where most schools leak revenue—we plug that hole.",
+      href: "#automation",
+    },
+    {
+      label: "Analytics",
+      title: "Tracking & Dashboards",
+      description:
+        "Call tracking with unique numbers for campaigns, detailed funnel metrics (cost per lead, lead-to-tour rate, tour-to-enrollment rate, cost per enrollment), and executive dashboards show exactly which marketing activities produce the best students and clearest ROI.",
+      href: "#tracking",
+    },
+    {
+      label: "Partnership",
+      title: "Continuous Optimization",
+      badge: { text: "Done With You" },
+      description:
+        "Regular performance reviews with clear numbers, testing of new creatives and offers based on data, channel budget adjustments for seasonality, and collaboration with your admissions and operations teams ensures the system improves over time and stays aligned with your capacity.",
+      href: "#optimization",
+    },
+  ],
+};
+
+const whyDifferent = {
+  imagePath: "/src/assets/avel-chuklanov-ZEiqbaQhmvE-unsplash.jpg",
+  imageAlt: "Student pilot planning flight with instructor",
+  upperHeading: "The Right Rudder Difference",
+  heading: "Built by Pilots, for Flight Schools",
+  description: `Most marketing agencies treat flight schools like just another local service business—running generic ads and building basic websites that don't understand the unique dynamics of pilot training.
+  
+  We're different because we were founded by pilots who understand your business from the inside. We know the difference between a discovery flight prospect and a career-track student. We understand why safety and trust matter more than price in your messaging. We've lived the challenges of instructor availability, aircraft scheduling, and weather delays that affect your capacity to take on new students.
+  
+  This isn't one-size-fits-all marketing. It's a specialized system built specifically for the way flight schools operate, sell, and grow—and it's implemented alongside you, not just handed to you.`,
+  paragraphs: [
+    "**We understand your student journey**: From initial curiosity through discovery flight, program enrollment, and certificate completion—we know how to message and nurture prospects at every stage.",
+    "**We speak aviation**: Your marketing will authentically represent your training philosophy, safety culture, and the unique advantages of your fleet, facilities, and instructor team.",
+    "**We align with your operations**: Marketing is optimized around your actual capacity, instructor availability, and seasonal patterns—not arbitrary budget goals that ignore operational reality.",
+  ],
+  buttons: [
+    {
+      name: "Our Story",
+      link: "/about",
+      primary: false,
+    },
+    {
+      name: "See Results",
+      link: "/case-studies",
+      primary: false,
+    },
+  ],
+};
+
+const testimonialData = {
+  imagePath: "/src/assets/matthew-blue-skies-above.webp",
+  imageAlt: "Matthew from Blue Skies Above",
+  quote:
+    "I was scrounging for students and now I have a waitlist 10, 11 long.  We're now talking about adding another plane to our fleet.  I think the growth speaks for itself.",
+  name: "Matthew",
+  client: "Blue Skies Above",
+  rank: "Owner",
+};
+
+const pageTitle = "Flight School Marketing System | Right Rudder Marketing";
+const pageDescription =
+  "Right Rudder Marketing's Flight School Marketing System is a data-driven, integrated framework that strategically positions your flight school, builds a conversion-optimized digital funnel, deploys multi-channel lead generation, automates follow-up through CRM, tracks every metric from inquiry to enrollment, and continuously optimizes to predictably convert qualified prospects into paying students.";
+const pageKeywords = [
+  "flight school marketing system",
+  "aviation marketing framework",
+  "flight school enrollment system",
+  "pilot training lead generation",
+  "flight school CRM",
+  "aviation marketing agency",
+  "flight school growth strategy",
+  "student pilot acquisition",
+  "flight training marketing automation",
+  "aviation school marketing ROI",
+];
+
+const cases = {
+  heading: "Flight schools thriving with RRM",
+  cards: [
+    {
+      logo: "/src/assets/sun-city-black-text-logo.webp",
+      client: "Sun City Aviation",
+      title: "Remarkable growth with targeted marketing strategies",
+      image: "http://img.youtube.com/vi/VUeDTE-Mzuw/maxresdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "sun-city",
+    },
+    {
+      logo: "/src/assets/uft-logo-new-black.webp",
+      client: "Universal Flight Training",
+      title: "Expertise that drives student enrollment growth",
+      image: "http://img.youtube.com/vi/OywZjggj1RE/maxresdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "universal-flight-training",
+    },
+    {
+      logo: "/src/assets/SFA-logo-black-text.webp",
+      client: "Summit Flight Academy",
+      title: "Local market domination and enrollment surge",
+      image: "http://img.youtube.com/vi/qWRb84en0vs/hqdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "summit-flight-academy",
+    },
+    {
+      logo: "/src/assets/simplifly_2.webp",
+      client: "Simplifly Flight School",
+      title: "Enrollment doubles with our comprehensive marketing system",
+      image: "http://img.youtube.com/vi/qzT8Q49ExUw/maxresdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "simplifly",
+    },
+    {
+      logo: "/src/assets/blue-skies-logo-black-600-nobg.saIaC-kR_Z3AR6L.avif",
+      client: "Blue Skies Above",
+      title: "Market positioning that drives growth",
+      image: "http://img.youtube.com/vi/SD8TsqJSX00/maxresdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "blue-skies-above",
+    },
+    {
+      logo: "/src/assets/ideal-aviation-logo.webp",
+      client: "Ideal Aviation",
+      title: "Competitive edge through strategic marketing",
+      image: "http://img.youtube.com/vi/c1Pe9XJdsbo/hqdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "ideal-aviation",
+    },
+  ],
+};
+---
+
+<BaseLayout
+  siteTitle={pageTitle}
+  siteDescription={pageDescription}
+  siteKeywords={pageKeywords}
+>
+  <HeroScreen data={heroData} />
+
+  <div id="system-overview">
+    <Content data={systemOverview} />
+  </div>
+
+  <div id="how-it-works">
+    <ProcessSteps
+      title={processSteps.title}
+      subtitle={processSteps.subtitle}
+      steps={processSteps.steps}
+    />
+  </div>
+
+  <CaseStudiesSwiper content={cases} />
+
+  <Features data={featuresData} />
+
+  <Content data={whyDifferent} />
+
+  <SingleTestimonial data={testimonialData} />
+</BaseLayout>
+<script src="../scripts/creativeSlider.js"></script>
