@@ -1,0 +1,247 @@
+---
+import CaseStudiesSwiper from "@/components/CaseStudiesSwiper.astro";
+import DownloadCTAVideo from "@/components/DownloadCTAVideo.astro";
+import HeroScreen from "@/components/HeroScreen.astro";
+import ImageComp from "@/components/ImageComp.astro";
+import { Reviews } from "@/components/Reviews";
+import flightSchoolHandbook from "@/data/flight-school-handbook";
+import BookLayout from "@/layouts/BookLayout.astro";
+
+const GHL_BOOK_FORM_WEBHOOK_URL = import.meta.env.GHL_BOOK_FORM_WEBHOOK_URL;
+const PORTAL_API_KEY = import.meta.env.PORTAL_API_KEY;
+
+const heroData = {
+  image: {
+    src: "/src/assets/book-tim.jpg",
+    alt: "Flight training classroom and aircraft",
+  },
+  uppertitle: "Best kept secrets of flight school marketing",
+  title: "The Flight School Handbook of Marketing Knowledge",
+  subTitle:
+    "If your flight school isn’t getting the calls and leads you need from your website and marketing efforts, then this book is a must read. The Flight School Handbook of Marketing Knowledge is the ultimate guide written for flight school business owners that are looking to double, triple, even 10X their sales in the coming year.",
+};
+
+const cases = {
+  heading: "Flight schools thriving with RRM",
+  cards: [
+    {
+      logo: "/src/assets/sun-city-black-text-logo.webp",
+      client: "Sun City Aviation",
+      title: "Remarkable growth with targeted marketing strategies",
+      image: "http://img.youtube.com/vi/VUeDTE-Mzuw/maxresdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "sun-city",
+    },
+    {
+      logo: "/src/assets/uft-logo-new-black.webp",
+      client: "Universal Flight Training",
+      title: "Expertise that drives student enrollment growth",
+      image: "http://img.youtube.com/vi/OywZjggj1RE/maxresdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "universal-flight-training",
+    },
+    {
+      logo: "/src/assets/SFA-logo-black-text.webp",
+      client: "Summit Flight Academy",
+      title: "Local market domination and enrollment surge",
+      image: "http://img.youtube.com/vi/qWRb84en0vs/hqdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "summit-flight-academy",
+    },
+    {
+      logo: "/src/assets/simplifly_2.webp",
+      client: "Simplifly Flight School",
+      title: "Enrollment doubles with our comprehensive marketing system",
+      image: "http://img.youtube.com/vi/qzT8Q49ExUw/maxresdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "simplifly",
+    },
+    {
+      logo: "/src/assets/blue-skies-logo-black-600-nobg.saIaC-kR_Z3AR6L.avif",
+      client: "Blue Skies Above",
+      title: "Market positioning that drives growth",
+      image: "http://img.youtube.com/vi/SD8TsqJSX00/maxresdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "blue-skies-above",
+    },
+    {
+      logo: "/src/assets/ideal-aviation-logo.webp",
+      client: "Ideal Aviation",
+      title: "Competitive edge through strategic marketing",
+      image: "http://img.youtube.com/vi/c1Pe9XJdsbo/hqdefault.jpg",
+      description:
+        "With RRM's complete marketing system, Simplifly Flight School experienced a remarkable 100% increase in student enrollments over a 12-month period. RRM's tailored approach, which included SEO optimization, engaging video content, and strategic ad placements, enabled Simplifly to effectively reach and convert prospective student pilots in their local market.",
+      slug: "ideal-aviation",
+    },
+  ],
+};
+
+const seoData = {
+  pageTitle:
+    "Flight School Handbook of Marketing Knowledge | Right Rudder Marketing",
+  pageDescription: `The Only Book You'll Ever Need for Learning How to Market Your Flight School Online. If your flight school isn’t getting the calls and leads you need from your website and marketing efforts, then this book is a must read.  The Flight School Handbook of Marketing Knowledge is the ultimate guide written for flight school business owners that are looking to double, triple, even 10X their sales in the coming year. This book is written based on battle tested strategies and the real results of Right Rudder Marketing and flight schools all across the United States.  Discover how to implement the Flight School Marketing System in your business.`,
+  pageKeywords:
+    "Flight School Handbook of Marketing Knowledge, flight school marketing, flight school book, flight school seo, flight school ppc, flight school social media, flight school website design, flight school marketing system",
+};
+
+const { data } = flightSchoolHandbook;
+---
+
+<BookLayout
+  siteTitle={seoData.pageTitle}
+  siteDescription={seoData.pageDescription}
+  keywords={seoData.pageKeywords}
+  bookButton="true"
+>
+  <!-- Schema.org JSON-LD structured data -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Book",
+      name: "Flight School Handbook of Marketing Knowledge",
+      author: {
+        "@type": "Organization",
+        name: "Right Rudder Marketing",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Right Rudder Marketing",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://rightruddermarketing.com/RRM-hor-textBlack-bgTrans-524.webp",
+        },
+      },
+      description:
+        "A comprehensive guide for flight school owners on marketing, business growth, and operational excellence in the aviation training industry.",
+      inLanguage: "en-US",
+      about: [
+        {
+          "@type": "Thing",
+          name: "Flight School Marketing",
+        },
+        {
+          "@type": "Thing",
+          name: "Aviation Business Growth",
+        },
+        {
+          "@type": "Thing",
+          name: "Flight Training Operations",
+        },
+      ],
+      offers: {
+        "@type": "Offer",
+        availability: "https://schema.org/InStock",
+        price: "0",
+        priceCurrency: "USD",
+      },
+    })}
+  />
+  <!-- HEADER -->
+  <HeroScreen data={heroData} />
+
+  <DownloadCTAVideo data={data.downloadCTA} />
+
+  <section
+    id="book-content"
+    class="bg-linear-to-br z-0 from-mariner-700 to-mariner-800 py-20"
+  >
+    <div class="mx-auto max-w-6xl lg:pr-4">
+      <div class="my-9 text-center">
+        <p class="subtitle-bright">
+          {data.bookContent.upperHeading}
+        </p>
+        <h2 class="title-bright">
+          {data.bookContent.heading}
+        </h2>
+      </div>
+    </div>
+    <div>
+      {
+        data.bookContent.list && (
+          <div class="mt-12">
+            <ul
+              role="list"
+              class="mt-4 mx-auto space-y-8 text-gray-100 max-w-6xl"
+            >
+              {data.bookContent.list.map((item) => (
+                <li class="flex gap-x-3 pl-3 pr-6 lg:p-0 text-justify lg:text-left">
+                  <svg
+                    class="mt-1 size-10 flex-none text-amber-300"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d={item.icon}
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span class="leading-snug text-lg text-muted-200">
+                    <strong class="font-bold text-xl text-mariner-100 tracking-tight uppercase">
+                      {item.title}
+                    </strong>{" "}
+                    {item.descriptions.map((dec) => (
+                      <p class="mb-2 text-lg font-light" set:html={dec} />
+                    ))}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <Reviews client:idle />
+
+  <section
+    id="meet-tim"
+    class="relative isolate overflow-hidden -z-10 bg-mariner-200 mb-0 px-6 pt-24 lg:overflow-hidden lg:px-0"
+  >
+    <div class="mx-auto max-w-6xl lg:pr-4">
+      <div class="my-9 text-center">
+        <p class="subtitle">
+          {data.meetTim.upperHeading}
+        </p>
+        <h2 class="title">
+          {data.meetTim.heading}
+        </h2>
+      </div>
+    </div>
+    <div class="mt-12 flex flex-wrap justify-center">
+      <div class="w-full lg:w-1/2">
+        <h3 class="text-5xl font-bold border-b-4 border-mariner-500">
+          {data.meetTim.descHeading}
+        </h3>
+        {
+          data.meetTim.descriptions.map((desc) => (
+            <p
+              class="mt-6 pr-2 text-xl font-light leading-7 text-gray-700"
+              set:html={desc}
+            />
+          ))
+        }
+      </div>
+      <div class="w-full lg:w-2/5 z-10 lg:h-full items-end">
+        <ImageComp
+          src={data.meetTim.imagePath}
+          alt={data.meetTim.imageAlt}
+          class="object-contain z-10 object-bottom w-full h-full drop-shadow-sm hover:scale-105 duration-500 ease-out"
+        />
+      </div>
+    </div>
+  </section>
+
+  <CaseStudiesSwiper content={cases} />
+</BookLayout>
+<script src="../../scripts/creativeSlider.js"></script>

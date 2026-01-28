@@ -1,0 +1,300 @@
+import { useState } from "react";
+import { IoMdClose } from "react-icons/io";
+import { FaBook } from "react-icons/fa";
+
+const DownloadBook = ({ webhook, apiKey }) => {
+  const [showModal, setShowModal] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [userName, setUserName] = useState("");
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+    setFormSubmitted(false);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    const confirmEmail = formData.get("confirm-email")?.trim();
+    if (confirmEmail) return;
+
+    const name = formData.get("first-name");
+    setUserName(name);
+
+    const urlEncodedBody = new URLSearchParams(formData).toString();
+
+    const jsonBody = {
+      first_name: formData.get("first-name")?.trim() || "",
+      last_name: formData.get("last-name")?.trim() || "",
+      email: formData.get("email")?.trim() || "",
+      phone: formData.get("phone")?.trim() || "",
+      campaign: "book",
+      account_random_id: "ac_laoegizr",
+    };
+
+    try {
+      const [ghlRes, portalRes] = await Promise.all([
+        fetch(webhook, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: urlEncodedBody,
+        }),
+        fetch("https://portal.rightruddermarketing.com/api/leads", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "x-api-key": apiKey,
+          },
+          body: JSON.stringify(jsonBody),
+        }),
+      ]);
+
+      if (ghlRes.ok && portalRes.ok) {
+        setFormSubmitted(true);
+        document.body.style.overflow = "auto";
+        window.location.href = "/book-confirmation";
+      } else {
+        console.error("Submission failed", {
+          ghlStatus: ghlRes.status,
+          portalStatus: portalRes.status,
+        });
+      }
+    } catch (err) {
+      console.error("Submission error:", err);
+    }
+  };
+
+  return (
+    <>
+      <button
+        className="btn-primary w-full lg:w-auto"
+        onClick={() => {
+          toggleModal();
+          document.body.style.overflow = "hidden";
+        }}
+      >
+        Get Your Free Book Now
+      </button>
+
+      {showModal && (
+        <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+          <div className="bg-white p-12 max-w-md m-4 max-h-[80vh] text-black relative rounded-md overflow-y-auto">
+            {!formSubmitted && (
+              <>
+                <h2 className="text-3xl lg:text-6xl/13 text-gray-900 text-center font-bold mb-1">
+                  Get Your Flight School Handbook
+                </h2>
+                <p className="mt-4 mb-8 text-center text-gray-600">
+                  Fill out the form below to get your free book.
+                </p>
+                <form onSubmit={handleSubmit}>
+                  <div className="">
+                    <div className="mb-4">
+                      <label
+                        htmlFor="first-name"
+                        className="block mb-0 font-semibold"
+                      >
+                        First Name
+                      </label>
+                      <input
+                        type="text"
+                        id="first-name"
+                        name="first-name"
+                        autoComplete="given-name"
+                        className="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-mariner-600/50 focus:ring focus:ring-mariner-600/50 focus:border-mariner-600/50"
+                        required
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <label
+                        htmlFor="last-name"
+                        className="block mb-0 font-semibold"
+                      >
+                        Last Name
+                      </label>
+                      <input
+                        type="text"
+                        id="last-name"
+                        name="last-name"
+                        autoComplete="family-name"
+                        className="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-mariner-600/50 focus:ring focus:ring-mariner-600/50 focus:border-mariner-600/50"
+                        required
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <label
+                        htmlFor="phone"
+                        className="block mb-0 font-semibold"
+                      >
+                        Phone
+                      </label>
+                      <input
+                        type="text"
+                        id="phone"
+                        name="phone"
+                        autoComplete="tel"
+                        className="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-mariner-600/50 focus:ring focus:ring-mariner-600/50 focus:border-mariner-600/50"
+                        required
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <label
+                        htmlFor="email"
+                        className="block mb-0 font-semibold"
+                      >
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autoComplete="email"
+                        className="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-mariner-600/50 focus:ring focus:ring-mariner-600/50 focus:border-mariner-600/50"
+                        required
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <label
+                        htmlFor="business-name"
+                        className="block mb-0 font-semibold"
+                      >
+                        Business Name
+                      </label>
+                      <input
+                        type="text"
+                        id="business-name"
+                        name="business-name"
+                        autoComplete="organization"
+                        className="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-mariner-600/50 focus:ring focus:ring-mariner-600/50 focus:border-mariner-600/50"
+                        required
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <label
+                        htmlFor="address-line1"
+                        className="block mb-0 font-semibold"
+                      >
+                        Address Line 1
+                      </label>
+                      <input
+                        type="text"
+                        id="address-line1"
+                        name="address-line1"
+                        autoComplete="address-line1"
+                        className="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-mariner-600/50 focus:ring focus:ring-mariner-600/50 focus:border-mariner-600/50"
+                        required
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <label
+                        htmlFor="address-line2"
+                        className="block mb-0 font-semibold"
+                      >
+                        Address Line 2
+                      </label>
+                      <input
+                        type="text"
+                        id="address-line2"
+                        name="address-line2"
+                        autoComplete="address-line2"
+                        className="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-mariner-600/50 focus:ring focus:ring-mariner-600/50 focus:border-mariner-600/50"
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <label
+                        htmlFor="city"
+                        className="block mb-0 font-semibold"
+                      >
+                        City
+                      </label>
+                      <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        autoComplete="city"
+                        className="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-mariner-600/50 focus:ring focus:ring-mariner-600/50 focus:border-mariner-600/50"
+                        required
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <label
+                        htmlFor="state"
+                        className="block mb-0 font-semibold"
+                      >
+                        State
+                      </label>
+                      <input
+                        type="text"
+                        id="state"
+                        name="state"
+                        autoComplete="state"
+                        className="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-mariner-600/50 focus:ring focus:ring-mariner-600/50 focus:border-mariner-600/50"
+                        required
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <label
+                        htmlFor="zip-code"
+                        className="block mb-0 font-semibold"
+                      >
+                        Zip Code
+                      </label>
+                      <input
+                        type="text"
+                        id="zip-code"
+                        name="zip-code"
+                        autoComplete="zip-code"
+                        className="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-mariner-600/50 focus:ring focus:ring-mariner-600/50 focus:border-mariner-600/50"
+                        required
+                      />
+                    </div>
+
+                    <p className="hidden">
+                      <label>
+                        Don't fill this out if you're human:
+                        <input name="confirm-email" />
+                      </label>
+                    </p>
+                  </div>
+                  <button type="submit" className="btn-primary w-full mt-8">
+                    Get Book
+                  </button>
+                </form>
+              </>
+            )}
+
+            {formSubmitted && (
+              <>
+                <FaBook className="text-mariner-600 text-9xl text-center mx-auto" />
+                <h2 className="text-4xl font-bold mt-6 mb-4">
+                  Thank you {userName}, for your interest in our Book!
+                </h2>
+                <p className="mb-4 text-lg px-2">
+                  You will receive an email with a confirmation shortly. Please
+                  check your junk/spam folders if you do not receive anything
+                  from us. We will reach out to you soon.
+                </p>
+              </>
+            )}
+
+            <button
+              className="bg-mariner-700 p-1 rounded-full absolute top-2 right-2"
+              onClick={() => {
+                toggleModal();
+                document.body.style.overflow = "auto";
+              }}
+            >
+              <IoMdClose className="text-xl text-white" />
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default DownloadBook;

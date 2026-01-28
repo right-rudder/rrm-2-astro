@@ -1,0 +1,58 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import {
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  KEYWORDS,
+  OG_IMAGE,
+} from "../data/consts";
+import "../styles/global.css";
+import "@fontsource-variable/roboto";
+import "@fontsource-variable/inter";
+import "@fontsource-variable/albert-sans";
+import "@tailwindplus/elements";
+import DownloadBook from "../components/DownloadBook";
+import FooterSimple from "@/components/FooterSimple.astro";
+import NavbarFlyout from "@/components/NavBarFlyout";
+
+const GHL_BOOK_FORM_WEBHOOK_URL = import.meta.env.GHL_BOOK_FORM_WEBHOOK_URL;
+const PORTAL_API_KEY = import.meta.env.PORTAL_API_KEY;
+
+const { pathname } = Astro.url;
+const {
+  siteTitle,
+  siteDescription,
+  keywords,
+  bookButton = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <BaseHead
+      title={siteTitle || SITE_TITLE}
+      description={siteDescription || SITE_DESCRIPTION}
+      keywords={keywords || KEYWORDS}
+      image={OG_IMAGE}
+    />
+  </head>
+  <body class="font-sans bg-primary-100">
+    <NavbarFlyout client:idle />
+    {
+      bookButton && (
+        <div class="fixed bottom-0 lg:bottom-8 right-2 w-full lg:w-auto z-50 p-0">
+          <DownloadBook
+            client:visible
+            webhook={GHL_BOOK_FORM_WEBHOOK_URL}
+            apiKey={PORTAL_API_KEY}
+          />
+        </div>
+      )
+    }
+    <main>
+      <slot />
+    </main>
+    <FooterSimple />
+  </body>
+</html>
