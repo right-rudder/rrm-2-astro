@@ -1,0 +1,80 @@
+---
+import { PHONE_NUMBER, EMAIL_ADDRESS } from "../data/consts";
+import ContactUsForm from "../components/ContactUsForm.astro";
+import {
+  ClockIcon,
+  EnvelopeIcon,
+  PhoneIcon,
+} from "@heroicons/react/24/outline";
+---
+
+<section
+  class="relative py-32 px-5 md:px-10 lg:px-20 bg-[url(/src/assets/chris-leipelt-6w_dYdazo20-unsplash.jpg)] bg-center bg-cover bg-fixed text-white"
+  id="contact"
+>
+  <!-- bg-overlay to darken -->
+  <div class="absolute bg-black/80 inset-0 z-0"></div>
+
+  <div class="relative z-10 mx-auto">
+    <div class="flex flex-col lg:flex-row gap-10 lg:gap-20 items-center">
+      <!-- Text Section -->
+      <div class="flex-1">
+        <div class="flex flex-col text-lg gap-5">
+          <h3 class="title text-crimson-600">Ready to scale your business?</h3>
+
+          <p class="text-lg lg:text-lg font-light tracking-wider">
+            We're here to help! Fill out the form or reach us via email or
+            phone. Our team is available to help you get the best experience
+            with Grow My FBO.
+          </p>
+
+          <p class="text-lg lg:text-lg font-light tracking-wider">
+            Everyone receives a personal response from us. Whether you're
+            curious about our system, services, or anything else, we're here to
+            provide the answers you need.
+          </p>
+
+          <div
+            class="flex flex-col gap-9 justify-center mt-5 text-xl font-light"
+          >
+            <div class="flex flex-row group">
+              <PhoneIcon
+                className="size-5 mt-1 shrink-0 group-hover:fill-crimson-300/20 group-hover:text-crimson-500 duration-300"
+              />
+              <div class="ml-5">
+                <a href=`tel:${PHONE_NUMBER}`>{PHONE_NUMBER}</a><br />
+              </div>
+            </div>
+
+            <div class="flex flex-row group">
+              <ClockIcon
+                className="size-5 mt-1 shrink-0 group-hover:text-crimson-500 duration-300"
+              />
+              <div class="ml-5 text-white">
+                Monday to Friday<br />
+                9:00 AM to 5:00 PM
+              </div>
+            </div>
+            <div class="flex flex-row group">
+              <EnvelopeIcon
+                className="size-5 mt-1 shrink-0 group-hover:fill-crimson-100/20 group-hover:text-crimson-500 duration-300"
+              />
+              <a
+                class="ml-5 text-white"
+                href={`mailto:${EMAIL_ADDRESS}`}
+                target="_blank"
+              >
+                {EMAIL_ADDRESS}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Section -->
+      <div class="flex-1">
+        <ContactUsForm />
+      </div>
+    </div>
+  </div>
+</section>

@@ -76,22 +76,26 @@ export const LOGO_ASSETS_2 = "/src/assets/RRM-hor-transparent.png";
 export const LOGO_ASSETS_3 = "/src/assets/RRM-ver-textBlack-trans-500.webp";
 export const LOGO_ASSETS_4 = "/src/assets/RRM-ver-textWhite-trans.png";
 
+export const ADDRESS_LINE_1 = "4411 Woodson Road Suite 101A";
+export const ADDRESS_LINE_2 = "St. Louis, MO 63134";
+
 // CHANGE client business info
 export const COMPANY_NAME = "Right Rudder Marketing";
 export const COMPANY_NAME_CAPS = "RIGHT RUDDER MARKETING";
 export const COMPANY_NICKNAME = "RRM";
 export const LOGO_PRIMARY = "/rrm-logo.png";
 export const LOGO_SECONDARY = "/rrm-logo.png";
-export const PHONE_NUMBER = "(919) 526-4287";
+export const PHONE_NUMBER = "1-314-804-1200";
 export const PHONE_NUMBER_HEADER = "(919) 526-4287";
-export const EMAIL_ADDRESS = "contact@rightruddermarketing.com";
-export const FACEBOOK_URL = "https://www.facebook.com/mil2ATP";
-export const INSTAGRAM_URL = "https://www.instagram.com/mil2ATP";
-export const LINKEDIN_URL = "https://www.linkedin.com/company/mil2atp-inc.";
-export const X_URL = "https://twitter.com/mil2atp";
-export const YOUTUBE_URL = "";
+export const EMAIL_ADDRESS = "info@rightruddermarketing.com";
+export const FACEBOOK_URL = "https://www.facebook.com/rightruddermktg";
+export const INSTAGRAM_URL = "https://www.instagram.com/rightruddermarketing/";
+export const LINKEDIN_URL =
+  "https://www.linkedin.com/company/rightruddermarketing";
+export const X_URL = "https://twitter.com/rightruddermktg";
+export const YOUTUBE_URL = "https://www.youtube.com/@rightruddermarketing";
 export const YELP_URL = "";
-export const GITHUB_URL = "";
+export const GITHUB_URL = "https://github.com/right-rudder/";
 
 export const LOCATIONS = [
   {

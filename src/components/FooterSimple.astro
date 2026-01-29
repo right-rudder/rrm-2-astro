@@ -1,5 +1,12 @@
 ---
-import { LOGO_ASSETS_4 } from "../data/consts";
+import {
+  FACEBOOK_URL,
+  GITHUB_URL,
+  INSTAGRAM_URL,
+  LOGO_ASSETS_4,
+  X_URL,
+  YOUTUBE_URL,
+} from "../data/consts";
 import ImageComp from "./ImageComp.astro";
 
 const currentYear = new Date().getFullYear();
@@ -30,7 +37,11 @@ const currentYear = new Date().getFullYear();
       </a>
     </div>
     <div class="mt-16 flex justify-center gap-x-10">
-      <a href="#" class="text-gray-400 hover:text-amber-300">
+      <a
+        href={FACEBOOK_URL}
+        target="_blank"
+        class="text-gray-400 hover:text-amber-300"
+      >
         <span class="sr-only">Facebook</span>
         <svg
           viewBox="0 0 24 24"
@@ -44,7 +55,11 @@ const currentYear = new Date().getFullYear();
             fill-rule="evenodd"></path>
         </svg>
       </a>
-      <a href="#" class="text-gray-400 hover:text-amber-300">
+      <a
+        href={INSTAGRAM_URL}
+        target="_blank"
+        class="text-gray-400 hover:text-amber-300"
+      >
         <span class="sr-only">Instagram</span>
         <svg
           viewBox="0 0 24 24"
@@ -58,7 +73,11 @@ const currentYear = new Date().getFullYear();
             fill-rule="evenodd"></path>
         </svg>
       </a>
-      <a href="#" class="text-gray-400 hover:text-amber-300">
+      <a
+        href={X_URL}
+        target="_blank"
+        class="text-gray-400 hover:text-amber-300"
+      >
         <span class="sr-only">X</span>
         <svg
           viewBox="0 0 24 24"
@@ -71,7 +90,11 @@ const currentYear = new Date().getFullYear();
           ></path>
         </svg>
       </a>
-      <a href="#" class="text-gray-400 hover:text-amber-300">
+      <a
+        href={GITHUB_URL}
+        target="_blank"
+        class="text-gray-400 hover:text-amber-300"
+      >
         <span class="sr-only">GitHub</span>
         <svg
           viewBox="0 0 24 24"
@@ -85,7 +108,11 @@ const currentYear = new Date().getFullYear();
             fill-rule="evenodd"></path>
         </svg>
       </a>
-      <a href="#" class="text-gray-400 hover:text-amber-300">
+      <a
+        href={YOUTUBE_URL}
+        target="_blank"
+        class="text-gray-400 hover:text-amber-300"
+      >
         <span class="sr-only">YouTube</span>
         <svg
           viewBox="0 0 24 24"

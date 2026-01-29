@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Container } from "../components/Container.tsx";
+
+const pageTitle = "500 - Server Error";
+const pageDescription = "Something went wrong on our end.";
+---
+
+<BaseLayout siteTitle={pageTitle} siteDescription={pageDescription}>
+  <section
+    class="relative min-h-screen flex items-center justify-center bg-linear-to-br from-gray-50 to-gray-100"
+  >
+    <div class="absolute inset-0 bg-slate-900 h-28"></div>
+
+    <Container className="py-20 text-center">
+      <div class="max-w-2xl mx-auto">
+        <!-- 500 Number -->
+        <h1
+          class="text-9xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-mariner-800 to-mariner-500 mb-6"
+        >
+          500
+        </h1>
+
+        <!-- Main Message -->
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Server Error
+        </h2>
+
+        <!-- Description -->
+        <p class="text-xl text-gray-600 mb-8">
+          Oops! Something went wrong on our end. We're working to fix the issue.
+          Please try again later.
+        </p>
+
+        <!-- Actions -->
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+        >
+          <a
+            href="/"
+            class="inline-flex items-center justify-center px-6 py-3 bg-mariner-600 hover:bg-mariner-700 text-white font-semibold rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+          >
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              ></path>
+            </svg>
+            Go Back Home
+          </a>
+
+          <a
+            href="/"
+            class="inline-flex items-center justify-center px-6 py-3 bg-white hover:bg-gray-50 text-gray-900 font-semibold rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg border border-gray-200"
+          >
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+              ></path>
+            </svg>
+            Refresh Page
+          </a>
+        </div>
+
+        <!-- Additional Help -->
+        <div class="mt-12 pt-8 border-t border-gray-200">
+          <p class="text-gray-600 mb-4">Need assistance?</p>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <a
+              href="/blog"
+              class="text-mariner-600 hover:text-mariner-800 hover:underline font-medium"
+            >
+              Blog
+            </a>
+            <span class="text-gray-400">•</span>
+            <a
+              href="/#meet-the-team"
+              class="text-mariner-600 hover:text-mariner-800 hover:underline font-medium"
+            >
+              Our Team
+            </a>
+            <span class="text-gray-400">•</span>
+            <a
+              href="/#contact"
+              class="text-mariner-600 hover:text-mariner-800 hover:underline font-medium"
+            >
+              Contact Support
+            </a>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

@@ -301,7 +301,7 @@ export default function NavbarFlyout() {
           </Popover>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="/contact" className="btn-primary">
+          <a href="/#contact" className="btn-primary">
             Contact Us
           </a>
         </div>

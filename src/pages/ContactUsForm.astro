@@ -1,0 +1,174 @@
+---
+const CONTACT_US_FORM_WEBHOOK_URL =
+  "https://services.leadconnectorhq.com/hooks/FbV8ZsMWQTHkdxGl1v31/webhook-trigger/h4I6PKw4Nds8hGdaOBax";
+const PORTAL_API_KEY = import.meta.env.PORTAL_API_KEY;
+---
+
+<form id="contact_form">
+  <div class="grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2">
+    <div>
+      <div class="mt-2.5">
+        <input
+          type="text"
+          name="first-name"
+          id="first-name"
+          autocomplete="given-name"
+          placeholder="First Name"
+          required
+          class="block w-full text-lg focus:border-crimson-300 py-2 text-gray-100 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 bg-transparent border-b-2 border-crimson-600 sm:leading-6 outline-none"
+        />
+      </div>
+    </div>
+    <div>
+      <div class="mt-2.5">
+        <input
+          type="text"
+          name="last-name"
+          id="last-name"
+          autocomplete="family-name"
+          placeholder="Last Name"
+          required
+          class="block w-full text-lg focus:border-crimson-300 py-2 text-gray-100 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 bg-transparent border-b-2 border-crimson-600 sm:leading-6 outline-none"
+        />
+      </div>
+    </div>
+    <div class="sm:col-span-2">
+      <div class="mt-2.5">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          autocomplete="email"
+          placeholder="Email Address"
+          required
+          class="block w-full text-lg focus:border-crimson-300 py-2 text-gray-100 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 bg-transparent border-b-2 border-crimson-600 sm:leading-6 outline-none"
+        />
+      </div>
+    </div>
+    <p class="hidden">
+      <label>
+        Don't fill this out if you're human: <input name="confirm-email" />
+      </label>
+    </p>
+    <div class="sm:col-span-2">
+      <div class="relative mt-2.5">
+        <input
+          type="tel"
+          name="phone"
+          id="phone"
+          autocomplete="tel"
+          placeholder="Phone Number"
+          required
+          class="block w-full text-lg focus:border-crimson-300 py-2 text-gray-100 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 bg-transparent border-b-2 border-crimson-600 sm:leading-6 outline-none"
+        />
+      </div>
+    </div>
+    <div class="sm:col-span-2">
+      <div class="mt-2.5">
+        <textarea
+          name="message"
+          id="message"
+          rows="4"
+          placeholder="How can we help?"
+          required
+          class="block w-full text-lg focus:border-crimson-300 py-2 text-gray-100 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 bg-transparent border-b-2 border-crimson-600 sm:leading-6 outline-none"
+        ></textarea>
+      </div>
+    </div>
+    <div class="flex gap-x-4 sm:col-span-2 mt-5">
+      <div class="flex items-center">
+        <input
+          type="checkbox"
+          id="agree-terms"
+          name="agree-terms"
+          class="h-4 w-4 cursor-pointer rounded border-crimson-600 bg-white text-gray-900 focus:ring-2 focus:ring-gray-900"
+          required
+        />
+        <label
+          for="agree-terms"
+          class="ml-2 text-sm lg:leading-6 text-gray-200"
+        >
+          I agree to <a
+            href="/privacy-policy-and-terms-of-service"
+            target="_blank"
+            class="underline">terms & conditions</a
+          > provided by the company. By providing my phone number, I agree to receive
+          text messages from the business.
+        </label>
+      </div>
+    </div>
+    <div class="mt-10">
+      <button id="submit-button" type="submit" class="btn-primary"
+        >Submit</button
+      >
+    </div>
+  </div>
+
+  <script define:vars={{ CONTACT_US_FORM_WEBHOOK_URL, PORTAL_API_KEY }}>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contact_form");
+      if (!form) {
+        console.error("Form element not found.");
+        return;
+      }
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const confirmEmail = formData.get("confirm-email")?.trim();
+
+        if (confirmEmail) return;
+
+        const webhookURL = CONTACT_US_FORM_WEBHOOK_URL;
+        const apiKey = PORTAL_API_KEY;
+
+        const urlEncodedBody = new URLSearchParams(formData).toString();
+
+        const jsonBody = {
+          first_name: formData.get("first-name")?.trim() || "",
+          last_name: formData.get("last-name")?.trim() || "",
+          email: formData.get("email")?.trim() || "",
+          phone: formData.get("phone")?.trim() || "",
+          campaign: "contact_us_form",
+          account_random_id: "ac_ly7kki3x",
+          metadata: {
+            message: formData.get("message")?.trim() || "",
+          },
+        };
+
+        try {
+          const [ghlRes, portalRes] = await Promise.all([
+            fetch(webhookURL, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+              body: urlEncodedBody,
+            }),
+            fetch("https://portal.rightruddermarketing.com/api/leads", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                "x-api-key": apiKey,
+              },
+              body: JSON.stringify(jsonBody),
+            }),
+          ]);
+
+          if (ghlRes.ok) {
+            window.location.href = "/contact-confirmation";
+          } else {
+            console.error("Submission failed", {
+              ghlStatus: ghlRes.status,
+              portalStatus: portalRes.status,
+            });
+          }
+        } catch (err) {
+          console.error("Submission error:", err);
+        }
+      });
+    });
+  </script>
+</form>
