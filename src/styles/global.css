@@ -120,6 +120,10 @@
   @apply bg-transparent border border-white font-inter rounded-full px-9 py-3 text-white font-light cursor-pointer hover:bg-white hover:text-mariner-950 transition-all duration-200 hover:scale-105;
 }
 
+.btn-transparent-2 {
+  @apply bg-transparent font-inter rounded-full px-9 py-3 text-gray-100 font-light cursor-pointer hover:bg-white hover:text-mariner-950 transition-all duration-200 hover:scale-105;
+}
+
 .title {
   @apply font-title text-4xl md:text-5xl lg:text-6xl font-bold mb-4
 }

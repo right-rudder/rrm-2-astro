@@ -10,6 +10,8 @@ import PartnerWithUs from "../components/PartnerWithUs.astro";
 import CaseStudiesSwiper from "../components/CaseStudiesSwiper.astro";
 import FromTheBlog from "../components/FromTheBlog.astro";
 import ContactUs from "@/components/ContactUs.astro";
+import Cta2Cols from "@/components/Cta2cols.astro";
+import CtaSimpleCenter from "@/components/CtaSimpleCenter.astro";
 
 const heroData = {
   image: {
@@ -155,19 +157,31 @@ const features = {
   list: [
     {
       text: "Website Design & Optimization",
-      href: "/services/website-design",
+      href: "/marketing-system/flight-school-website-design",
     },
     {
       text: "Search Engine Optimization (SEO)",
-      href: "/services/seo",
+      href: "/marketing-system/flight-school-seo",
     },
     {
       text: "Paid Advertising Campaigns",
-      href: "/services/paid-ads",
+      href: "/marketing-system/flight-school-paid-advertising",
     },
     {
       text: "Video Marketing & Content",
-      href: "/services/video-marketing",
+      href: "/marketing-system/flight-school-video-production",
+    },
+    {
+      text: "CRM Integration & Lead Nurturing",
+      href: "https://flightschoolcrm.com/",
+    },
+    {
+      text: "Google Business Profile Management",
+      href: "/marketing-system/flight-school-google-business-profile-management",
+    },
+    {
+      text: "Flight School Directory Listings & Citations",
+      href: "/marketing-system/flight-school-directory-listings",
     },
   ],
   button: {
@@ -181,7 +195,7 @@ const features = {
       badge: { text: "Step 1", featured: false },
       description:
         "A modern, mobile-responsive website built specifically for flight schools. Fast-loading pages with HTML5, CSS3, and optimized JavaScript ensure seamless user experience across all devices. Clean design that showcases your programs, aircraft, and facilities while making it easy for prospects to take the next step. Built on reliable hosting infrastructure for maximum uptime and security.",
-      href: "/services/website-design",
+      href: "/marketing-system/",
     },
     {
       label: "Visibility",
@@ -189,7 +203,7 @@ const features = {
       badge: { text: "Step 2", featured: false },
       description:
         "Dominate search results on Google, Bing, Yahoo, and other search engines when prospects search for flight training. Strategic SEO optimization ensures your school appears at the top for high-intent keywords like 'flight school near me' and 'pilot training.' Technical SEO, local citations, content optimization, and ongoing monitoring keep you ahead of the competition and generate consistent organic traffic without ad spend.",
-      href: "/services/seo",
+      href: "/marketing-system/",
     },
     {
       label: "Engagement",
@@ -197,7 +211,7 @@ const features = {
       badge: { text: "Step 4", featured: true },
       description:
         "Transform website visitors into enrolled students through strategic conversion funnels and multi-channel communication. Optimized contact forms, automated email sequences, WhatsApp and Facebook Messenger integration, and clear calls-to-action guide prospects from initial inquiry to discovery flight booking. Nurture leads through every stage of their decision journey until they're ready to start training.",
-      href: "/services/conversion-optimization",
+      href: "/marketing-system/",
     },
     {
       label: "Growth",
@@ -205,7 +219,7 @@ const features = {
       badge: { text: "Step 3", featured: false },
       description:
         "Accelerate growth with targeted advertising campaigns across Google Ads, Facebook, Instagram, YouTube, and Google Maps. Reach qualified prospects actively searching for flight training with laser-focused ad targeting, compelling ad creative, and optimized landing pages. Track every dollar spent with conversion tracking and transparent ROI reporting. Scale what works, pause what doesn't, and maintain predictable cost-per-lead.",
-      href: "/services/paid-advertising",
+      href: "/marketing-system/",
     },
   ],
 };
@@ -275,6 +289,7 @@ const cases = {
   <HeroScreen data={heroData} />
   <PartnerWithUs />
   <LogosCloud data={ourClients} />
+
   <section
     id="pre-features"
     class="flex flex-col items-center bg-mariner-800 py-16 lg:py-24"
@@ -293,8 +308,37 @@ const cases = {
     </div>
   </section>
   <Features data={features} />
+  <Cta2Cols
+    img={{
+      src: "/src/assets/mael-balland-QRQHIYyIlp8-unsplash.jpg",
+      alt: "Instrument panel of a small aircraft",
+    }}
+    cta={{
+      heading: "Is your website optimize for SEO?",
+      description: `Technical SEO is the foundation for higher search rankings. <strong>Our Website & SEO Performance Checklist</strong> ensures your flight school website is fully optimized to rank higher on Google and attract more student pilots.`,
+      btnText: "Download the Checklist",
+      btnHref: "/resources/website-seo-checklist",
+    }}
+    list={[
+      "Are there any broken links, 404 errors, or redirect chains?",
+      "Is your XML sitemap submitted and error-free?",
+      "Are headers (H1–H3) structured for clarity and SEO?",
+      "Is there a dedicated page explaining training costs in plain language?",
+    ]}
+  />
+
   <CaseStudiesSwiper content={cases} />
   <Content data={marketingSystem} />
+  <CtaSimpleCenter
+    heading="Do you have the right keywords for your market?"
+    description="Unlock the potential of your flight school with targeted keywords that attract the right students. Our Free Keyword Research Guide reveals the top keywords specific to your local market, helping you optimize your website and advertising campaigns for maximum visibility and enrollment growth."
+    buttons={[
+      {
+        text: "Download the Guide",
+        href: "/resources/flight-school-keyword-research-guide",
+      },
+    ]}
+  />
   <MembersOf data={membersOf} />
   <Reviews client:idle />
   <FromTheBlog />
