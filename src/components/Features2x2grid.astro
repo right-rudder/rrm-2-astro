@@ -1,0 +1,75 @@
+---
+interface Props {
+  heading: string;
+  description: string;
+  features: Array<{
+    title: string;
+    description: string;
+    iconPath: string;
+    href?: string;
+  }>;
+}
+
+const { heading, description, features } = Astro.props;
+---
+
+<div class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:text-center">
+      <h2 class="title">{heading}</h2>
+      <p class="mt-6 text-lg/7 text-gray-700">
+        {description}
+      </p>
+    </div>
+    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+      <dl
+        class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-4 lg:gap-y-16"
+      >
+        {
+          features.map((feature) => (
+            <div
+              class={`relative pl-16 lg:col-span-2 ${features.length % 2 === 0 ? "" : "last:lg:col-start-2"}`}
+            >
+              <dt class="text-lg/7 font-semibold text-gray-900">
+                <div class="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-mariner-600">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    data-slot="icon"
+                    aria-hidden="true"
+                    class="size-6 text-white"
+                  >
+                    <path
+                      d={feature.iconPath}
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                {feature.title}
+              </dt>
+              <dd class="mt-2 text-base/6 text-gray-600">
+                {feature.description}
+                {feature.href && (
+                  <br />
+                  <span class="text-mariner-600 hover:text-mariner-300 font-semibold ml-1">
+                    Learn more &rBarr;
+                  </span>
+                )}
+              </dd>
+              {feature.href && (
+                <a
+                  href={feature.href}
+                  target={`${feature.href?.startsWith("http") ? "_blank" : ""}`}
+                  class="absolute inset-0 h-full w-full"
+                />
+              )}
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</div>
