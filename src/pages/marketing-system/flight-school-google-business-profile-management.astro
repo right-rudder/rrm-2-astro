@@ -1,0 +1,220 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Content from "../../components/Content.astro";
+import {
+  generateKeywords,
+  AVIATION_KEYWORDS,
+  TARGET_LOCATIONS,
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+} from "../../utils/seo";
+import HeroScreen from "@/components/HeroScreen.astro";
+import Cta2Cols from "@/components/Cta2cols.astro";
+import CtaSimpleCenter from "@/components/CtaSimpleCenter.astro";
+
+const pageTitle =
+  "Google Business Profile Management for Flight Schools | Right Rudder Marketing";
+
+const pageDescription =
+  "Dominate local search results and attract more student pilots with expert Google Business Profile optimization. We help flight schools maximize visibility, generate reviews, and convert local searches into enrolled students.";
+
+const pageKeywords =
+  "Google Business Profile flight school, Google My Business aviation, local SEO flight school, flight school reviews, aviation Google listing, pilot training local search, flight school map listing";
+
+// Enhanced SEO keyword generation
+const enhancedKeywords = generateKeywords(
+  [
+    ...AVIATION_KEYWORDS.primary.slice(0, 5),
+    "Google Business Profile",
+    "Google My Business",
+    "local SEO flight school",
+    "flight school reviews",
+    "aviation Google listing",
+    "pilot training local search",
+    "flight school map ranking",
+    "aviation local visibility",
+  ],
+  TARGET_LOCATIONS.slice(0, 10),
+  [
+    "Google Business Profile management",
+    "flight school local SEO services",
+    "aviation review generation",
+    "Google Maps optimization",
+    "local search visibility",
+  ],
+);
+
+const whatsGBP = {
+  imagePath: "/src/assets/Screenshot 2024-09-24 at 15.45.15.png",
+  imageAlt: "Google Business Profile optimization for flight schools",
+  upperHeading: "What is Google Business Profile?",
+  heading: "Your Flight School's Digital Storefront",
+  description: `Google Business Profile (formerly Google My Business) is a free tool that allows you to manage how your flight school appears on Google Search and Google Maps. When prospective students search for "flight school near me" or "pilot training," your optimized profile can be the difference between being chosen or overlooked.`,
+  paragraphs: [
+    "Your Google Business Profile is often the first impression potential students have of your flight school. It appears prominently in local search results, showing your location, hours, photos, reviews, and contact information—all before they even visit your website.",
+    "In the competitive flight training market, an optimized Google Business Profile can dramatically increase your visibility, build trust through reviews and photos, and drive more phone calls, website visits, and discovery flight bookings.",
+    "<strong>73% of consumers lose trust in a business if their Google Business Profile has incorrect or outdated information.</strong>",
+  ],
+  list: {
+    heading: "Essential Google Business Profile Optimization",
+    items: [
+      {
+        icon: "M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z",
+        title: "Complete and Accurate Business Information.",
+        descriptions: [
+          "The foundation of an effective Google Business Profile starts with complete, accurate business information. This includes your flight school's exact name, address, phone number (NAP), website URL, business hours, and service areas.",
+          "We ensure your business category is set correctly (Flight School, Aviation Training Institute, Pilot School) and add relevant secondary categories to maximize visibility in different search queries.",
+          "Your business description (up to 750 characters) is optimized with relevant keywords while clearly communicating your unique value proposition, training programs, aircraft fleet, and what makes your school the best choice for aspiring pilots.",
+          "We keep your hours updated for holidays, special events, and seasonal changes. Accurate hours prevent frustrated prospects from showing up when you're closed—a common reason for negative reviews.",
+          `<strong>Flight schools with complete Google Business Profiles receive 7x more clicks than incomplete profiles and rank significantly higher in local search results.</strong>`,
+        ],
+      },
+      {
+        icon: "M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z",
+        title: "High-Quality Photos and Videos.",
+        descriptions: [
+          "Visual content is crucial for flight schools. We help you showcase your aircraft fleet, modern facilities, professional instructors, and happy students through high-quality photos and videos that build trust and excitement.",
+          "Google recommends uploading at least 3 photos in each category: exterior, interior, team, products/services, and additional photos. For flight schools, this means photos of your aircraft (interior and exterior), training classrooms, flight simulators, maintenance facilities, and your team.",
+          "We create and upload 360° virtual tours of your facilities, allowing prospects to explore your flight school from anywhere. This immersive experience helps them visualize training with you before they ever visit.",
+          "Video content performs exceptionally well on Google Business Profiles. We produce and upload short promotional videos, student testimonials, and virtual aircraft tours that capture attention and increase engagement.",
+          `<strong>Businesses with photos receive 42% more requests for directions and 35% more click-throughs to their websites than those without.</strong>`,
+        ],
+      },
+      {
+        icon: "M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z",
+        title: "Review Generation and Management.",
+        descriptions: [
+          "Reviews are the lifeblood of local search visibility and trust-building. Google's algorithm heavily weights positive reviews when determining local search rankings, and 88% of consumers trust online reviews as much as personal recommendations.",
+          "We implement systematic review generation strategies that make it easy for satisfied students to leave positive reviews. This includes automated review requests sent after discovery flights, solo milestones, and checkride completions.",
+          "Our review management system monitors all incoming reviews and alerts you immediately. We help you craft professional, empathetic responses to every review—positive and negative—showing prospects that you care about student experience.",
+          "Negative reviews are opportunities to demonstrate excellent customer service. We help you respond professionally, address concerns, and often turn negative experiences into positive outcomes that build trust with future students.",
+          `<strong>Flight schools with 50+ positive Google reviews experience 3x higher conversion rates and dominate local search results in their market.</strong>`,
+        ],
+      },
+      {
+        icon: "M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z",
+        title: "Google Posts and Q&A Management.",
+        descriptions: [
+          "Google Posts allow you to share updates, promotions, events, and news directly on your profile. We create and publish regular posts about discovery flight specials, new aircraft additions, student success stories, and aviation events.",
+          "Posts appear prominently in your profile and can include calls-to-action like 'Book Now,' 'Learn More,' or 'Sign Up.' This drives engagement and conversions directly from Google Search and Maps.",
+          "The Q&A section is often overlooked but critical for addressing common questions. We proactively populate this section with frequently asked questions about training costs, aircraft types, financing options, and program details.",
+          "We monitor incoming questions and provide prompt, detailed answers that position your flight school as helpful and responsive. This prevents misinformation and ensures prospects get accurate information before contacting you.",
+          `<strong>Active Google Business Profiles with regular posts and Q&A engagement see 50% more profile views and generate significantly more inquiries.</strong>`,
+        ],
+      },
+      {
+        icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z",
+        title: "Performance Tracking and Optimization.",
+        descriptions: [
+          "Google Business Profile Insights provide valuable data about how prospects find and interact with your profile. We track key metrics including search queries, profile views, website clicks, phone calls, direction requests, and photo views.",
+          "This data reveals which keywords prospects use to find you, what content they engage with most, and where opportunities exist to improve. We use these insights to continuously optimize your profile for better visibility and conversions.",
+          "We track your local search rankings for key terms like 'flight school [city],' 'pilot training near me,' and 'learn to fly [location].' This competitive intelligence helps us adjust strategy to maintain your dominant position.",
+          "Monthly reporting shows you exactly how your Google Business Profile contributes to leads and enrollments. We correlate profile activity with website traffic, phone calls, and actual student enrollments to demonstrate clear ROI.",
+          `<strong>Data-driven optimization based on Google Business Profile Insights consistently improves visibility, engagement, and conversion rates over time.</strong>`,
+        ],
+      },
+    ],
+  },
+  afterListParagraphs: [
+    "A fully optimized Google Business Profile is your most powerful local marketing asset. Combined with our SEO strategies and paid advertising campaigns, we create a comprehensive local visibility system that makes your flight school the obvious choice for aspiring pilots in your area.",
+    "Now let's explore how we maintain and continuously improve your Google Business Profile for sustained local dominance.",
+  ],
+};
+
+// FAQ schema for GBP services
+const faqData = [
+  {
+    question: "How long does it take to optimize a Google Business Profile?",
+    answer:
+      "Initial optimization typically takes 1-2 weeks, including profile verification, information updates, photo uploads, and initial post creation. However, ongoing optimization is continuous to maintain rankings and generate reviews.",
+  },
+  {
+    question:
+      "Can Google Business Profile optimization really increase student enrollments?",
+    answer:
+      "Absolutely. Flight schools with optimized profiles typically see 3-5x more profile views, 2-3x more website clicks, and significantly more phone calls. Combined with review generation, this translates directly to more discovery flights and enrollments.",
+  },
+  {
+    question: "What if my flight school already has a Google Business Profile?",
+    answer:
+      "Most existing profiles need significant optimization. We audit your current profile, claim and verify ownership if needed, update all information, add missing photos, implement review generation, and begin regular posting to maximize visibility.",
+  },
+  {
+    question: "How do you generate more Google reviews for my flight school?",
+    answer:
+      "We implement systematic review generation workflows that automatically request reviews after positive experiences (discovery flights, solo flights, checkride passes). We make it easy for students to leave reviews with direct links and follow-up reminders.",
+  },
+];
+
+// Breadcrumb navigation
+const breadcrumbs = [
+  { name: "Home", url: "/" },
+  { name: "Marketing System", url: "/marketing-system" },
+  {
+    name: "Google Business Profile",
+    url: "/marketing-system/flight-school-google-business-profile-management",
+  },
+];
+
+const faqSchema = generateFAQSchema(faqData);
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+
+const heroData = {
+  image: {
+    src: "/src/assets/chuttersnap-M2-_GRvWWg0-unsplash.jpg",
+    alt: "Google Business Profile Management for Flight Schools",
+  },
+  uppertitle: "Dominate Local Search",
+  title: "Google Business Profile Management for Flight Schools",
+  subTitle:
+    "Maximize your local visibility and attract more student pilots with expert Google Business Profile optimization. Get found on Google Search and Maps, generate authentic reviews, and convert local searches into enrolled students.",
+};
+---
+
+<BaseLayout
+  siteTitle={pageTitle}
+  siteDescription={pageDescription}
+  keywords={enhancedKeywords}
+>
+  <!-- Schema markup for enhanced SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(breadcrumbSchema)}
+  />
+
+  <!-- HEADER -->
+  <HeroScreen data={heroData} />
+
+  <Content data={whatsGBP} />
+
+  <CtaSimpleCenter
+    heading="Is your Google Business Profile fully optimized?"
+    description="Our Google Business Profile Optimization Checklist reveals the 27 critical elements that separate flight schools dominating local search from those being overlooked. Download this free guide and discover exactly what you need to optimize to attract more student pilots."
+    buttons={[
+      {
+        text: "Download the Checklist",
+        href: "/resources/google-business-profile-checklist",
+      },
+    ]}
+  />
+
+  <Cta2Cols
+    img={{
+      src: "/src/assets/mael-balland-QRQHIYyIlp8-unsplash.jpg",
+      alt: "Flight school student viewing Google Business Profile",
+    }}
+    cta={{
+      heading: "How does your profile compare to competitors?",
+      description: `<strong>Our Free Google Business Profile Audit</strong> analyzes your current profile against local competitors and reveals specific opportunities to increase visibility, generate more reviews, and dominate local search results.`,
+      btnText: "Get Your Free Audit",
+      btnHref: "/schedule-call",
+    }}
+    list={[
+      "Is your business information complete and accurate?",
+      "Do you have enough high-quality photos and videos?",
+      "Are you generating consistent positive reviews?",
+      "How do you rank for local flight school searches?",
+    ]}
+  />
+</BaseLayout>

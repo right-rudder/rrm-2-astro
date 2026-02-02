@@ -1,0 +1,210 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Content from "../../components/Content.astro";
+import {
+  generateKeywords,
+  AVIATION_KEYWORDS,
+  TARGET_LOCATIONS,
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+} from "../../utils/seo";
+import HeroScreen from "@/components/HeroScreen.astro";
+import Cta2Cols from "@/components/Cta2cols.astro";
+import CtaSimpleCenter from "@/components/CtaSimpleCenter.astro";
+
+const pageTitle =
+  "Paid Advertising for Flight Schools | Right Rudder Marketing";
+
+const pageDescription =
+  "Accelerate student enrollment with targeted paid advertising campaigns. We help flight schools generate qualified leads through Google Ads, Facebook, Instagram, and YouTube advertising. Get measurable results and predictable ROI.";
+
+const pageKeywords =
+  "flight school paid advertising, aviation PPC, Google Ads for flight schools, Facebook ads for pilot training, flight school lead generation, aviation advertising, pilot training ads, flight school marketing campaigns";
+
+// Enhanced SEO keyword generation
+const enhancedKeywords = generateKeywords(
+  [
+    ...AVIATION_KEYWORDS.primary.slice(0, 5),
+    "flight school advertising",
+    "aviation PPC",
+    "pilot school ads",
+    "flight training advertising",
+    "aviation academy ads",
+    "flight school Google Ads",
+    "pilot training Facebook ads",
+    "aviation lead generation",
+    "flight school marketing campaigns",
+  ],
+  TARGET_LOCATIONS.slice(0, 10),
+  [
+    "flight school paid advertising services",
+    "aviation PPC management",
+    "flight school lead generation campaigns",
+    "pilot training advertising services",
+    "aviation Google Ads management",
+  ],
+);
+
+const whatsPaidAds = {
+  imagePath: "/src/assets/benjamin-chambon-7LJLXYpqGl4-unsplash.jpg",
+  imageAlt: "Flight school paid advertising dashboard",
+  upperHeading: "What is Paid Advertising?",
+  heading: "Targeted Advertising for Flight Schools",
+  description: `Paid advertising is the fastest way to get your flight school in front of prospective students actively searching for flight training. Through strategic campaigns on Google Ads, Facebook, Instagram, YouTube, and Google Maps, we place your school directly in front of qualified prospects at the exact moment they're looking for pilot training.`,
+  paragraphs: [
+    "In all of our years working with Flight Schools in some of the most competitive markets in the United States, we have developed proven advertising strategies that consistently deliver qualified leads and measurable ROI for our clients.",
+    "There are multiple advertising platforms we leverage to maximize your flight school's visibility and student enrollment. Each platform serves a specific purpose in the student acquisition journey, from initial awareness to enrollment commitment.",
+    "<strong>The key to successful flight school advertising is targeting the right audience with the right message on the right platform at the right time.</strong>",
+  ],
+  list: {
+    heading: "Our Paid Advertising Channels",
+    items: [
+      {
+        icon: "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z",
+        title: "Google Search Ads.",
+        descriptions: [
+          "Google Search Ads put your flight school at the top of search results when prospects search for 'flight school near me,' 'pilot training,' or 'how to become a pilot.' These are high-intent prospects actively looking for training.",
+          "We target specific keywords that indicate strong purchase intent, such as 'private pilot license cost,' 'flight training programs,' and location-specific searches. This ensures your ad budget is spent on qualified prospects most likely to enroll.",
+          "Our Google Search campaigns include compelling ad copy that highlights your unique value proposition, special offers, aircraft fleet, and financing options. We create dedicated landing pages optimized for conversions to maximize your return on ad spend.",
+          "We continuously monitor and optimize your campaigns, adjusting bids, refining keywords, and improving ad copy based on performance data. This ensures you're always getting the best possible cost per lead.",
+          `<strong>Google Search Ads deliver immediate visibility and qualified leads from prospects actively searching for flight training in your area.</strong>`,
+        ],
+      },
+      {
+        icon: "M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z",
+        title: "Google Local Services & Maps.",
+        descriptions: [
+          "Google Local Services Ads and Google Maps advertising ensure your flight school appears when prospects search for training in your specific geographic area. These ads feature prominently in local search results and Google Maps.",
+          "We optimize your Google Business Profile to maximize visibility in local searches, ensuring accurate information about your location, hours, contact details, and services. Customer reviews and ratings are prominently displayed, building trust with prospects.",
+          "Local Services Ads use a pay-per-lead model, meaning you only pay when a prospect contacts you directly through the ad. This provides excellent ROI and eliminates wasted ad spend on unqualified clicks.",
+          "We target specific radius areas around your flight school to ensure you're reaching prospects within your service area who are most likely to enroll and complete training.",
+          `<strong>Dominate your local market with Google Local Services and Maps advertising that puts your flight school front and center when prospects search nearby.</strong>`,
+        ],
+      },
+      {
+        icon: "M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z",
+        title: "Social Media Advertising.",
+        descriptions: [
+          "Facebook and Instagram ads allow us to target specific demographics, interests, and behaviors that align with your ideal student profile. We can reach aviation enthusiasts, high school seniors, career changers, and veterans considering pilot training.",
+          "We create compelling video ads and image ads showcasing your aircraft, facilities, instructors, and student success stories. These ads build awareness and generate interest among prospects who may not be actively searching yet.",
+          "Advanced targeting options allow us to reach people based on their interests (aviation, military, career development), life events (graduation, job changes), and even competitors' audiences. This ensures your message reaches qualified prospects.",
+          "We implement retargeting campaigns to re-engage website visitors who didn't convert on their first visit. These ads keep your flight school top-of-mind and nurture prospects through the decision-making process.",
+          `<strong>Social media advertising builds awareness, generates interest, and nurtures prospects through every stage of the enrollment journey.</strong>`,
+        ],
+      },
+      {
+        icon: "M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z",
+        title: "YouTube Advertising.",
+        descriptions: [
+          "YouTube is the second largest search engine and a powerful platform for flight school advertising. We create and promote engaging video content that showcases your training programs, student testimonials, and the pilot lifestyle.",
+          "Pre-roll ads appear before aviation-related videos, reaching prospects already interested in flying. We can target specific channels, videos, and topics relevant to flight training and aviation careers.",
+          "Discovery ads appear in YouTube search results and suggested videos, capturing prospects actively researching flight training options. These ads drive traffic to your website or YouTube channel for deeper engagement.",
+          "Video remarketing allows us to show ads to prospects who've watched your videos or visited your website, keeping your flight school top-of-mind throughout their decision process.",
+          `<strong>YouTube advertising leverages the power of video to inspire, educate, and convert prospects into enrolled student pilots.</strong>`,
+        ],
+      },
+    ],
+  },
+  afterListParagraphs: [
+    "Paid advertising provides immediate visibility and qualified leads for your flight school. Combined with our conversion-optimized landing pages and automated follow-up systems, we create a complete lead generation machine that fills your schedule with student pilots.",
+    "Now let's explore how we measure and optimize your advertising campaigns for maximum ROI.",
+  ],
+};
+
+// FAQ schema for paid advertising services
+const faqData = [
+  {
+    question: "How much should a flight school spend on paid advertising?",
+    answer:
+      "Flight school advertising budgets typically range from $2,000 to $10,000+ per month depending on market size, competition, and growth goals. We recommend starting with at least $3,000/month to see meaningful results across multiple channels.",
+  },
+  {
+    question: "How long does it take to see results from paid advertising?",
+    answer:
+      "You'll start receiving leads within days of launching campaigns. However, it typically takes 2-3 months to fully optimize campaigns and achieve optimal cost-per-lead as we gather data and refine targeting.",
+  },
+  {
+    question: "What kind of ROI can I expect from flight school advertising?",
+    answer:
+      "Our flight school clients typically achieve a 3:1 to 5:1 return on ad spend, meaning every dollar invested generates $3-$5 in student revenue. Results vary based on your pricing, conversion rates, and market conditions.",
+  },
+  {
+    question:
+      "Do I need to hire Right Rudder Marketing to run my paid advertising?",
+    answer:
+      "While you can run ads yourself, our aviation industry expertise and proven strategies consistently outperform DIY efforts. We understand flight school marketing, student psychology, and regulatory compliance, ensuring your ad spend delivers maximum results.",
+  },
+];
+
+// Breadcrumb navigation
+const breadcrumbs = [
+  { name: "Home", url: "/" },
+  { name: "Marketing System", url: "/marketing-system" },
+  {
+    name: "Paid Advertising",
+    url: "/marketing-system/flight-school-paid-advertising",
+  },
+];
+
+const faqSchema = generateFAQSchema(faqData);
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+
+const heroData = {
+  image: {
+    src: "/src/assets/greg-rosenke-0DizjoNOCrw-unsplash.jpg",
+    alt: "Right Rudder Marketing Flight School Paid Advertising",
+  },
+  uppertitle: "Accelerate Your Growth",
+  title: "Paid Advertising for Flight Schools",
+  subTitle:
+    "Generate qualified student leads and fill your training schedule with targeted advertising campaigns on Google, Facebook, Instagram, and YouTube. Get measurable results, predictable ROI, and dominate your local market.",
+};
+---
+
+<BaseLayout
+  siteTitle={pageTitle}
+  siteDescription={pageDescription}
+  keywords={enhancedKeywords}
+>
+  <!-- Schema markup for enhanced SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(breadcrumbSchema)}
+  />
+
+  <!-- HEADER -->
+  <HeroScreen data={heroData} />
+
+  <Content data={whatsPaidAds} />
+
+  <CtaSimpleCenter
+    heading="Ready to generate qualified leads for your flight school?"
+    description="Our Paid Advertising Strategy Guide reveals the exact campaigns, targeting strategies, and budget allocation that top-performing flight schools use to achieve consistent 3:1+ ROI on advertising spend. Learn how to attract high-quality student pilots and maximize your marketing investment."
+    buttons={[
+      {
+        text: "Download the Strategy Guide",
+        href: "/resources/flight-school-advertising-strategy-guide",
+      },
+    ]}
+  />
+
+  <Cta2Cols
+    img={{
+      src: "/src/assets/mael-balland-QRQHIYyIlp8-unsplash.jpg",
+      alt: "Flight school student in cockpit during training",
+    }}
+    cta={{
+      heading: "Is your advertising budget generating enough leads?",
+      description: `<strong>Our Advertising Performance Audit</strong> analyzes your current campaigns and reveals opportunities to double your leads without increasing your budget. Discover where you're losing money and how to fix it.`,
+      btnText: "Get Your Free Audit",
+      btnHref: "/schedule-call",
+    }}
+    list={[
+      "Are your ads targeting high-intent keywords and audiences?",
+      "Is your cost-per-lead competitive for your market?",
+      "Are your landing pages optimized for conversion?",
+      "Do you have proper conversion tracking and attribution?",
+    ]}
+  />
+</BaseLayout>

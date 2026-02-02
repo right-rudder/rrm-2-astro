@@ -1,0 +1,223 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Content from "../../components/Content.astro";
+import {
+  generateKeywords,
+  AVIATION_KEYWORDS,
+  TARGET_LOCATIONS,
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+} from "../../utils/seo";
+import HeroScreen from "@/components/HeroScreen.astro";
+import Cta2Cols from "@/components/Cta2cols.astro";
+import CtaSimpleCenter from "@/components/CtaSimpleCenter.astro";
+
+const pageTitle =
+  "Directory Listings & Citations for Flight Schools | Right Rudder Marketing";
+
+const pageDescription =
+  "Boost your flight school's online visibility with comprehensive directory listings and local citations. We manage your presence across aviation directories, local business listings, and industry-specific platforms to improve SEO and attract more student pilots.";
+
+const pageKeywords =
+  "flight school directory listings, aviation citations, flight training directories, pilot school listings, aviation business directories, local citations flight school, flight school SEO listings";
+
+// Enhanced SEO keyword generation
+const enhancedKeywords = generateKeywords(
+  [
+    ...AVIATION_KEYWORDS.primary.slice(0, 5),
+    "flight school directories",
+    "aviation listings",
+    "flight training directories",
+    "pilot school citations",
+    "aviation business directories",
+    "local citations",
+    "flight school listings",
+    "aviation directory management",
+  ],
+  TARGET_LOCATIONS.slice(0, 10),
+  [
+    "directory listing management",
+    "flight school citation building",
+    "aviation directory services",
+    "local SEO citations",
+    "business listing optimization",
+  ],
+);
+
+const whatsDirectories = {
+  imagePath: "/src/assets/abby-ar-1uwzsExrKzY-unsplash.jpg",
+  imageAlt: "Flight school directory listings and citations",
+  upperHeading: "What are Directory Listings?",
+  heading: "Expand Your Flight School's Digital Footprint",
+  description: `Directory listings and local citations are online mentions of your flight school's name, address, phone number (NAP), and website across various platforms. These listings appear on aviation-specific directories, local business platforms, review sites, and industry databases—all working together to boost your search rankings and attract more student pilots.`,
+  paragraphs: [
+    "When prospective students research flight training options, they don't just search on Google. They visit aviation-specific directories like AOPA, Flight School List, Learn to Fly, and dozens of local business directories like Yelp, Yellow Pages, and industry-specific platforms.",
+    "Consistent, accurate listings across these directories serve dual purposes: they provide additional pathways for prospects to discover your school, and they signal to search engines that your business is legitimate and established, improving your overall SEO rankings.",
+    "<strong>Flight schools with 50+ consistent directory listings rank 40% higher in local search results and receive 3x more organic traffic than those with minimal directory presence.</strong>",
+  ],
+  list: {
+    heading: "Essential Directory Listing Categories",
+    items: [
+      {
+        icon: "M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5",
+        title: "Aviation-Specific Directories.",
+        descriptions: [
+          "Aviation directories are highly authoritative platforms where pilots and aspiring students actively search for flight training. Key directories include AOPA Flight Training Directory, Flight School List, Learn to Fly, Bold Method, and Pilot Institute.",
+          "These specialized directories often rank highly in search results for aviation-related queries. A complete profile with detailed training programs, aircraft fleet information, instructor credentials, and current pricing ensures your school stands out to serious prospects.",
+          "Many aviation directories allow reviews, photos, and detailed descriptions. We optimize your profiles with compelling content, high-quality images of your aircraft and facilities, and clear calls-to-action that drive prospects to contact you or book discovery flights.",
+          "We monitor and update your aviation directory listings regularly, ensuring information remains current and responding to any reviews or inquiries submitted through these platforms.",
+          `<strong>Flight schools listed on top aviation directories receive 60% of their qualified leads from these specialized platforms.</strong>`,
+        ],
+      },
+      {
+        icon: "M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z",
+        title: "Local Business Directories.",
+        descriptions: [
+          "Local business directories like Yelp, Yellow Pages, Foursquare, Manta, and Chamber of Commerce listings are essential for local SEO. These platforms help your flight school appear in 'near me' searches and local map results.",
+          "We claim and optimize your profiles across 50+ local business directories, ensuring your NAP (Name, Address, Phone) information is consistent everywhere. Inconsistent information confuses search engines and hurts your rankings.",
+          "Local directories often appear in the top search results for location-based queries. When prospects search 'flight school in [city],' these directories frequently outrank individual business websites, making your presence on them critical for visibility.",
+          "We manage review generation and reputation management across these platforms, encouraging satisfied students to leave positive reviews that build trust with future prospects researching your school.",
+          `<strong>Consistent local directory listings improve local search rankings by 25-40% and increase organic traffic from 'near me' searches.</strong>`,
+        ],
+      },
+      {
+        icon: "M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z",
+        title: "Industry & Educational Platforms.",
+        descriptions: [
+          "Industry platforms like AirportGuide.com, FltPlan.com, and ForeFlight directories reach pilots and aviation enthusiasts already familiar with flying. These users often research flight schools for advanced ratings or recurrent training.",
+          "Educational directories such as Trade Schools, Career Schools, and vocational training platforms attract career-focused prospects researching aviation careers. Profiles on these sites position your school as a professional training institution.",
+          "We create detailed profiles highlighting your Part 141 or 61 programs, VA approval status, financing options, career services, and airline partnerships. This information helps prospects understand the full value proposition of training with your school.",
+          "Many industry directories allow you to publish articles, news, and updates. We leverage these opportunities to share student success stories, new aircraft acquisitions, and program updates that keep your school top-of-mind.",
+          `<strong>Industry-specific directory listings generate higher-quality leads with 2-3x better conversion rates than general business directories.</strong>`,
+        ],
+      },
+      {
+        icon: "M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z",
+        title: "Social & Review Platforms.",
+        descriptions: [
+          "Social directories and review platforms like Facebook Business, Instagram Business, LinkedIn, TripAdvisor, and Trustpilot extend your reach beyond traditional search. These platforms build social proof and credibility.",
+          "Facebook and Instagram business profiles serve dual purposes: they're discovery platforms where prospects find you through targeted content, and they're directory listings that appear in social search results and Google searches.",
+          "Review platforms like Trustpilot, Better Business Bureau, and industry-specific review sites allow satisfied students to share their experiences. Positive reviews on these third-party platforms carry significant weight with prospects.",
+          "We manage your presence across all social and review platforms, responding to comments and reviews professionally, posting engaging content regularly, and ensuring your profiles accurately reflect your brand and services.",
+          `<strong>Flight schools with active social directory profiles and 4.5+ star ratings across review platforms experience 50% higher inquiry rates.</strong>`,
+        ],
+      },
+      {
+        icon: "M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z",
+        title: "Citation Building & NAP Consistency.",
+        descriptions: [
+          "Citations are mentions of your flight school's NAP (Name, Address, Phone) across the web, even without a direct link. Search engines use these citations to verify your business's legitimacy and determine local search rankings.",
+          "NAP consistency is critical—variations in how your business name, address, or phone number appear across directories confuse search engines and dilute your SEO value. We audit and standardize all citations.",
+          "We build citations across 100+ high-authority platforms, including data aggregators like Neustar, Acxiom, and Factual that distribute your information to hundreds of downstream directories automatically.",
+          "Our citation monitoring tools track your listings across the web, alerting us to any discrepancies, outdated information, or duplicate listings that could harm your rankings. We correct issues quickly to maintain optimal SEO performance.",
+          `<strong>Comprehensive citation building improves local search visibility by 30-50% and establishes your flight school as an authoritative, established business in your market.</strong>`,
+        ],
+      },
+    ],
+  },
+  afterListParagraphs: [
+    "A comprehensive directory listing and citation strategy creates a powerful foundation for local SEO success. Combined with your optimized website, Google Business Profile, and paid advertising, these listings ensure your flight school dominates every channel where prospects search for pilot training.",
+    "Now let's explore how we maintain and monitor your directory presence for sustained visibility and lead generation.",
+  ],
+  finalCta: {
+    text: "Get Your Free Citation Audit",
+    href: "/schedule-call",
+  },
+};
+
+// FAQ schema for directory listing services
+const faqData = [
+  {
+    question: "How many directory listings should my flight school have?",
+    answer:
+      "We recommend establishing your flight school on 50-100+ directories, including 10-15 aviation-specific platforms, 30-40 local business directories, and various industry, educational, and review platforms. More high-quality listings improve SEO and visibility.",
+  },
+  {
+    question: "How long does it take to see results from directory listings?",
+    answer:
+      "Initial setup takes 2-4 weeks to claim and optimize profiles across major directories. SEO benefits typically appear within 2-3 months as search engines recognize your consistent presence. Lead generation from directories can begin immediately as prospects discover your listings.",
+  },
+  {
+    question: "What if my flight school information changes?",
+    answer:
+      "We monitor and update all your directory listings when business information changes (address, phone, hours, services). This ensures NAP consistency across all platforms, preventing negative SEO impact and maintaining accurate information for prospects.",
+  },
+  {
+    question: "Do directory listings really help with SEO?",
+    answer:
+      "Absolutely. Consistent directory listings and citations are ranking factors for local SEO. They improve your visibility in local search results, 'near me' searches, and map rankings. Flight schools with comprehensive directory presence rank significantly higher than competitors with minimal listings.",
+  },
+];
+
+// Breadcrumb navigation
+const breadcrumbs = [
+  { name: "Home", url: "/" },
+  { name: "Marketing System", url: "/marketing-system" },
+  {
+    name: "Directory Listings",
+    url: "/marketing-system/flight-school-directory-listings",
+  },
+];
+
+const faqSchema = generateFAQSchema(faqData);
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+
+const heroData = {
+  image: {
+    src: "/src/assets/chris-leipelt-xrKEQ70S3O0-unsplash.jpg",
+    alt: "Flight school directory listings and citations",
+  },
+  uppertitle: "Expand your reach",
+  title: "Directory Listings & Citations for Flight Schools",
+  subTitle:
+    "Boost your online visibility and attract more student pilots with comprehensive directory listings across aviation platforms, local directories, and industry-specific sites. Improve your SEO rankings and create multiple pathways for prospects to discover your flight school.",
+};
+---
+
+<BaseLayout
+  siteTitle={pageTitle}
+  siteDescription={pageDescription}
+  keywords={enhancedKeywords}
+>
+  <!-- Schema markup for enhanced SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(breadcrumbSchema)}
+  />
+
+  <!-- HEADER -->
+  <HeroScreen data={heroData} />
+
+  <Content data={whatsDirectories} />
+
+  <CtaSimpleCenter
+    heading="Is your flight school listed everywhere it should be?"
+    description="Our Aviation Directory Checklist reveals the 50+ essential platforms where your flight school should be listed to maximize visibility, improve SEO, and attract more qualified student pilots. Download this free guide and discover which directories you're missing."
+    buttons={[
+      {
+        text: "Download the Directory Checklist",
+        href: "/resources/aviation-directory-checklist",
+      },
+    ]}
+  />
+
+  <Cta2Cols
+    img={{
+      src: "/src/assets/mael-balland-QRQHIYyIlp8-unsplash.jpg",
+      alt: "Student pilot researching flight schools online",
+    }}
+    cta={{
+      heading: "How consistent are your business listings?",
+      description: `<strong>Our Free Citation Audit</strong> scans 100+ directories to identify inconsistencies, duplicate listings, and missing information that could be hurting your search rankings. Get a detailed report with specific fixes to improve your local SEO.`,
+      btnText: "Get Your Free Citation Audit",
+      btnHref: "/schedule-call",
+    }}
+    list={[
+      "Are your NAP details consistent across all platforms?",
+      "Are you listed on all major aviation directories?",
+      "Do you have duplicate or incorrect listings?",
+      "Are your profiles complete with photos and descriptions?",
+    ]}
+  />
+</BaseLayout>

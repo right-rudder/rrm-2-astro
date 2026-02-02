@@ -1,0 +1,201 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Content from "../../components/Content.astro";
+import {
+  generateKeywords,
+  AVIATION_KEYWORDS,
+  TARGET_LOCATIONS,
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+} from "../../utils/seo";
+import HeroScreen from "@/components/HeroScreen.astro";
+import Cta2Cols from "@/components/Cta2cols.astro";
+import CtaSimpleCenter from "@/components/CtaSimpleCenter.astro";
+
+const builtToConvert = {
+  imagePath: "/src/assets/Right-Rudder-Marketing-web-design.png",
+  imageAlt: "Sky with clouds",
+  heading: "Your website is a sales tool. Are you using it correctly?",
+  upperHeading: "Websites Built to Convert",
+  description: `When you think about designing a website for a flight school, what comes to mind? List our fleet, showcase our instructors, put a contact form and call it done? This is what <strong>91%</strong> of flight school websites do, but by doing this we're missing a huge opportunity.`,
+  paragraphs: [
+    "Your website is your ultimate sales tool in your disposable. A carefully crafted website can attract the right clients, while on the other hand, not investing enough into your website design and website copy will repel your ideal customers.",
+    "At the end of the day, your customers are visiting your website and making a snap judgement about you and your business. If your website is outdated, slow, or not mobile friendly, then you're losing customers.",
+    "So what makes a Right Rudder Marketing website different than all the rest? It boils down to these three marketing psychology principles. Using these marketing psychology tactics, your website will convert visitors to actual hot leads. Let's dive in.",
+  ],
+  list: {
+    heading: "Marketing Psychology Principles",
+    items: [
+      {
+        icon: "M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z",
+        title: "Why Become a Pilot.",
+        descriptions: [
+          "Put Yourself in Their Shoes. When people visit your website, they're on the fence on whether they want to start pilot training.",
+          "Your website needs to show them the advantages of becoming a pilot. They're scouring all of the internet for content and resources to guide them in their decision.",
+          "Become the source of truth for pilot training in your local area. By providing valuable content and resources, you're positioning yourself as the expert in your field.",
+          `Highlight the benefits of becoming a pilot: career aspects, newer freedom, and a new community. This is your chance to answer the visitor's "why".`,
+          `By answering the "why" you're building trust with your potential customers. They're more likely to choose you as their flight school.`,
+        ],
+      },
+      {
+        icon: "m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z",
+        title: "Your Authority.",
+        descriptions: [
+          "Show Them How. Use your website to brandish your authority.",
+          "Lead the visitor step by step on what's the right way to start pilot training through your program.",
+          "Show them your instructors, your fleet, and your facilities. Show them how you're different from the competition.",
+          "Most people are totally confused when first starting the journey in aviation. They're wondering how much it may cost, what the process is, and how to even get started. It's an emotional process to decide to start flight training.",
+          "By showing them the way, you're building trust with your potential customers. They're more likely to choose you as their flight school.",
+        ],
+      },
+      {
+        icon: "M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
+        title: "Next Steps.",
+        descriptions: [
+          "Get Their Information",
+          "You need more than just a contact form. While one form is enough to get some leads, Right Rudder Marketing takes it up a notch. We'll use plenty call to actions throughout the site to guide visitors to multiple forms.",
+          "We'll use a variety of forms to get different information from the visitor. This way we can segment the leads and send them targeted emails.",
+          "Some tried and true lead funnels for flight schools include: booking a discovery flight, scheduling a call, and downloading a PDF guide on how to become a pilot.",
+          "Your website is a sales tool to get your visitors information so they can start training at your flight school ASAP.",
+        ],
+      },
+    ],
+  },
+  afterListParagraphs: [
+    "By using these marketing psychology principles, your website will convert visitors to actual hot leads. We've seen it time and time again with our clients. They come to us with a website that's not converting and we turn it into a lead generating machine.",
+    "If you're ready to take your flight school to the next level, then it's time to invest in a website that's built to convert.",
+  ],
+  finalCta: { text: "Get Started Today", href: "/#contact" },
+};
+
+const pageTitle =
+  "Web Design & Development for Flight Schools | Right Rudder Marketing";
+
+const pageDescription =
+  "So what makes a Right Rudder Marketing website different than all the rest? It boils down to these three marketing psychology principles. Using these marketing psychology tactics, your website will convert visitors to actual hot leads.";
+const pageKeywords =
+  "web design, web development, flight school web design, flight school web development, flight school website, flight school website design, flight school website development, flight school website design and development, flight school website design and development services, flight school website design and development company, flight school website design and development agency, flight school website design and development firm, flight school website design and development experts, flight school website design and development professionals, flight school website design and development specialists, flight school website design and development consultants, flight school website design and development services near me, flight school website design and development company near me, flight school website design and development agency near me, flight school website design and development firm near me, flight school website design and development experts near me, flight school website design and development professionals near me, flight school website design and development specialists near me, flight school website design and development consultants near me";
+
+// Enhanced SEO keyword generation
+const enhancedKeywords = generateKeywords(
+  [
+    ...AVIATION_KEYWORDS.primary.slice(0, 5),
+    "flight school web design",
+    "aviation website design",
+    "pilot school website",
+    "flight training website",
+    "aviation academy web design",
+    "flight school website development",
+    "pilot training website design",
+    "aviation academy website",
+    "flight school marketing website",
+    "flight schedule pro",
+    "flight circle",
+    "aviatiaze",
+    "four forces",
+  ],
+  TARGET_LOCATIONS.slice(0, 10), // Use top 10 target locations
+  [
+    "flight school website development",
+    "aviation web design services",
+    "flight school marketing website",
+    "pilot training website design",
+    "aviation academy website",
+  ],
+);
+
+// FAQ schema for web design services
+const faqData = [
+  {
+    question:
+      "What makes a flight school website different from other websites?",
+    answer:
+      "Flight school websites need specialized features like aircraft fleet showcases, instructor profiles, course catalogs, online scheduling, and aviation-specific SEO optimization to attract pilot students.",
+  },
+  {
+    question: "How long does it take to build a flight school website?",
+    answer:
+      "A professional flight school website typically takes 3-4 weeks to design and develop, depending on the complexity of features like online booking systems and custom integrations.",
+  },
+  {
+    question: "Do you provide SEO services for flight school websites?",
+    answer:
+      "Yes, we specialize in aviation SEO to help flight schools rank higher in search results for keywords like 'flight training near me' and 'pilot school' in their local area.",
+  },
+  {
+    question:
+      "Can you integrate online scheduling into our flight school website?",
+    answer:
+      "Absolutely! We can integrate flight scheduling systems, aircraft booking, and instructor calendar management directly into your website for a seamless student experience.",
+  },
+];
+
+// Breadcrumb navigation
+const breadcrumbs = [
+  { name: "Home", url: "/" },
+  { name: "Services", url: "/services" },
+  { name: "Website Design", url: "/flight-school-website-design" },
+];
+
+const faqSchema = generateFAQSchema(faqData);
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+
+const heroData = {
+  image: {
+    src: "/src/assets/IMG_0743.jpg",
+    alt: "Right Rudder Marketing Flight School Website Design Helicopter",
+  },
+  uppertitle: "Websites Built to Convert",
+  title: "Flight School Website Design",
+  subTitle:
+    "Your website is your ultimate sales tool. A website is more than just an online brochure; it's a lead-generating machine designed to convert visitors into paying students. Is yours working for you?",
+};
+---
+
+<BaseLayout
+  siteTitle={pageTitle}
+  siteDescription={pageDescription}
+  keywords={enhancedKeywords}
+>
+  <!-- Schema markup for enhanced SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(breadcrumbSchema)}
+  />
+
+  <!-- HEADER -->
+  <HeroScreen data={heroData} />
+
+  <Content data={builtToConvert} />
+
+  <CtaSimpleCenter
+    heading="Do you have the right keywords for your market?"
+    description="Unlock the potential of your flight school with targeted keywords that attract the right students. Our Free Keyword Research Guide reveals the top keywords specific to your local market, helping you optimize your website and advertising campaigns for maximum visibility and enrollment growth."
+    buttons={[
+      {
+        text: "Download the Guide",
+        href: "/resources/flight-school-keyword-research-guide",
+      },
+    ]}
+  />
+
+  <Cta2Cols
+    img={{
+      src: "/src/assets/mael-balland-QRQHIYyIlp8-unsplash.jpg",
+      alt: "Instrument panel of a small aircraft",
+    }}
+    cta={{
+      heading: "Is your website optimize for SEO?",
+      description: `Technical SEO is the foundation for higher search rankings. <strong>Our Website & SEO Performance Checklist</strong> ensures your flight school website is fully optimized to rank higher on Google and attract more student pilots.`,
+      btnText: "Download our SEO Checklist",
+      btnHref: "/resources/website-seo-checklist",
+    }}
+    list={[
+      "Are there any broken links, 404 errors, or redirect chains?",
+      "Is your XML sitemap submitted and error-free?",
+      "Are headers (H1–H3) structured for clarity and SEO?",
+      "Is there a dedicated page explaining training costs in plain language?",
+    ]}
+  />
+</BaseLayout>
