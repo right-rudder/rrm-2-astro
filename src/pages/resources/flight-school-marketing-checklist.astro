@@ -1,0 +1,553 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero75 from "@/components/Hero75.astro";
+import DownloadBook from "@/components/DownloadBook.jsx";
+import Testimonials from "@/components/Testimonials.astro";
+import CtaSimpleCenter from "@/components/CtaSimpleCenter.astro";
+import DownloadChecklist from "@/components/DownloadChecklist";
+
+const GHL_BOOK_FORM_WEBHOOK_URL = import.meta.env.GHL_BOOK_FORM_WEBHOOK_URL;
+const PORTAL_API_KEY = import.meta.env.PORTAL_API_KEY;
+
+const heroData = {
+  image: {
+    src: "/src/assets/DSC00637.jpg",
+    alt: "Flight school students and aircraft",
+  },
+  title: "Is Your Flight School Losing Students to the Competition?",
+  subTitle:
+    "Download the FREE Flight School Marketing System Checklist and discover exactly what's holding your flight school back from dominating your local market.",
+  cta: [
+    {
+      url: "#download",
+      text: "Download Your Free Checklist Now",
+      variant: "primary" as const,
+    },
+  ],
+};
+
+const testimonials = [
+  {
+    quote:
+      "Right Rudder Marketing understands the industry, produces context-correct content with tracked results, all with a smile… I highly recommend this company.",
+    author: "Nayda Cattin",
+    role: "Cirrus Aviation, Sarasota, FL",
+  },
+  {
+    quote:
+      "Our flight school has been working with Right Rudder Marketing for almost a year now. They are an incredible group of people. We are so happy with them.",
+    author: "Marisa Doerstling",
+    role: "Pitcairn Flight Academy, Pottstown, PA",
+  },
+  {
+    quote:
+      "We have seen a steady increase in web traffic as well as website driven phone calls since starting with Right Rudder Marketing.",
+    author: "Kim Nagel",
+    role: "Ideal Aviation, St. Louis, MO",
+  },
+];
+
+const seoData = {
+  pageTitle: "Free Flight School Marketing Checklist | Right Rudder Marketing",
+  pageDescription:
+    "Download the FREE Flight School Marketing System Checklist and discover exactly what's holding your flight school back from dominating your local market. Get actionable strategies to fill your discovery flight calendar, rank #1 on Google, and convert visitors into enrolled students.",
+  pageKeywords:
+    "flight school marketing checklist, flight school marketing, flight school SEO, flight school advertising, flight school lead generation, aviation marketing, pilot training marketing",
+};
+---
+
+<BaseLayout
+  siteTitle={seoData.pageTitle}
+  siteDescription={seoData.pageDescription}
+  siteKeywords={seoData.pageKeywords}
+>
+  <div class="fixed bottom-0 lg:bottom-8 right-2 w-full lg:w-auto z-50 p-0">
+    <DownloadChecklist
+      client:visible
+      checklistName="Flight School Marketing Checklist"
+      webhook={GHL_BOOK_FORM_WEBHOOK_URL}
+      apiKey={PORTAL_API_KEY}
+    />
+  </div>
+  <!-- Hero Section -->
+  <Hero75 data={heroData} />
+
+  <!-- Problem Statement Section -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-5 md:px-8 lg:px-12">
+      <div class="text-center mb-12">
+        <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">
+          Most flight schools are <strong class="text-mariner-600"
+            >invisible online</strong
+          >. While you're focused on training safe, proficient pilots, potential
+          students are finding your competitors first on Google Maps, social
+          media, and search results.
+        </p>
+        <p class="text-xl md:text-2xl text-gray-700 font-semibold">
+          The result? Empty schedules, underutilized aircraft, and lost revenue.
+        </p>
+      </div>
+
+      <div class="bg-gray-50 rounded-xl p-8 md:p-12 mt-12">
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+          What if you could:
+        </h3>
+        <ul class="space-y-4 text-lg text-gray-700">
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-green-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span>Fill your discovery flight calendar consistently</span>
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-green-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span>Rank #1 in your local area on Google</span>
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-green-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span
+              >Turn website visitors into enrolled students automatically</span
+            >
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-green-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span>Build a marketing system that works while you fly</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You'll Get Section -->
+  <section class="py-16 md:py-24 bg-gray-900 text-white" id="download">
+    <div class="max-w-5xl mx-auto px-5 md:px-8 lg:px-12">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          Inside This 9-Page Actionable Checklist:
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <!-- Checklist Item 1 -->
+        <div
+          class="bg-gray-800 rounded-lg p-8 hover:bg-gray-750 transition-colors"
+        >
+          <div class="flex items-start mb-4">
+            <svg
+              class="w-8 h-8 text-green-500 mr-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-bold mb-2">
+                Website & Conversion Optimization
+              </h3>
+              <p class="text-gray-300">
+                Discover the 8 critical elements your website needs to turn
+                visitors into intro flight bookings
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist Item 2 -->
+        <div
+          class="bg-gray-800 rounded-lg p-8 hover:bg-gray-750 transition-colors"
+        >
+          <div class="flex items-start mb-4">
+            <svg
+              class="w-8 h-8 text-green-500 mr-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-bold mb-2">
+                Search Engine & AI Optimization
+              </h3>
+              <p class="text-gray-300">
+                Learn how to rank high on Google AND appear in AI-generated
+                search results where students are researching in 2026
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist Item 3 -->
+        <div
+          class="bg-gray-800 rounded-lg p-8 hover:bg-gray-750 transition-colors"
+        >
+          <div class="flex items-start mb-4">
+            <svg
+              class="w-8 h-8 text-green-500 mr-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Google Maps Domination</h3>
+              <p class="text-gray-300">
+                The exact steps to claim the top spot on Google Maps and become
+                the obvious local choice
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist Item 4 -->
+        <div
+          class="bg-gray-800 rounded-lg p-8 hover:bg-gray-750 transition-colors"
+        >
+          <div class="flex items-start mb-4">
+            <svg
+              class="w-8 h-8 text-green-500 mr-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Paid Advertising Framework</h3>
+              <p class="text-gray-300">
+                Stop wasting ad spend on clicks that don't convert into enrolled
+                students
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist Item 5 -->
+        <div
+          class="bg-gray-800 rounded-lg p-8 hover:bg-gray-750 transition-colors"
+        >
+          <div class="flex items-start mb-4">
+            <svg
+              class="w-8 h-8 text-green-500 mr-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Social Media Strategy</h3>
+              <p class="text-gray-300">
+                Create authentic content that builds trust and attracts future
+                pilots
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist Item 6 -->
+        <div
+          class="bg-gray-800 rounded-lg p-8 hover:bg-gray-750 transition-colors"
+        >
+          <div class="flex items-start mb-4">
+            <svg
+              class="w-8 h-8 text-green-500 mr-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Lead Nurturing Systems</h3>
+              <p class="text-gray-300">
+                Implement email and SMS sequences that convert tire-kickers into
+                committed students
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist Item 7 -->
+        <div
+          class="bg-gray-800 rounded-lg p-8 hover:bg-gray-750 transition-colors"
+        >
+          <div class="flex items-start mb-4">
+            <svg
+              class="w-8 h-8 text-green-500 mr-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-bold mb-2">
+                Physical Assets Optimization
+              </h3>
+              <p class="text-gray-300">
+                Ensure your on-site experience converts discovery flights into
+                long-term students
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist Item 8 -->
+        <div
+          class="bg-gray-800 rounded-lg p-8 hover:bg-gray-750 transition-colors"
+        >
+          <div class="flex items-start mb-4">
+            <svg
+              class="w-8 h-8 text-green-500 mr-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Tracking & Accountability</h3>
+              <p class="text-gray-300">
+                Know exactly which marketing channels produce your
+                highest-quality students
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Section -->
+  <Testimonials testimonials={testimonials} />
+
+  <!-- Authority Section -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-5 md:px-8 lg:px-12">
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900"
+        >
+          Why Listen to Right Rudder Marketing?
+        </h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+          We're not just marketers—<strong>we're pilots too</strong>. We've
+          helped flight schools across the country double, triple, and even 10X
+          their student enrollments by implementing the Flight School Marketing
+          System.
+        </p>
+      </div>
+
+      <div class="bg-mariner-50 rounded-xl p-8 md:p-12 mb-12">
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+          Our team specializes exclusively in:
+        </h3>
+        <ul class="space-y-4 text-lg text-gray-700">
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
+              ></path>
+            </svg>
+            <span>Flight school digital marketing</span>
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
+              ></path>
+            </svg>
+            <span>Aviation industry SEO</span>
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
+              ></path>
+            </svg>
+            <span>Student pilot lead generation</span>
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
+              ></path>
+            </svg>
+            <span>Part 61 & Part 141 marketing strategies</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="text-center">
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+          Unlike general marketing agencies, we understand the nuances of Part
+          61 vs. Part 141, FAA regulations, and what actually motivates
+          prospective pilots to choose one school over another.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Urgency/Scarcity Section -->
+  <section class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-5 md:px-8 lg:px-12">
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900"
+        >
+          Your Competitors Are Already Using These Strategies
+        </h2>
+        <p class="text-xl text-gray-700 mb-8">
+          Every day you wait is another day potential students are booking
+          discovery flights with competing schools. The pilot shortage means
+          unprecedented demand for flight training—but only schools with strong
+          online presence are capturing these leads.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+          This free checklist will help you:
+        </h3>
+        <ul class="space-y-4 text-lg text-gray-700">
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-red-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span>Identify gaps in your current marketing system</span>
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-red-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span>Prioritize the highest-impact improvements</span>
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-red-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span>Build a roadmap to market dominance</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <CtaSimpleCenter
+    heading="Download Your Free Checklist Now"
+    description="No fluff. No buzzwords. Just actionable strategies based on real-world case studies from flight schools that have transformed their enrollment numbers."
+    buttons={[
+      {
+        text: "Get Your Free Checklist",
+        href: "#download",
+      },
+    ]}
+  />
+</BaseLayout>
