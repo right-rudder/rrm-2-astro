@@ -125,11 +125,11 @@
 }
 
 .title {
-  @apply font-title text-4xl md:text-5xl lg:text-6xl font-bold mb-4
+  @apply font-title text-5xl md:text-6xl font-bold mb-4
 }
 
 .title-bright {
-  @apply font-title text-4xl md:text-5xl lg:text-6xl/14 font-bold text-white mb-4
+  @apply font-title text-5xl md:text-6xl lg:text-6xl/14 font-bold text-white mb-4
 }
 
 .subtitle {
