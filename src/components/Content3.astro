@@ -1,9 +1,18 @@
 ---
+interface Props {
+  data: {
+    heading: string;
+    description: string;
+    paragraphs: string[];
+    facts?: { title: string; description: string }[];
+  };
+}
+
 const { data } = Astro.props;
 ---
 
 <div
-  class="py-20 bg-white mx-auto ring-1 ring-primary-100 -mt-12 mb-12 max-w-7xl px-6 sm:mt-0 lg:px-12 xl:-mt-8 shadow-xl"
+  class="py-20 bg-white mx-auto ring-1 ring-gray-200 -mt-12 mb-12 max-w-7xl px-6 sm:mt-0 lg:px-12 xl:-mt-8 shadow-xl"
 >
   <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
     <div class="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
@@ -17,29 +26,21 @@ const { data } = Astro.props;
           {data.description}
         </p>
         <div class="mt-6 max-w-xl text-lg/7 text-gray-700">
-          {
-            data.paragraphs.map((paragraph: string) => (
-              <p class="mt-2">{paragraph}</p>
-            ))
-          }
+          {data.paragraphs.map((paragraph) => <p class="mt-2">{paragraph}</p>)}
         </div>
       </div>
       {
         data.facts && (
-          <div class="lg:flex lg:flex-auto lg:justify-center">
+          <div class="lg:flex lg:flex-auto justify-center">
             <dl class="w-64 space-y-12 xl:w-80">
-              {data.facts.map(
-                (fact: { description: string; title: string }) => (
-                  <div class="flex flex-col-reverse">
-                    <dt class="text-base leading-6 text-muted-600">
-                      {fact.description}
-                    </dt>
-                    <dd class="text-5xl text-center font-bold tracking-tight text-gray-500">
-                      {fact.title}
-                    </dd>
-                  </div>
-                ),
-              )}
+              {data.facts.map((fact) => (
+                <div class="flex flex-col-reverse text-center">
+                  <dt class="text-base/6 text-muted-600">{fact.description}</dt>
+                  <dd class="text-6xl text-center font-bold tracking-tight text-mariner-600">
+                    {fact.title}
+                  </dd>
+                </div>
+              ))}
             </dl>
           </div>
         )

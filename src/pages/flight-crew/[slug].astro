@@ -47,40 +47,34 @@ const authorPosts = allPosts
   siteDescription={`This is a profile page for ${member.data.name}.  Right Rudder Marketing is a growing company that relies on the contributions of friends, family, partners, and an awesome hard working crew.  We are all passionate about the flight training business and our aim is to affect the aviation industry by training more safe and proficient pilots.`}
   keywords={`${member.data.name}, team member, crew, CRM, crew resource management, teamwork, teamwork makes the dream work, all stars, developers, marketers, designers, copywriters, video-editors, full stack engineers, pilots, aviation consultant, aviation specialist, training, CFI, instructor`}
 >
-  <div class="bg-primary-800 h-28 w-full"></div>
+  <div class="bg-mariner-800 h-28 w-full"></div>
   <section class="relative py-16">
     <div class="container mx-auto px-4">
       <div
-        class="relative flex flex-col min-w-0 max-w-4xl mx-auto wrap-break-word bg-white w-full mb-6 shadow-xl rounded-lg"
+        class="relative flex flex-col max-w-4xl mx-auto bg-white w-full mb-6 shadow-xl rounded-2xl overflow-hidden"
       >
-        <div class="px-6">
-          <div class="mt-12 flex flex-wrap justify-center">
-            <div class="w-full lg:w-1/2 px-4 lg:order-2 flex justify-center">
-              <div class="relative rounded-xl overflow-hidden">
-                <img
-                  src={member.data.image}
-                  alt={member.data.name}
-                  class="object-cover bg-black"
-                />
-              </div>
-            </div>
+        <div class="px-6 lg:px-0">
+          <div class="w-full aspect-square overflow-hidden">
+            <img
+              src={member.data.image}
+              alt={member.data.name}
+              class="object-cover object-top w-full h-full bg-black"
+            />
           </div>
-          <div class="text-center mt-6">
-            <h1 class="text-5xl font-semibold leading-normal text-gray-700">
+          <div class="text-center mt-16 lg:mt-24">
+            <h1 class="title">
               {member.data.name}
             </h1>
-            <div
-              class="text-sm leading-normal mt-0 mb-2 text-gray-400 font-bold uppercase"
-            >
+            <p class="text-2xl -mt-3 text-mariner-400 font-bold uppercase">
               {member.data.title}
-            </div>
+            </p>
             <div class="hidden" aria-hidden="true">
               Seniority: {member.data.seniority}
             </div>
             <div class="mb-2 text-gray-600 mt-10">
               Status: <br />{
                 member.data.status === "active" && (
-                  <strong class="text-primary-600">
+                  <strong class="text-mariner-600">
                     Active RRM Crew Member
                   </strong>
                 )
@@ -110,7 +104,7 @@ const authorPosts = allPosts
                     member.data.social?.facebook && (
                       <a
                         href={member.data.social.facebook}
-                        class="text-primary-dark hover:scale-125 hover:text-primary-700 duration-75"
+                        class="text-mariner-dark hover:scale-125 hover:text-mariner-700 duration-75"
                         target="_blank"
                       >
                         <FaFacebookSquare size="40" />
@@ -121,7 +115,7 @@ const authorPosts = allPosts
                     member.data.social?.instagram && (
                       <a
                         href={member.data.social.instagram}
-                        class="text-primary-dark hover:scale-125 hover:text-primary-700 duration-75"
+                        class="text-mariner-dark hover:scale-125 hover:text-mariner-700 duration-75"
                         target="_blank"
                       >
                         <FaInstagramSquare size="40" />
@@ -132,7 +126,7 @@ const authorPosts = allPosts
                     member.data.social?.linkedin && (
                       <a
                         href={member.data.social.linkedin}
-                        class="text-primary-dark hover:scale-125 hover:text-primary-700 duration-75"
+                        class="text-mariner-dark hover:scale-125 hover:text-mariner-700 duration-75"
                         target="_blank"
                       >
                         <FaLinkedin size="40" />
@@ -143,7 +137,7 @@ const authorPosts = allPosts
                     member.data.social?.twitter && (
                       <a
                         href={member.data.social.twitter}
-                        class="text-primary-dark hover:scale-125 hover:text-primary-700 duration-75"
+                        class="text-mariner-dark hover:scale-125 hover:text-mariner-700 duration-75"
                         target="_blank"
                       >
                         <FaSquareXTwitter size="40" />
@@ -154,7 +148,7 @@ const authorPosts = allPosts
                     member.data.social?.github && (
                       <a
                         href={member.data.social.github}
-                        class="text-primary-dark hover:scale-125 hover:text-primary-700 duration-75"
+                        class="text-mariner-dark hover:scale-125 hover:text-mariner-700 duration-75"
                         target="_blank"
                       >
                         <FaSquareGithub size="40" />
@@ -165,7 +159,7 @@ const authorPosts = allPosts
                     member.data.social?.website && (
                       <a
                         href={member.data.social.website}
-                        class="text-primary-dark hover:scale-125 hover:text-primary-700 duration-75"
+                        class="text-mariner-dark hover:scale-125 hover:text-mariner-700 duration-75"
                         target="_blank"
                       >
                         <FaExternalLinkSquareAlt size="40" />
@@ -176,7 +170,7 @@ const authorPosts = allPosts
                     member.data.social?.youtube && (
                       <a
                         href={member.data.social.youtube}
-                        class="text-primary-dark hover:scale-125 hover:text-primary-700 duration-75"
+                        class="text-mariner-dark hover:scale-125 hover:text-mariner-700 duration-75"
                         target="_blank"
                       >
                         <FaYoutubeSquare size="40" />
@@ -198,7 +192,7 @@ const authorPosts = allPosts
             <div class="flex flex-wrap justify-center py-10">
               <div class="w-full lg:w-9/12 px-4">
                 <div
-                  class="mb-4 text-lg leading-relaxed text-gray-700 prose-a:hover:underline prose-a:font-semibold prose-a:text-primary-700"
+                  class="mb-4 text-lg leading-relaxed text-gray-700 prose-a:hover:underline prose-a:font-semibold prose-a:text-mariner-700"
                 >
                   {member.body && <Content />}
                   {
@@ -213,22 +207,37 @@ const authorPosts = allPosts
               authorPosts.length > 0 && (
                 <div class="mt-8 py-10 flex flex-wrap justify-center border-t border-gray-200">
                   <div class="px-4">
-                    <h2 class="font-bold text-2xl capitalize">
-                      Published Articles by {member.data.name}
+                    <h2 class="title">
+                      Published Articles by
+                      <br />
+                      {member.data.name}
                     </h2>
-                    <div class="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+                    <p class="text-sm text-gray-500">
+                      {authorPosts.length > 1
+                        ? `${authorPosts.length} articles`
+                        : `${authorPosts.length} article`}{" "}
+                      since{" "}
+                      {formatDate(
+                        authorPosts[authorPosts.length - 1].data.pubDate,
+                      )}
+                    </p>
+                    <div class="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-4 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-4">
                       {authorPosts.map((post, index) => (
-                        <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-slate-900 px-8 pt-80 pb-8 sm:pt-48 lg:pt-80">
+                        <article
+                          class={`relative group isolate flex flex-col justify-end overflow-hidden rounded-2xl lg:col-span-2 bg-mariner-900 px-8 pt-80 pb-8 sm:pt-48 lg:pt-80 ${
+                            index % 2 === 0 ? "lg:last:col-start-2" : ""
+                          }`}
+                        >
                           <a href={`/blog/${post.slug}/`}>
                             <img
                               src={post.data.heroImage}
                               alt={post.data.title}
-                              class="absolute inset-0 -z-10 w-full h-full object-cover"
+                              class="absolute inset-0 -z-10 w-full h-full object-cover group-hover:scale-110 duration-200"
                             />
-                            <div class="absolute inset-0 -z-10 bg-linear-to-t from-slate-900 via-slate-900/40" />
-                            <div class="absolute inset-0 -z-10 rounded-2xl inset-ring inset-ring-slate-900/10" />
+                            <div class="absolute inset-0 -z-10 bg-linear-to-t from-mariner-950 via-mariner-900/40 group-hover:bg-mariner-950/60 duration-200" />
+                            <div class="absolute inset-0 z-0 rounded-2xl inset-ring inset-ring-mariner-400/50" />
 
-                            <div class="flex flex-wrap items-center justify-center gap-y-1 overflow-hidden text-sm/6 text-slate-300">
+                            <div class="flex flex-wrap items-center justify-center gap-y-1 overflow-hidden text-sm/6 text-slate-300 group-hover:-translate-y-4 duration-150">
                               <time
                                 datetime={post.data.pubDate.toISOString()}
                                 class="mr-8"
@@ -248,11 +257,11 @@ const authorPosts = allPosts
                                   </span>
                                 </div>
                               </div>
+                              <h3 class="mt-3 text-xl/6 font-bold text-white">
+                                <span class="absolute inset-0" />
+                                {post.data.title}
+                              </h3>
                             </div>
-                            <h3 class="mt-3 text-lg/6 font-semibold text-white">
-                              <span class="absolute inset-0" />
-                              {post.data.title}
-                            </h3>
                           </a>
                         </article>
                       ))}
