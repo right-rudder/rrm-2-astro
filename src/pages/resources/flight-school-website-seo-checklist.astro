@@ -1,0 +1,706 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero75 from "@/components/Hero75.astro";
+import DownloadBook from "@/components/DownloadBook.jsx";
+import Testimonials from "@/components/Testimonials.astro";
+import CtaSimpleCenter from "@/components/CtaSimpleCenter.astro";
+import DownloadChecklist from "@/components/DownloadChecklist";
+import DownloadChecklistInlineForm from "@/components/DownloadChecklistInline";
+
+const GHL_BOOK_FORM_WEBHOOK_URL = import.meta.env.GHL_BOOK_FORM_WEBHOOK_URL;
+const PORTAL_API_KEY = import.meta.env.PORTAL_API_KEY;
+
+const heroData = {
+  image: {
+    src: "/src/assets/DSC00637.jpg",
+    alt: "Flight school students and aircraft",
+  },
+  title: "Is your flight school on the map?",
+  subTitle:
+    "Download the Free Website & SEO Performance Checklist and discover exactly what's keeping qualified leads from finding and choosing your flight school.",
+  cta: [
+    {
+      url: "#download",
+      text: "Download Free Checklist",
+    },
+  ],
+};
+
+const checklistName = "Flight School Website & SEO Checklist";
+
+const seoData = {
+  pageTitle:
+    "Free Flight School Website & SEO Checklist | Right Rudder Marketing",
+  pageDescription:
+    "Download the FREE Website & SEO Performance Checklist and discover exactly what's keeping qualified leads from finding your flight school. Get actionable strategies to improve your website, rank higher on Google, and convert more visitors into enrolled students.",
+  pageKeywords:
+    "flight school website checklist, flight school SEO checklist, aviation website optimization, flight school website design, flight school google ranking, aviation SEO, flight training website",
+};
+---
+
+<BaseLayout
+  siteTitle={seoData.pageTitle}
+  siteDescription={seoData.pageDescription}
+  siteKeywords={seoData.pageKeywords}
+>
+  <div class="fixed bottom-0 lg:bottom-8 lg:right-2 w-full lg:w-auto z-50 p-0">
+    <DownloadChecklist
+      client:visible
+      checklistName={checklistName}
+      webhook={GHL_BOOK_FORM_WEBHOOK_URL}
+      apiKey={PORTAL_API_KEY}
+    />
+  </div>
+  <!-- Hero Section -->
+  <Hero75 data={heroData} />
+
+  <!-- Problem Statement Section -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-5 md:px-8 lg:px-12">
+      <div class="text-center mb-12">
+        <h2 class="title">The Problem</h2>
+        <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">
+          Right now, prospective student pilots are searching for flight
+          training online.
+        </p>
+        <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">
+          They're comparing schools. Reading reviews. Looking at websites.
+        </p>
+        <p
+          class="text-xl md:text-2xl text-gray-900 font-bold leading-relaxed mb-8"
+        >
+          And if your website isn't optimized, they're choosing your competitors
+          — even if your training is better.
+        </p>
+        <p class="text-xl text-gray-700 leading-relaxed">
+          Most flight schools lose <strong class="text-mariner-600"
+            >60-70% of potential students</strong
+          > because their website:
+        </p>
+      </div>
+
+      <div class="bg-gray-50 max-w-xl mx-auto rounded-xl p-8 md:p-12 mb-12">
+        <ul class="space-y-4 text-lg text-gray-700">
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-red-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span
+              >Doesn't appear in Google search results for high-intent keywords</span
+            >
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-red-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span>Loads too slowly on mobile devices</span>
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-red-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span
+              >Fails to communicate trust and credibility within 10 seconds</span
+            >
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-red-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span>Has no clear path for visitors to take the next step</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto">
+        <p class="text-2xl text-gray-900 font-bold">
+          A technically sound, SEO-optimized website is your most powerful lead
+          generation tool.
+        </p>
+        <p class="text-xl text-gray-700 mt-4">
+          Without it, you're invisible during the most important decision stage.
+          If they can't find you, they can't choose you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You'll Get Section -->
+  <section class="py-16 md:py-24 bg-gray-900 text-white">
+    <div class="max-w-5xl mx-auto px-5 md:px-8 lg:px-12">
+      <div class="text-center mb-16">
+        <h2 class="title">Inside This Free Checklist</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <!-- Checklist Item 1 -->
+        <div
+          class="bg-gray-800 rounded-lg p-8 hover:bg-gray-750 transition-colors"
+        >
+          <div class="flex items-start mb-4">
+            <svg
+              class="w-8 h-8 text-green-500 mr-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-bold mb-2">
+                Website Experience Essentials
+              </h3>
+              <p class="text-gray-300">
+                The 10 conversion elements that turn casual visitors into
+                discovery flight bookings (most flight schools miss #7)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist Item 2 -->
+        <div
+          class="bg-gray-800 rounded-lg p-8 hover:bg-gray-750 transition-colors"
+        >
+          <div class="flex items-start mb-4">
+            <svg
+              class="w-8 h-8 text-green-500 mr-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Technical SEO Audit Points</h3>
+              <p class="text-gray-300">
+                Exactly what search engines look for when ranking flight school
+                websites (fix these and watch your visibility skyrocket)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist Item 3 -->
+        <div
+          class="bg-gray-800 rounded-lg p-8 hover:bg-gray-750 transition-colors"
+        >
+          <div class="flex items-start mb-4">
+            <svg
+              class="w-8 h-8 text-green-500 mr-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-bold mb-2">
+                Search Optimization Strategy
+              </h3>
+              <p class="text-gray-300">
+                How to ensure your school appears when student pilots search for
+                flight training in your area
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist Item 4 -->
+        <div
+          class="bg-gray-800 rounded-lg p-8 hover:bg-gray-750 transition-colors"
+        >
+          <div class="flex items-start mb-4">
+            <svg
+              class="w-8 h-8 text-green-500 mr-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-bold mb-2">
+                Content & Authority Signals
+              </h3>
+              <p class="text-gray-300">
+                The trust-building elements that position your school as the
+                safest, smartest choice
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist Item 5 -->
+        <div
+          class="bg-gray-800 rounded-lg p-8 hover:bg-gray-750 transition-colors"
+        >
+          <div class="flex items-start mb-4">
+            <svg
+              class="w-8 h-8 text-green-500 mr-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-bold mb-2">
+                Tracking & Accountability Framework
+              </h3>
+              <p class="text-gray-300">
+                Know exactly which SEO efforts produce enrolled students (not
+                just traffic)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist Item 6 -->
+        <div
+          class="bg-gray-800 rounded-lg p-8 hover:bg-gray-750 transition-colors"
+        >
+          <div class="flex items-start mb-4">
+            <svg
+              class="w-8 h-8 text-green-500 mr-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Quick-Win Tips</h3>
+              <p class="text-gray-300">
+                Implement these immediately, even if you're not tech-savvy
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Authority Section -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-5 md:px-8 lg:px-12">
+      <div class="text-center mb-12">
+        <h2 class="title">Why This Matters</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+          <strong
+            >Created by aviation marketing specialists who only work with flight
+            schools.</strong
+          >
+        </p>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+          At Right Rudder Marketing, we've helped flight schools across North
+          America double and triple their student enrollments through proven
+          digital marketing strategies. This checklist distills our Flight
+          School Marketing System into an actionable audit tool you can use
+          today.
+        </p>
+      </div>
+
+      <div
+        class="bg-mariner-50 max-w-3xl mx-auto text-center rounded-xl p-8 md:p-12 mb-12"
+      >
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+          Unlike generic marketing advice, this checklist addresses the unique
+          challenges flight schools face:
+        </h3>
+        <ul class="space-y-4 text-lg text-gray-700">
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
+              ></path>
+            </svg>
+            <span>Local search optimization for multiple airport locations</span
+            >
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
+              ></path>
+            </svg>
+            <span>Aviation-specific keywords and search intent</span>
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 1 0 001.17-1.408l-7-14z"
+              ></path>
+            </svg>
+            <span
+              >Compliance with industry regulations while maintaining conversion
+              focus</span
+            >
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
+              ></path>
+            </svg>
+            <span>Building authority in a safety-critical industry</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="text-center">
+        <p class="text-2xl text-gray-900 font-bold mb-4">This isn't theory.</p>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+          It's based on data-proven results with flight schools that went from
+          virtually unknown to dominating their local markets. Don't let your
+          website hold you back from filling your classes and growing your
+          school. Get the checklist, fix the issues, and watch your enrollment
+          soar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who This Is For Section -->
+  <section class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-5 md:px-8 lg:px-12">
+      <div class="text-center mb-12">
+        <h2 class="title">Who This Is For</h2>
+        <p class="text-xl text-gray-700 mb-8">This checklist is perfect for:</p>
+      </div>
+
+      <div class="bg-white max-w-2xl mx-auto rounded-xl shadow-lg p-8 md:p-12">
+        <ul class="space-y-4 text-lg text-gray-700">
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span
+              >Flight school owners who know their website could be better but
+              don't know where to start</span
+            >
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span>CFIs and school managers responsible for marketing</span>
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span
+              >Flight schools struggling to generate consistent discovery flight
+              bookings</span
+            >
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span>Schools that get website traffic but few inquiries</span>
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span
+              >Anyone tired of watching competitors win students despite
+              inferior training</span
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <CtaSimpleCenter
+    heading="Download Your Free Checklist Now"
+    description="Instant download. No credit card required. Audit your website in under 30 minutes and identify quick wins to improve your online presence."
+    buttons={[
+      {
+        text: "Get My Free Checklist",
+        href: "#download",
+      },
+    ]}
+  />
+
+  <!-- Urgency/Scarcity Section -->
+  <section class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-5 md:px-8 lg:px-12">
+      <div class="text-center mb-12">
+        <h2 class="title">Stop Losing Student Pilots to Competitors</h2>
+        <p class="text-xl text-gray-700 mb-8">
+          Your website should be your #1 lead generation tool — not a liability.
+        </p>
+        <p class="text-xl text-gray-700 mb-8">
+          Download the free checklist and discover exactly what's keeping
+          qualified student pilots from choosing your flight school.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+          What Happens Next:
+        </h3>
+        <ul class="space-y-4 text-lg text-gray-700">
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span
+              ><strong>Step 1:</strong> Enter your email below to get instant access</span
+            >
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span
+              ><strong>Step 2:</strong> Download the PDF checklist (no fluff, just
+              actionable items)</span
+            >
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span
+              ><strong>Step 3:</strong> Audit your website in under 30 minutes</span
+            >
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span
+              ><strong>Step 4:</strong> Identify quick wins and prioritize improvements</span
+            >
+          </li>
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-mariner-600 mr-3 mt-1 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span
+              ><strong>Step 5:</strong> Watch qualified leads start finding your school
+              online</span
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section
+    id="download"
+    class="py-24 grid md:grid-cols-2 bg-mariner-900 items-center"
+  >
+    <div class="max-w-sm mx-auto">
+      <h2 class="title-bright">Get Your Free Website & SEO Checklist</h2>
+      <p class="text-lg text-gray-200 mb-4">
+        Download the Flight School Website & SEO Performance Checklist and
+        discover exactly what's keeping qualified leads from finding and
+        choosing your flight school.
+      </p>
+      <p class="text-sm text-gray-300 italic mb-6">
+        We respect your privacy. Unsubscribe anytime. We'll also send you
+        monthly flight school marketing tips you can use to grow your business.
+      </p>
+      <ul class="list-inside list-disc text-gray-300" role="list">
+        <li>Website experience essentials</li>
+        <li>Technical SEO audit points</li>
+        <li>Search optimization strategy</li>
+        <li>Content & authority signals</li>
+        <li>Tracking & accountability framework</li>
+        <li>Quick-win tips you can implement today</li>
+      </ul>
+      <div class="mt-8 flex flex-wrap gap-4 items-center text-sm text-gray-300">
+        <div class="flex items-center w-full">
+          <svg
+            class="w-5 h-5 text-mariner-400 mr-2"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
+            ></path>
+          </svg>
+          <span>Pilot-Owned Agency</span>
+        </div>
+        <div class="flex items-center w-full">
+          <svg
+            class="w-5 h-5 text-mariner-400 mr-2"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span>NAFI Sponsor</span>
+        </div>
+        <div class="flex items-center w-full">
+          <svg
+            class="w-5 h-5 text-mariner-400 mr-2"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span>FSANA Member</span>
+        </div>
+      </div>
+    </div>
+    <div class="mx-auto md:w-4/5">
+      <DownloadChecklistInlineForm
+        webhook={GHL_BOOK_FORM_WEBHOOK_URL}
+        apiKey={PORTAL_API_KEY}
+        checklistName={checklistName}
+      />
+    </div>
+  </section>
+</BaseLayout>
