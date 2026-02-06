@@ -26,10 +26,12 @@ import {
   UserGroupIcon,
   BuildingStorefrontIcon,
   NumberedListIcon,
+  DocumentCheckIcon,
+  ChatBubbleBottomCenterIcon,
+  KeyIcon,
 } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
-  CubeIcon,
   PhoneIcon,
   PlayCircleIcon,
   RectangleGroupIcon,
@@ -140,6 +142,35 @@ const resources = [
     icon: MicrophoneIcon,
   },
 ];
+const magnets = [
+  {
+    name: "Marketing Checklist",
+    description:
+      "Step-by-step checklist to optimize your flight school's marketing efforts",
+    href: "/resources/flight-school-marketing-checklist",
+    icon: DocumentCheckIcon,
+  },
+  {
+    name: "Website & SEO Checklist",
+    description:
+      "Step-by-step checklist to optimize your flight school's website SEO",
+    href: "/resources/flight-school-website-seo-checklist",
+    icon: DocumentCheckIcon,
+  },
+  {
+    name: "Keywords Guide",
+    description: "Learn from industry experts through our webinars",
+    href: "/resources/flight-school-keywords-guide",
+    icon: KeyIcon,
+  },
+  {
+    name: "Social Media System",
+    description:
+      "The six pillars of a successful flight school social media strategy",
+    href: "/resources/flight-school-social-media-system",
+    icon: ChatBubbleBottomCenterIcon,
+  },
+];
 const callsToActionSystem = [
   {
     name: "Explore Our Marketing System",
@@ -154,7 +185,6 @@ const callsToActionAboutUs = [
   { name: "Contact Us", href: "/contact", icon: EnvelopeIcon },
 ];
 const callsToActionResources = [
-  { name: "Our Marketing System", href: "/marketing-system", icon: CubeIcon },
   {
     name: "View all resources",
     href: "/marketing-system",
@@ -319,6 +349,34 @@ export default function NavbarFlyout() {
                     </div>
                   ))}
                 </div>
+                <div className="mx-auto flex flex-wrap justify-center max-w-5xl gap-2 px-6 py-10 lg:px-8 xl:gap-4 bg-mariner-800/5 rounded-t-2xl">
+                  {magnets.map((item) => (
+                    <div
+                      key={item.name}
+                      className="group w-1/4 relative rounded-lg px-6 py-4 text-sm/5 bg-mariner-800/20 hover:bg-mariner-200 duration-100"
+                    >
+                      <item.icon
+                        aria-hidden="true"
+                        className="absolute inset-1/2 -translate-y-1/2 size-20 text-mariner-100/20 group-hover:text-white/40"
+                      />
+                      <div className="">
+                        <a
+                          href={item.href}
+                          target={
+                            item.href.startsWith("http") ? "_blank" : undefined
+                          }
+                          className="text-center leading-4 font-semibold text-mariner-900 group-hover:text-mariner-800 duration-100"
+                        >
+                          {item.name}
+                          <span className="absolute inset-0" />
+                        </a>
+                      </div>
+                      <p className="mt-1 text-xs text-mariner-800 group-hover:text-mariner-950">
+                        {item.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
                 <div className="bg-mariner-900">
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="flex justify-center divide-x divide-white/5 border-x border-white/10">
@@ -459,14 +517,33 @@ export default function NavbarFlyout() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-white/10">
               <div className="space-y-2 py-6">
-                <a
-                  href="/marketing-system"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-light text-white hover:bg-white/5"
-                >
-                  Our System
-                </a>
                 <Disclosure as="div" className="-mx-3">
-                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
+                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-medium text-white hover:bg-white/5">
+                    Our System
+                    <ChevronDownIcon
+                      aria-hidden="true"
+                      className="size-5 flex-none group-data-open:rotate-180"
+                    />
+                  </DisclosureButton>
+                  <DisclosurePanel className="mt-2 space-y-2">
+                    {[...marketingSystem].map((item) => (
+                      <DisclosureButton
+                        key={item.name}
+                        as="a"
+                        href={item.href}
+                        className="inline-flex w-full items-center gap-x-2 rounded-lg py-2 pr-3 pl-6 text-sm/7 font-light text-white hover:bg-white/5"
+                      >
+                        <item.icon
+                          aria-hidden="true"
+                          className="size-5 flex-none text-mariner-300"
+                        />
+                        {item.name}
+                      </DisclosureButton>
+                    ))}
+                  </DisclosurePanel>
+                </Disclosure>
+                <Disclosure as="div" className="-mx-3">
+                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-medium text-white hover:bg-white/5">
                     Resources
                     <ChevronDownIcon
                       aria-hidden="true"
@@ -479,8 +556,37 @@ export default function NavbarFlyout() {
                         key={item.name}
                         as="a"
                         href={item.href}
-                        className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-white hover:bg-white/5"
+                        className="inline-flex w-full items-center gap-x-2 rounded-lg py-2 pr-3 pl-6 text-sm/7 font-light text-white hover:bg-white/5"
                       >
+                        <item.icon
+                          aria-hidden="true"
+                          className="size-5 flex-none text-mariner-300"
+                        />
+                        {item.name}
+                      </DisclosureButton>
+                    ))}
+                  </DisclosurePanel>
+                </Disclosure>
+                <Disclosure as="div" className="-mx-3">
+                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-medium text-white hover:bg-white/5">
+                    Downloads
+                    <ChevronDownIcon
+                      aria-hidden="true"
+                      className="size-5 flex-none group-data-open:rotate-180"
+                    />
+                  </DisclosureButton>
+                  <DisclosurePanel className="mt-2 space-y-2">
+                    {[...magnets].map((item) => (
+                      <DisclosureButton
+                        key={item.name}
+                        as="a"
+                        href={item.href}
+                        className="inline-flex w-full items-center gap-x-2 rounded-lg py-2 pr-3 pl-6 text-sm/7 font-light text-white hover:bg-white/5"
+                      >
+                        <item.icon
+                          aria-hidden="true"
+                          className="size-5 flex-none text-mariner-300"
+                        />
                         {item.name}
                       </DisclosureButton>
                     ))}
@@ -488,23 +594,47 @@ export default function NavbarFlyout() {
                 </Disclosure>
                 <a
                   href="/blog"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-light text-white hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-medium text-white hover:bg-white/5"
                 >
                   Blog
                 </a>
-                <a
-                  href="/about"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-light text-white hover:bg-white/5"
-                >
-                  About Us
-                </a>
+                <Disclosure as="div" className="-mx-3">
+                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-medium text-white hover:bg-white/5">
+                    About Us
+                    <ChevronDownIcon
+                      aria-hidden="true"
+                      className="size-5 flex-none group-data-open:rotate-180"
+                    />
+                  </DisclosureButton>
+                  <DisclosurePanel className="mt-2 space-y-2">
+                    {[...aboutUs].map((item) => (
+                      <DisclosureButton
+                        key={item.name}
+                        as="a"
+                        href={item.href}
+                        className="inline-flex w-full items-center gap-x-2 rounded-lg py-2 pr-3 pl-6 text-sm/7 font-light text-white hover:bg-white/5"
+                      >
+                        <item.icon
+                          aria-hidden="true"
+                          className="size-5 flex-none text-mariner-300"
+                        />
+                        {item.name}
+                      </DisclosureButton>
+                    ))}
+                  </DisclosurePanel>
+                </Disclosure>
               </div>
-              <div className="py-6">
-                <a
-                  href="/contact"
-                  className="btn-primary -mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-light text-white hover:bg-white/5"
-                >
+              <div className="flex flex-col gap-4 py-6">
+                <a href="/#contact" className="btn-primary w-full">
+                  <EnvelopeIcon className="size-5 inline-block mr-2" />
                   Contact Us
+                </a>
+                <a
+                  href="/schedule-call"
+                  className="btn-transparent w-full text-center"
+                >
+                  <PhoneIcon className="size-5 inline-block mr-2" />
+                  Schedule a Strategy Call
                 </a>
               </div>
             </div>

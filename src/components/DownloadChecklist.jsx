@@ -71,7 +71,7 @@ const DownloadChecklist = ({ webhook, apiKey, checklistName }) => {
   return (
     <>
       <button
-        className="btn-primary w-full md:w-auto"
+        className="bg-mariner-700 border m-0 border-mariner-600 text-white font-inter font-light rounded-sm w-full lg:rounded-full px-9 py-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-white hover:border-mariner-950 hover:text-mariner-900 transition-all duration-200 hover:scale-105"
         onClick={() => {
           toggleModal();
           document.body.style.overflow = "hidden";
@@ -89,7 +89,8 @@ const DownloadChecklist = ({ webhook, apiKey, checklistName }) => {
                   Get Our Checklist
                 </h2>
                 <p className="mb-4 text-center text-gray-600">
-                  Fill out the form below to get the checklist.
+                  Fill out the form below to get the {checklistName} in your
+                  inbox.
                 </p>
                 <form onSubmit={handleSubmit}>
                   <div className="mb-4">
@@ -151,12 +152,19 @@ const DownloadChecklist = ({ webhook, apiKey, checklistName }) => {
                     />
                   </div>
 
-                  <p className="hidden">
+                  <div className="hidden">
                     <label>
                       Don't fill this out if you're human:
                       <input name="confirm-email" />
                     </label>
-                  </p>
+                  </div>
+
+                  <div className="hidden">
+                    <label>
+                      Don't fill this out if you're human:
+                      <input name="checklist-name" value={checklistName} />
+                    </label>
+                  </div>
 
                   <button type="submit" className="btn-primary w-full mt-8">
                     Get Checklist
